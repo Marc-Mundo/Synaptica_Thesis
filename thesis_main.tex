@@ -1,0 +1,39 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% Configured "biblatex" package with "Biber" backend
+\usepackage[backend=biber, style=apa, citestyle=apa]{biblatex} % Adjust style to your preference
+\addbibresource{references.bib}
+
+% Document metadata
+\title{
+    {Exploring Epileptic Neural Dynamics: Insights from a Computational Model of a CA3 Hippocampal Network}\\
+    {\large Radboud University, Nijmegen}\\
+}
+\author{Marc J. Posthuma}
+\date{April 26th, 2024}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Include your chapters
+\include{chapters/introduction}
+\include{chapters/methods}
+\include{chapters/results}
+\include{chapters/discussion}
+
+% Appendices and bibliography (if any)
+\appendix
+\chapter{Additional Data}
+\include{Chapters/appendix}
+
+\printbibliography%
+
+\end{document}
