@@ -1,10 +1,80 @@
 \chapter{Methods}
 
-This chapter describes the methods used in this research.
-
+This chapter describes the methods used in this research.\todo[inline,
+    color=red!40]{Fix the references for the individual cells}
+% New todo added here
 \section{Computational model}
-Description of the \textcite{sanjayImpairedDendriticInhibition2015} model
-implementation.
+\textit{Description of the model implementation.}
+
+The network model that was used in this research is a custom implementation
+made by \textcite{sanjayImpairedDendriticInhibition2015}. This model is based
+on the CA3 subfield region of the hippocampus and is implemented in the NEURON
+simulation environment using python version 3.9.16 as an interface
+\href{https://www.neuron.yale.edu}{(\url{https://www.neuron.yale.edu)}}. The
+model consists of 1000 neurons, which are divided into populations of 800
+pyramidal cells and 200 soma-inhibiting basket cells and 200 Oriens-Lacunosum
+Moleculare (O-LM) interneurons. The implementation used in this research made
+in cooperation with Sean Gies is part of the /textit{Neuromics} software
+package by Synaptica Ltd.
+
+\section{Model implementation: cell parameters}
+\begin{enumerate}
+    \item \textbf{Basket Cells}: Modeled after Wang and Buzsáki (1996),
+          featuring standard dynamics for Na and K currents, along with synaptic and leak currents.
+          Each cell is modeled as a single compartment and obeys the following current balance equation:
+          \begin{equation}
+              C_I \frac{dV_I}{dt} = I_{\text{app},I} - I_{\text{Na},I} - I_{\text{K},I} - I_{\text{L},I} - I_{\text{syn},I}
+          \end{equation}
+
+          where \(V_I\) is the membrane potential (mV), \(C_I = 1 \, \mu\text{F/cm}^2\)
+          is the membrane capacitance, \(I_{\text{app},I}\) is the applied current, and
+          \(I_{\text{syn},I}\) is the total synaptic current. The leak current
+          \(I_{\text{L},I} = g_{\text{L},I}(V_I - E_{\text{L},I})\) has a conductance
+          \(g_{\text{L},I} = 0.1 \, \text{mS/cm}^2\) and reversal potential
+          \(E_{\text{L},I} = -65 \, \text{mV}\). All currents are in units of
+          \(\mu\text{A/cm}^2\). The sodium \(I_{\text{Na},I}\) and potassium
+          \(I_{\text{K},I}\) currents are voltage-dependent spiking currents of the
+          Hodgkin-Huxley type.\pagebreak
+    \item \textbf{O-LM Cells}: Adapted from Saraga et al. (2003),
+          including additional currents like hyperpolarization-activated (h) and A-type currents.
+          Each cell is modeled as a single compartment and obeys the following current balance equation:
+          \begin{equation}
+              C_O \frac{dV_O}{dt} = I_{\text{app},O} - I_{\text{Na},O} - I_{\text{K},O} - I_{\text{L},O} - I_{\text{h},O} - I_{\text{A},O} - I_{\text{syn},O}
+          \end{equation}
+
+          where \(V_O\) is the membrane potential, \(C_O = 1.3 \, \mu\text{F/cm}^2\) is
+          the membrane capacitance, \(I_{\text{app},O}\) is the applied current, and
+          \(I_{\text{syn},O}\) is the total synaptic current. The leak current
+          \(I_{\text{L},O} = g_{\text{L},O}(V_O - E_{\text{L},O})\) with conductance
+          \(g_{\text{L},O} = 0.05 \, \text{mS/cm}^2\) and reversal potential
+          \(E_{\text{L},O} = -70 \, \text{mV}\). \(I_{\text{Na},O}\), \(I_{\text{K},O}\),
+          \(I_{\text{h},O}\), and \(I_{\text{A},O}\) represent the transient sodium,
+          delayed rectifier potassium, hyperpolarization-activated (or h) mixed-cation,
+          and A-type potassium currents, respectively, all in units of
+          \(\mu\text{A/cm}^2\).
+    \item \textbf{Pyramidal Cells}: Based on Migliore et al. (2004),
+          incorporating compartmentalized dynamics for the complex morphology of pyramidal neurons.
+          Each cell is modeled as a multi-compartmental neuron with 5 compartments: 1 for basal dendrites (Bdend),
+          1 for soma, and 3 for apical dendrites (Adend1, 2 and 3). Each compartment obeys the following current balance equation:
+          \begin{equation}
+              C_{E_k} \frac{dV_{E_k}}{dt} = I_{\text{app},E_k} - I_{\text{Na},E_k} - I_{\text{K},E_k} - I_{\text{L},E_k} - I_{\text{h},E_k} - I_{\text{A},E_k} - I_{\text{syn},E_k} + I_{\text{conn},E_k}
+          \end{equation}
+
+          where \(V_{E_k}\) is the membrane potential of compartment \(k\), \(C_{E_k}\)
+          is the membrane capacitance, \(I_{\text{app},E_k}\) is the applied current,
+          \(I_{\text{syn},E_k}\) is the total synaptic current, and
+          \(I_{\text{conn},E_k}\) represents the current due to electrical coupling
+          between compartments. \(I_{\text{L},E_k}\), \(I_{\text{Na},E_k}\),
+          \(I_{\text{K},E_k}\), \(I_{\text{h},E_k}\), and \(I_{\text{A},E_k}\) denote the
+          leak, transient sodium, delayed rectifier potassium,
+          hyperpolarization-activated mixed-cation, and A-type potassium currents for
+          compartment \(k\), respectively.
+
+\end{enumerate}
+\pagebreak
+
+\section{Model validation}
+Description of the model validation method
 
 \section{Data analysis}
 Description of the data analysis method
