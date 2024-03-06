@@ -1,7 +1,7 @@
 \chapter{Methods}
 
 This chapter describes the methods used in this research.\todo[inline,
-    color=red!40]{Fix the references for the individual cells}
+    color=red!40]{fix the rest of the model design text}
 % New todo added here
 \section{Computational model}
 \textit{Description of the model implementation.}
@@ -14,12 +14,23 @@ simulation environment using python version 3.9.16 as an interface
 model consists of 1000 neurons, which are divided into populations of 800
 pyramidal cells and 200 soma-inhibiting basket cells and 200 Oriens-Lacunosum
 Moleculare (O-LM) interneurons. The implementation used in this research made
-in cooperation with Sean Gies is part of the /textit{Neuromics} software
+in cooperation with Sean Gies is part of the \textit{Neuromics} software
 package by Synaptica Ltd.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{model_design.png}
+    \caption{\textbf{Schematic of the network model.}}
+    (\textbf{A}) Schematic of connectivity between cell types in the network model.
+    (\textbf{B}) Schematic of the cell types and their respective parameters.
+\end{figure}
+
 \section{Model implementation: cell parameters}
+The model consists of three types of neurons, each with its own set of
+parameters and defined cell classes. The parameters for each cell type are
+based on the following references:
 \begin{enumerate}
-    \item \textbf{Basket Cells}: Modeled after Wang and Buzsáki (1996),
+    \item \textbf{Basket Cells}: Modeled after \textcite{wangGammaOscillationSynaptic1996},
           featuring standard dynamics for Na and K currents, along with synaptic and leak currents.
           Each cell is modeled as a single compartment and obeys the following current balance equation:
           \begin{equation}
@@ -35,7 +46,7 @@ package by Synaptica Ltd.
           \(\mu\text{A/cm}^2\). The sodium \(I_{\text{Na},I}\) and potassium
           \(I_{\text{K},I}\) currents are voltage-dependent spiking currents of the
           Hodgkin-Huxley type.\pagebreak
-    \item \textbf{O-LM Cells}: Adapted from Saraga et al. (2003),
+    \item \textbf{O-LM Cells}: Adapted from \textcite{saragaActiveDendritesSpike2003},
           including additional currents like hyperpolarization-activated (h) and A-type currents.
           Each cell is modeled as a single compartment and obeys the following current balance equation:
           \begin{equation}
@@ -52,7 +63,7 @@ package by Synaptica Ltd.
           delayed rectifier potassium, hyperpolarization-activated (or h) mixed-cation,
           and A-type potassium currents, respectively, all in units of
           \(\mu\text{A/cm}^2\).
-    \item \textbf{Pyramidal Cells}: Based on Migliore et al. (2004),
+    \item \textbf{Pyramidal Cells}: Based on \textcite{miglioreDendriticIhSelectivelyBlocks2004},
           incorporating compartmentalized dynamics for the complex morphology of pyramidal neurons.
           Each cell is modeled as a multi-compartmental neuron with 5 compartments: 1 for basal dendrites (Bdend),
           1 for soma, and 3 for apical dendrites (Adend1, 2 and 3). Each compartment obeys the following current balance equation:
@@ -73,7 +84,10 @@ package by Synaptica Ltd.
 \end{enumerate}
 \pagebreak
 
-\section{Model validation}
+\section{Model implementation: synaptic connections}
+
+\section{Model implementation: stimulation and noise}
+
 Description of the model validation method
 
 \section{Data analysis}
