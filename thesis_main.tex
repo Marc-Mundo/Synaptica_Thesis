@@ -3,22 +3,17 @@
 
 % TODOs in the document
 \setlength{\marginparwidth}{2cm}
-\usepackage{todonotes}
-
-% Images
-\usepackage{graphicx}
+\usepackage{todonotes}%TODOs
+\usepackage{float}
+\usepackage{graphicx}% Images
 \graphicspath{ {images/} }
-
-% Math
-\usepackage{amsmath}
-% Page layout
-\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
-
-% Configured "biblatex" package with "Biber" backend
-\usepackage[backend=biber, style=apa, citestyle=apa]{biblatex} % Adjust style to your preference
-\addbibresource{references.bib}
-
-\usepackage{hyperref}
+\usepackage{amsmath}% Math
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter}{1em}{}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}% Page layout
+\usepackage[backend=biber, style=apa, citestyle=apa]{biblatex}% Configured "biblatex" package with "Biber" backend
+\addbibresource{references.bib}% Bibliography file
+\usepackage{hyperref}% Hyperlinks
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
@@ -26,7 +21,10 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
-
+\usepackage{ragged2e}% Justify text
+\usepackage[justification=justified]{caption}% Caption justification
+\usepackage[labelfont=bf]{caption}
+\usepackage[labelfont=it,textfont={it},justification=centering]{subcaption}
 % Document metadata
 \title{
     {Exploring Epileptic Neural Dynamics: Insights from a Computational Model of a CA3 Hippocampal Network}\\
