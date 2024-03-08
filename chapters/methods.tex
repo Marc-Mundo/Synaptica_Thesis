@@ -142,13 +142,21 @@ OLM cells at intervals of 150 ms.
 
 \section{Simulations}
 For the simulations, the model was implemented in NEURON version 7.6.3. The
-simulations were run on a desktop computer with an Intel Core i7--8700K with 60
-cores, GTX 4060, and 32 GB of RAM\@. Trials were run for 5000 ms with a time
+simulations were run on a Linux GNOME (v22.04) desktop computer with an Intel
+Core i7--8700K processor with 60 cores for multithreading, a Nvidia GTX 4060
+graphics card, and 32 GB of RAM\@. Trials were run for 5000 ms with a time
 integration step of 0.1 ms resulting in 50.000 simulation steps per trial
 dataset. Random seeds were used to generate the external noise, connections and
 cells for each trial and remained constant between trials and between
 experiments. The number of trials varies between experiments and are specified
-in their respective sections.
+in their respective sub-sections that follow. In the network, the individual
+cells are assigned a global identifier to which all the data is associated in
+the same ascending order for each trial. The first 800 cells were always
+pyramidal cells, the next 200 were basket cells and the last 200 were OLM
+cells. For each trial, the individual cell spike times are saved for the entire
+duration of the simulation. Pyramidal cell membrane soma voltage data was saved
+per cell in order to calculate the LFP signal (necessary for theta-gamma
+calculations).
 
 \subsection{Baseline activity}
 In order to obtain baseline activity in the network as shown in figure
@@ -166,24 +174,122 @@ basket cells and \(0.96 \pm 0.027\) Hz for O-LM interneurons at baseline in the
 original \parencite{sanjayImpairedDendriticInhibition2015}. However, it should
 be noted that our custom implementation of the same model had a slightly
 lowered baseline (see the results section). The reason for this discrepancy is
-unknown and is a potential source of error in the results.
+unknown and is a potential source of error in the results. 50 trials total were
+done for the baseline activity and averaged.
 
 \subsection{Model validation}
 In order to test the implementation of the model, results from the article were
 replicated, namely figures 6A, B and C from
 \textcite{sanjayImpairedDendriticInhibition2015}. In this replicated experiment
-the OLM to pyramidal cells connection weight was reduced in decrements of 0.1X
+the OLM to pyramidal cells connection weight was reduced in decrements of 0.1x
 times the baseline from 1.0 to 0.0. In addition to reduced connection strength,
 the external noise fed into the pyramidal cells was increased in increments of
 0.1X times the baseline from 1.0 to 2.0. By reducing the connectivity from OLM
-to pyramidal cells, dendritic inhibition is impaired and potentially
-epileptiform activity is induced. The original results focussed on three
-aspects: changes in firing rates per population, the changes in dominant theta
-and gamma frequencies, and finally the changes in the power of the theta and
-gamma oscillations.
+to pyramidal cells, dendritic inhibition was impaired and potential
+epileptiform activity was induced. The original results on which the validation
+experiment focussed on, were the following three aspects: changes in firing
+rates per population, the changes in dominant theta and gamma frequencies, and
+finally the changes in the power of the theta and gamma oscillations.
 
 \subsection{Sodium and potassium variants}
+In this experiment, the sodium and potassium conductances of the all cell types
+cells were changed from 0.5x to 1.5x times the baseline in increments of 0.1.
+The changes were induced in separate experiments for each of the three cell
+types, so 6 experiments in total were conducted: 3 for sodium and 3 for
+potassium. These induced changes were done in order to investigate the effect
+of the conductances on the network activity and the influence of individual
+cell types on the same metrics as in the model validation experiment. 20 trials
+each were done per condition (6 total conditions) and the results were
+averaged.
 
 \subsection{External noise variants}
+In this experiment, the external noise fed into the pyramidal cells was set a
+new baseline for the 1.0x condition, which was 20 times that of the original
+\textcite{sanjayImpairedDendriticInhibition2015} model. Reduced OLM to pyr
+connections were kept at 10\% of the original baseline. This was done because
+in the original article, epileptic activity was induced by feeding in 20 times
+more external noise at reduced dendritic inhibition. This condition was tested
+as a special condition in figure 7 of the article, and was expanded upon
+because of the occurrence of a depolarization block in the basket cell spike
+activity. This depolarization block occurrence was assumed to be the epileptic
+state in which the network is found at such conditions. This new baseline was
+changed times a range of pyramidal noise factors of the following values: 0.65,
+0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.10, 1.20, and 1.30. In addition to
+the range of noise factors, pyramidal conductances \(g_{\text{Na}}\) and
+\(g_{\text{K}}\) were modified over a range of 0.5x to 1.5x times the baseline
+in increments of 0.1. 15 trials were done per noise condition and the results
+were averaged.
 
 \subsection{Recurrent connection strength variants}
+In this experiment, the recurrent connection strength between basket cells was
+modified over the following range: 1.00, 1.05, 1.10, 1.15 and 1.20 times the
+baseline. This was done in order to investigate the possibility of rescuing the
+epileptic network back to baseline activity by increased the strength of soma
+inhibition. Similarly to the external noise variants, \(g_{\text{Na}}\) and
+\(g_{\text{K}}\) were modified over a slightly tighter range of plus or minus
+25\% of the baseline and including baseline of 1.00. Again, the OLM to
+pyramidal connection weight was kept at 10\% in order to be able to evoke the
+depolarization block in basket cell spike activity, while also feeding the 20x
+external noise to the pyramidal cells. 15 trials were done per condition and
+the results were averaged. 15 trials were done per condition and the results
+were averaged.
+
+\todo[inline,
+    color=red!40]{check the methodology for convolutions and depolarization blocks. Remove excess text at DPB explanation}% New todo added here
+
+\subsubsection{Detection of epileptiform activity (Experiment: External noise variants)}
+The detection of epileptic activity depends on the spiking activity of the
+basket cells, which from figure 7 from the
+\textcite{sanjayImpairedDendriticInhibition2015} article occurs in the presence
+of great external drive from the pyramidal cells of at least 20 times the
+baseline and with reduced dendritic inhibition by the OLM cells. Detection of a
+depolarization block in the basket cells was done by calculating the convoluted
+fire rates of the basket cell population.
+
+\noindent The systematic approach to analyzing basket cell firing rates through
+convolution with a Gaussian window was as follows:
+\begin{itemize}
+    \item \textbf{Extracting Spike Times:} The \lstinline{get_spike_times_for_basket_cells}
+          function is used for iterating over a range of GIDs. This process collects spike times from
+          all basket cells and concatenates them, constructing a continuous signal of neural activity.
+
+    \item \textbf{Creating Time Series:} Spike times are converted into a binary series
+          using \lstinline{create_time_series}. Each neural firing event is denoted by a '1' in a
+          zero-initialized array at the corresponding time index.
+
+    \item \textbf{Applying Gaussian Convolution:} The \lstinline{apply_gaussian_convolution}\newline
+          function smooths the time series. It convolves the series with a Gaussian window, normalized
+          to sum to one, yielding a signal that mirrors the firing rates over time.
+
+    \item \textbf{Summing Convolved Signals:} Collective firing behavior is analyzed by
+          \lstinline{get_convolved_signal_per_neuron}. It applies Gaussian convolution to individual
+          neuron time series and sums them, forming an aggregated firing rate signal.
+
+    \item \textbf{Detecting Depolarization Blocks:} The \lstinline{detect_depolarization_blocks}
+          function identifies reduced activity periods by analyzing the convolved signal for intervals
+          that remain below a set threshold for a specified minimum duration.
+\end{itemize}
+
+\noindent For detecting depolarization blocks in the basket cell population, the
+methodology was as follows:
+\begin{itemize}
+    \item Establishing a signal threshold indicating a depolarization block.
+    \item Excluding initial transient analysis to prevent false positives.
+    \item Identifying threshold crossings that mark the start and end of depolarization
+          blocks.
+    \item Applying a minimum duration filter to these blocks.
+    \item Summarizing and reporting the total duration of all valid depolarization blocks
+          in the trial.
+\end{itemize}
+
+\noindent A check was performed if the convoluted signal remained beneath a fixed
+threshold of 0.001 for at least 100 ms. This threshold was defined non-zero,
+yet tiny as in the depolarization block there are no firing neurons in the
+basket population. The first 50 ms of the signal were excluded to avoid false
+positives. If the signal remained beneath the threshold for at least 100 ms,
+the condition was considered to be in a depolarization block state. This was
+done for each trial individually.\pagebreak
+
+\subsubsection{Detection of epileptiform activity (Experiment: Recurrent connection strength variants)}
+
+\subsubsection{Burst detection around depolarization blocks}
