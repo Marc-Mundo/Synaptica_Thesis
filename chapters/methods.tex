@@ -1,20 +1,30 @@
 \chapter{Methods}
-This chapter describes the methods used in this research.\todo[inline,
-    color=red!40]{check the text in the computer settings used in simulations}% New todo added here
+This chapter describes the methods used in this research.
 
 \section{Computational model}
-\textit{Description of the model implementation.}
-
 The network model that was used in this research is a custom implementation
 made by \textcite{sanjayImpairedDendriticInhibition2015}. This model is based
 on the CA3 subfield region of the hippocampus and is implemented in the NEURON
 simulation environment using python version 3.9.16 as an interface
 \href{https://www.neuron.yale.edu}{(\url{https://www.neuron.yale.edu)}}. The
-model consists of 1000 neurons, which are divided into populations of 800
-pyramidal cells and 200 soma-inhibiting basket cells and 200 Oriens-Lacunosum
-Moleculare (O-LM) interneurons. The implementation used in this research made
-in cooperation with Sean Gies is part of the \textit{Neuromics} software
-package by Synaptica Ltd.
+model consists of 1000 neurons, which are divided into populations containing
+three cell-types: 800 5-compartment pyramidal cells (three apical dendrites,
+one basal dendrite, and soma), 200 1-compartment soma-inhibiting basket cells
+and 200 1-compartment Oriens-Lacunosum Moleculare (O-LM) interneurons. The
+original source code of the model is available on ModelDB at the following
+link:
+\href{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421}{(\url{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421)}}.
+
+The implementation used in this research made in cooperation with Sean Gies is
+part of the \textit{Neuromics} software package by Synaptica Ltd. The
+implementation has been modified to allow for more ease of use and to allow for
+the implementation of cellular modifications and network manipulations.
+Descriptions of the cell-types and their classes, network design, synaptic
+connections and stimulation parameters can be found in appendix A.
+
+The experimental source code for this research project can be found on request
+on GitHub at the following link:
+\href{https://github.com/SynapticaNL/Marc_network_sims}{(\url{https://github.com/SynapticaNL/Marc_network_sims}}.
 
 \begin{figure}[htbp]
     \centering
@@ -28,8 +38,6 @@ package by Synaptica Ltd.
         OLM cells are inhibited by BC cells. The medial septum (MS) delivers inhibitory inputs every 150 ms to BC and OLM cells.
     \end{minipage}\label{fig:model_design}
 \end{figure}\pagebreak
-
-This is a test reference to figure~\ref{fig:model_design}, see it works!%remove later
 
 \section{Model implementation: cell parameters}
 The model consists of three types of neurons, each with its own set of
@@ -86,9 +94,9 @@ based on the following references:
           leak, transient sodium, delayed rectifier potassium,
           hyperpolarization-activated mixed-cation, and A-type potassium currents for
           compartment \(k\), respectively.
-
 \end{enumerate}
-\pagebreak
+
+For the full list of cell parameters, see appendix A.\pagebreak
 
 \section{Model implementation: synaptic connections}
 The model contained three types of synaptic connections: excitatory, inhibitory
@@ -125,38 +133,40 @@ as follows:
 \end{table}
 
 \section{Model implementation: stimulation and noise}
-\todo[inline,
-    color=red!40]{Netstim information is missing.}% New todo added here
-
 The model was activated by external inputs originating from the entorhinal
 cortex, which were then transmitted to the pyramidal cells. Background random
 excitatory and inhibitory inputs were received by the OLM, basket cells, and
 the soma of the pyramidal cells via their AMPA, NMDA, and GABA-A receptors as
-shown in table~\ref{tab:synaptic_parameters}. Similarly, the distal dendritic
-compartments of the pyramidal cells also received comparable inputs through the
-same types of receptors. Connections such as OLM to pyramidal cell, basket to
-pyramidal cell, basket-basket recurrent connections, and medial septum to OLM
-and basket cell connections were mediated through GABA-A receptors.
-Additionally, the medial septum provided inhibitory inputs to the basket and
-OLM cells at intervals of 150 ms.
+shown in table~\ref{tab:synaptic_parameters}. The mechanism by which noise was
+applied to the model was defined via NEURON simulator's \textit{NetStim}
+object. This object type generated spike train according to a set of parameters
+such as stimulus interval, noise variability (Poisson-like), weight, target,
+start and delay times. These parameters can bee viewed in Appendix A.
+
+Similarly, the distal dendritic compartments of the pyramidal cells also
+received comparable inputs through the same types of receptors. Connections
+such as OLM to pyramidal cell, basket to pyramidal cell, basket-basket
+recurrent connections, and medial septum to OLM and basket cell connections
+were mediated through GABA-A receptors. Additionally, the medial septum
+provided inhibitory inputs to the basket and OLM cells at intervals of 150 ms.
 
 \section{Simulations}
 For the simulations, the model was implemented in NEURON version 7.6.3. The
-simulations were run on a Linux GNOME (v22.04) desktop computer with an Intel
-Core i7--8700K processor with 60 cores for multithreading, a Nvidia GTX 4060
-graphics card, and 32 GB of RAM\@. Trials were run for 5000 ms with a time
-integration step of 0.1 ms resulting in 50.000 simulation steps per trial
+simulations were run on a Linux GNOME (v22.04) desktop computer with 2 Xeon CPU
+E5--2699 v3 CPUs with 32 physical cores @ 2.3GHz for multi-threading, a Nvidia
+GTX 4060 graphics card, and 256 GB of RAM\@. Trials were run for 5000 ms with a
+time integration step of 0.1 ms resulting in 50.000 simulation steps per trial
 dataset. Random seeds were used to generate the external noise, connections and
 cells for each trial and remained constant between trials and between
 experiments. The number of trials varies between experiments and are specified
 in their respective sub-sections that follow. In the network, the individual
-cells are assigned a global identifier to which all the data is associated in
+cells were assigned a global identifier to which all the data was associated in
 the same ascending order for each trial. The first 800 cells were always
 pyramidal cells, the next 200 were basket cells and the last 200 were OLM
-cells. For each trial, the individual cell spike times are saved for the entire
-duration of the simulation. Pyramidal cell membrane soma voltage data was saved
-per cell in order to calculate the LFP signal (necessary for theta-gamma
-calculations).
+cells. For each trial, the individual cell spike times were saved for the
+entire duration of the simulation. Pyramidal cell membrane soma voltage data
+was saved per cell in order to calculate the LFP signal (necessary for
+theta-gamma calculations).
 
 \subsection{Baseline activity}
 In order to obtain baseline activity in the network as shown in figure
@@ -224,22 +234,18 @@ were averaged.
 In this experiment, the recurrent connection strength between basket cells was
 modified over the following range: 1.00, 1.05, 1.10, 1.15 and 1.20 times the
 baseline. This was done in order to investigate the possibility of rescuing the
-epileptic network back to baseline activity by increased the strength of soma
+epileptic network back to baseline activity by increasing the strength of soma
 inhibition. Similarly to the external noise variants, \(g_{\text{Na}}\) and
 \(g_{\text{K}}\) were modified over a slightly tighter range of plus or minus
 25\% of the baseline and including baseline of 1.00. Again, the OLM to
 pyramidal connection weight was kept at 10\% in order to be able to evoke the
 depolarization block in basket cell spike activity, while also feeding the 20x
 external noise to the pyramidal cells. 15 trials were done per condition and
-the results were averaged. 15 trials were done per condition and the results
-were averaged.
-
-\todo[inline,
-    color=red!40]{check the methodology for convolutions and depolarization blocks. Remove excess text at DPB explanation}% New todo added here
+the results were averaged.
 
 \subsubsection{Detection of epileptiform activity (Experiment: External noise variants)}
 The detection of epileptic activity depends on the spiking activity of the
-basket cells, which from figure 7 from the
+basket cells, which according to results of figure 7 from the
 \textcite{sanjayImpairedDendriticInhibition2015} article occurs in the presence
 of great external drive from the pyramidal cells of at least 20 times the
 baseline and with reduced dendritic inhibition by the OLM cells. Detection of a
@@ -292,4 +298,4 @@ done for each trial individually.\pagebreak
 
 \subsubsection{Detection of epileptiform activity (Experiment: Recurrent connection strength variants)}
 
-\subsubsection{Burst detection around depolarization blocks}
+\subsubsection{Burst detection around depolarization block onset}

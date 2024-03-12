@@ -2,6 +2,157 @@
 
 This chapter holds the appendix of the thesis.
 
+\section{Cellular dynamics: equations and parameters}
+\textbf{Basket cells:}
+The transient sodium current was described by
+\[
+    I_{Na,I} = g_{Na,I} m_{\infty}^3 h (V_I - E_{Na,I}),
+\]
+where
+\[
+    m_{\infty} = \frac{\alpha_m}{\alpha_m + \beta_m},
+\]
+and
+\[
+    \alpha_m(V_I) = -0.1 \frac{(V_I + 35)}{e^{-0.1(V_I+35)} - 1}, \quad \beta_m(V_I) = 4e^{-\frac{(V_I+60)}{18}}.
+\]
+
+The inactivation variable \( h \) obeyed the first-order kinetics:
+\[
+    \frac{dh}{dt} = \phi(\alpha_h (1 - h) - \beta_h h),
+\]
+where
+\[
+    \alpha_h(V_I) = 0.07 e^{-\frac{(V_I+58)}{20}}, \quad \beta_h(V_I) = \frac{1}{e^{- 0.1(V_I+28)} + 1}.
+\]
+
+The delayed rectifier potassium current was described by
+\[
+    I_{K,I} = g_{K,I} n^4 (V_I - E_{K,I}),
+\]
+where the activation variable \( n \) obeyed the following equation:
+\[
+    \frac{dn}{dt} = \phi(\alpha_n (1 - n) - \beta_n n),
+\]
+with
+\[
+    \alpha_n(V_I) = -0.01 \frac{(V_I + 34)}{e^{-0.1(V_I+34)} - 1}, \quad \beta_n(V_I) = 0.125 e^{-\frac{(V_I+44)}{80}}.
+\]
+
+For the experiments, the following parameters were used: \( g_{Na,I} = 35 \)
+mS/cm\(^2\), \( g_{K,I} = 9 \) mS/cm\(^2\), \( E_{Na,I} = 55 \) mV, \( E_{K,I}
+= -90 \) mV, \( \phi = 5 \).\pagebreak
+
+\todo[inline]{fix the equations for olm cells, add them for pyr cells, double check GPT output}
+\noindent
+\textbf{O-LM cells:}
+The channel currents were described by
+\[
+    I_{Na,o} = g_{Na,o}m^3h(V_O - E_{Na,O}),
+\]
+where \( m \) obeys
+\[
+    \frac{dm}{dt} = \alpha_m(1 - m) - \beta_m m,
+\]
+with
+\[
+    \alpha_m = \frac{-0.1(V_O + 38)}{e^\frac{- (V_O+38)}{10} - 1}, \quad \beta_m = 4e^{-\frac{(V_O+65)}{18}},
+\]
+and \( h \) obeys
+\[
+    \frac{dh}{dt} = \alpha_h(1 - h) - \beta_h h,
+\]
+with
+\[
+    \alpha_{h}(V_o) = 0.07e^{-\frac{V_o+63}{20}}, \quad \beta_{h}(V_o) = \frac{1}{1 + e^{-0.1(V_o+33)}},
+\]
+Similarly,
+\[
+    I_{K,o} = g_{K,o} n^4 (V_o - E_{K,o}),
+\]
+\[
+    \frac{dn}{dt} = \alpha_n(1 - n) - \beta_n n,
+\]
+\[
+    \alpha_n(V_o) = 0.018\left(\frac{V_o - 25}{1 - e^{-\frac{V_o - 25}{25}}}\right), \quad \beta_n(V_o) = 0.0036\left(\frac{V_o - 35}{1 - e^{\frac{V_o - 35}{12}}}\right),
+\]
+\[
+    I_{h,o} = g_{h,o}r(V_o - E_{h,o}),
+\]
+\[
+    \frac{dr}{dt} = \frac{r_{\infty} - r}{\tau_r},
+\]
+\[
+    \tau_{r_{o}}(V) = \frac{1}{1 + e^{\frac{V + 84}{8.5}}} + r_{\infty}(V) = \frac{e^{-14.59(V + 60)} + e^{-1.87\cdot1.87(V+60)}}{1 + e^{\frac{V+84}{8.5}}},
+\]
+\[
+    I_{A,o} = g_{A,o}ab(V_o - E_{A,o}),
+\]
+\[
+    \frac{da}{dt} = \frac{a_{\infty} - a}{\tau_a},
+\]
+\[
+    a_{\infty}(V_o) = \frac{1}{1 + e^{\frac{-V_o + 14}{16.8}}}, \quad \tau_a(V_o) = 5,
+\]
+\[
+    \frac{db}{dt} = \frac{b_{\infty} - b}{\tau_b},
+\]
+\[
+    b_{\infty}(V_o) = \frac{1}{1 + e^{\frac{V_o + 71}{7.3}}}, \quad \tau_b(V) = \left(\frac{0.00002(V_o - 90)}{0.2e^{-8(V_o + 90)} + 0.2e^{-0.1(V_o + 90)}}\right) + 1.
+\]
+We used \( g_{Na,o} = 30 \) mS/cm\(^2\), \( g_{K,o} = 23 \) mS/cm\(^2\), \(
+g_{h,o} = 12 \) mS/cm\(^2\), \( g_{A,o} = 16 \) mS/cm\(^2\), \( E_{Na,o} = 90
+\) mV, \( E_{K,o} = -100 \) mV, \( E_{h,o} = -32.9 \) mV, \( E_{A,o} = -90 \)
+mV.\pagebreak
+
 \section{Additional data}
 
 \section{Additional figures}
+
+\section{Additional tables}
+
+\todo[inline]{Add additional tables here for all the celltypes and for the noise with all the parameters}
+
+\begin{table}[htbp]
+    \centering
+    \caption[Synaptic Parameters for the Connectivity Between Neurons in the Model]{Synaptic Parameters for the Connectivity Between Neurons in the Model: Pre- and postsynaptic receptor types are given for each cell type.
+        The time constants \(\tau_1\) and \(\tau_2\) are in milliseconds.
+        \(\tau_1\) is the rise time constant, the time it takes for synaptic conductance to increase from baseline to peak.
+        \(\tau_2\) is the decay time constant, the time it takes for the conductance to decrease from peak to baseline.
+        The conductance indicates the strength of the synaptic connection and its ability to conduct ionic current across the postsynaptic membrane.
+        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}
+    \begin{tabular}{lllccc}
+        \hline
+        Presynaptic & Postsynaptic & Receptor & \(\tau_1\) (ms) & \(\tau_2\) (ms) & Conductance (nS) \\
+        \hline
+        Pyramidal   & Pyramidal    & AMPA     & 0.05            & 5.3             & 0.02             \\
+        Pyramidal   & Pyramidal    & NMDA     & 15              & 150             & 0.004            \\
+        Pyramidal   & Basket       & AMPA     & 0.05            & 5.3             & 0.36             \\
+        Pyramidal   & Basket       & NMDA     & 15              & 150             & 1.38             \\
+        Pyramidal   & OLM          & AMPA     & 0.05            & 5.3             & 0.36             \\
+        Pyramidal   & OLM          & NMDA     & 15              & 150             & 0.72             \\
+        Basket      & Pyramidal    & GABA-A   & 0.07            & 9.1             & 0.72             \\
+        Basket      & Basket       & GABA-A   & 0.07            & 9.1             & 4.5              \\
+        Basket      & OLM          & GABA-A   & 0.07            & 9.1             & 0.0288           \\
+        OLM         & Pyramidal    & GABA-A   & 0.2             & 20              & 72               \\
+        MS          & Basket       & GABA-A   & 20              & 40              & 1.6              \\
+        MS          & OLM          & GABA-A   & 20              & 40              & 1.6              \\
+        \hline
+    \end{tabular}\label{tab:synaptic_parameters_copy}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption[NetStim Parameters Summary]{NetStim Parameters Summary. The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\), adjusting based on the specified interval for each stimulus.
+        This results in a target number of spikes over the simulation period.}
+    \begin{tabular}{lcccl}
+        \hline
+        \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (e-3)}                   & \textbf{Target} \\
+        \hline
+        Pyr 1             & 1                      & 1              & 0.05                                    & somaAMPAf       \\
+        Pyr 2             & 1                      & 1              & \(0.05 \cdot \text{pyr\_noise\_scale}\) & Adend3AMPAf     \\
+        Pyr 3             & 1                      & 1              & 0.012                                   & somaGABAf       \\
+        Pyr 4             & 1                      & 1              & 0.012                                   & Adend3GABAf     \\
+        Pyr 5             & 100                    & 1              & \(6.5 \cdot \text{pyr\_noise\_scale}\)  & Adend3NMDA      \\ \hline
+    \end{tabular}
+\end{table}\label{table:netstimparams_reduced}
