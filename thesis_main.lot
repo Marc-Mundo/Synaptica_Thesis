@@ -4,5 +4,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{17}{table.caption.12}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces NetStim Parameters Summary}}{17}{table.caption.13}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Compartment dependent parameters}}{19}{table.caption.11}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{19}{table.caption.12}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces NetStim Parameters Summary}}{20}{table.caption.13}%

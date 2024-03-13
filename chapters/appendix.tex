@@ -1,10 +1,9 @@
-\chapter{Appendix}
-
-This chapter holds the appendix of the thesis.
-
+\chapter{Appendix}\label{ch:appendix}
 \section{Cellular dynamics: equations and parameters}
-\textbf{Basket cells:}
-The transient sodium current was described by
+The mathematical formulations of the cell types below are based on the work of
+\textcite{sanjayImpairedDendriticInhibition2015} and have been implemented as
+published in their model release on GitHub in the relevant NEURON mod files.
+\noindent \textbf{Basket cells:} The transient sodium current was described by
 \[
     I_{Na,I} = g_{Na,I} m_{\infty}^3 h (V_I - E_{Na,I}),
 \]
@@ -43,14 +42,13 @@ For the experiments, the following parameters were used: \( g_{Na,I} = 35 \)
 mS/cm\(^2\), \( g_{K,I} = 9 \) mS/cm\(^2\), \( E_{Na,I} = 55 \) mV, \( E_{K,I}
 = -90 \) mV, \( \phi = 5 \).\pagebreak
 
-\todo[inline]{fix the equations for olm cells, add them for pyr cells, double check GPT output}
 \noindent
 \textbf{O-LM cells:}
 The channel currents were described by
 \[
     I_{Na,o} = g_{Na,o}m^3h(V_O - E_{Na,O}),
 \]
-where \( m \) obeys
+where \( m \) obeyed
 \[
     \frac{dm}{dt} = \alpha_m(1 - m) - \beta_m m,
 \]
@@ -58,52 +56,99 @@ with
 \[
     \alpha_m = \frac{-0.1(V_O + 38)}{e^\frac{- (V_O+38)}{10} - 1}, \quad \beta_m = 4e^{-\frac{(V_O+65)}{18}},
 \]
-and \( h \) obeys
+and \( h \) obeyed
 \[
     \frac{dh}{dt} = \alpha_h(1 - h) - \beta_h h,
 \]
 with
 \[
-    \alpha_{h}(V_o) = 0.07e^{-\frac{V_o+63}{20}}, \quad \beta_{h}(V_o) = \frac{1}{1 + e^{-0.1(V_o+33)}},
+    \alpha_n(V_O) = 0.07e^{\frac{- (V_O + 63)}{20}}, \quad \beta_n(V_O) = \frac{1}{1 + e^\frac{-0.1(V_O+33)}{10}},
 \]
 Similarly,
 \[
-    I_{K,o} = g_{K,o} n^4 (V_o - E_{K,o}),
+    I_{K,O} = g_{K, O}n^4(V_O - E_{K,O}),
 \]
 \[
     \frac{dn}{dt} = \alpha_n(1 - n) - \beta_n n,
 \]
 \[
-    \alpha_n(V_o) = 0.018\left(\frac{V_o - 25}{1 - e^{-\frac{V_o - 25}{25}}}\right), \quad \beta_n(V_o) = 0.0036\left(\frac{V_o - 35}{1 - e^{\frac{V_o - 35}{12}}}\right),
+    \alpha_n(V_O) = \frac{0.018(V_O - 25)}{1 - e^{-\frac{V_O - 25}{25}}}, \quad \beta_n(V_O) = \frac{0.0036(V_O - 35)}{e^{\frac{V_O - 35}{12}} - 1}
 \]
 \[
-    I_{h,o} = g_{h,o}r(V_o - E_{h,o}),
+    I_{h,O} = g_{h,O}r(V_O - E_{h,O}),
 \]
 \[
     \frac{dr}{dt} = \frac{r_{\infty} - r}{\tau_r},
 \]
 \[
-    \tau_{r_{o}}(V) = \frac{1}{1 + e^{\frac{V + 84}{8.5}}} + r_{\infty}(V) = \frac{e^{-14.59(V + 60)} + e^{-1.87\cdot1.87(V+60)}}{1 + e^{\frac{V+84}{8.5}}},
+    r_{\infty}(V_O) = \frac{1}{1 + e^{-\frac{V_O + 84}{10.2}}}, \quad \tau_r(V_O) = \frac{1}{e^{-14.59 - 0.086V_O} + e^{-1.87 + 0.0701V_O}};
 \]
 \[
-    I_{A,o} = g_{A,o}ab(V_o - E_{A,o}),
+    I_{A,O} = g_{A,O}ab(V_O - E_{A,O}),
 \]
 \[
-    \frac{da}{dt} = \frac{a_{\infty} - a}{\tau_a},
+    \frac{da}{dt} = \frac{\alpha_{\infty} - a}{\tau_a},
 \]
 \[
-    a_{\infty}(V_o) = \frac{1}{1 + e^{\frac{-V_o + 14}{16.8}}}, \quad \tau_a(V_o) = 5,
+    \alpha_{\infty}(V_O) = \frac{1}{1 + e^{\frac{- (V_O+14)}{16.6}}}, \quad \tau_a(V_O) = 5,
 \]
 \[
     \frac{db}{dt} = \frac{b_{\infty} - b}{\tau_b},
 \]
 \[
-    b_{\infty}(V_o) = \frac{1}{1 + e^{\frac{V_o + 71}{7.3}}}, \quad \tau_b(V) = \left(\frac{0.00002(V_o - 90)}{0.2e^{-8(V_o + 90)} + 0.2e^{-0.1(V_o + 90)}}\right) + 1.
+    b_{\infty}(V_O) = \frac{1}{1 + e^{\frac{V_O+71}{7.3}}}, \quad \tau_b(V_O) = \frac{1}{\frac{0.000009}{e^{\frac{V_O-26}{18.5}}} + \frac{0.014}{0.2+e^{\frac{- (V_O+70)}{11}}}}.
 \]
-We used \( g_{Na,o} = 30 \) mS/cm\(^2\), \( g_{K,o} = 23 \) mS/cm\(^2\), \(
-g_{h,o} = 12 \) mS/cm\(^2\), \( g_{A,o} = 16 \) mS/cm\(^2\), \( E_{Na,o} = 90
-\) mV, \( E_{K,o} = -100 \) mV, \( E_{h,o} = -32.9 \) mV, \( E_{A,o} = -90 \)
-mV.\pagebreak
+For the experiments, the following parameters were used: \(g_{Na,o} = 30\)
+mS/cm\(^2\), \(g_{K,O} = 23\) mS/cm\(^2\), \(g_{h,O} = 12\) mS/cm\(^2\),
+\(g_{A,O} = 16\) mS/cm\(^2\), \(E_{Na,O} = 90\) mV, \(E_{K,O} = -100\) mV,
+\(E_{h,O} = -32.9\) mV, \(E_{A,O} = - 90\) mV.\pagebreak
+
+\noindent
+\textbf{Pyramidal cells:}
+\(I_{\text{conn}, E_k}\) was the current due to electrical coupling between compartments, which was given by
+\[
+    Iconn_{E,k} = g_{k,j+1}(V_{E,j+1} - V_{E,j}) + g_{k,j}(V_{E,j-1} - V_{E,j})
+\]
+with the coupling conductance given by
+\[
+    g_{k,j} = \frac{r_k r_j^2}{R_a L_k (L_k r_j^2 + L_j r_k^2)}
+\]
+where \(L_k\) and \(r_k\) was the length and radius of the compartment \(k\)
+respectively (note the need of units conversion in order to get \(g_{k,j}\) in
+mS/cm\(^2\)). The ionic currents were given by:
+\begin{align*}
+    I_{Na,E_k} & = g_{Na,E_k} m^3 h i (V_{E_k} - E_{Na,E}) , \\
+    I_{K,E_k}  & = g_{K,E_k} n^4 (V_0 - E_{K,E}) ,           \\
+    I_{h,E_k}  & = g_{h,E_k} r (V_{E_k} - E_{h,E}) ,         \\
+    I_{A,E_k}  & = g_{A,E_k} ab (V_{E_k} - E_{A,E}) ,
+\end{align*}
+and the gating variables obeyed equations of the form
+\[
+    \frac{dx}{dt} = \frac{x_{\infty} - x}{\tau_x},
+\]
+where \(x = m, h, i, n, r, a, b\) and
+\[
+    m_{\infty} = \frac{\alpha_m}{\alpha_m + \beta_m}, \quad \tau_m = \max\left(0.2, \frac{0.5}{\alpha_m + \beta_m}\right),
+\]
+\begin{align*}
+    \alpha_m(V_{E_k})   & = \frac{0.4(V_{E_k} + 30)}{1 - e^{-\frac{V_{E_k} + 30}{7.2}}},               & \beta_m(V_{E_k}) & = \frac{0.124(V_{E_k} + 30)}{e^{\frac{V_{E_k} + 30}{7.2}} - 1}, \\
+    h_{\infty}(V_{E_k}) & = \frac{1}{1 + e^{\frac{V_{E_k} + 50}{4}}},                                  & \tau_h           & = \max\left(0.5, \frac{0.5}{\alpha_h + \beta_h}\right),         \\
+    \alpha_h(V_{E_k})   & = \frac{0.03(V_{E_k} + 45)}{1 - e^{-\frac{V_{E_k} + 45}{1.5}}},              & \beta_h(V_{E_k}) & = \frac{0.01(V_{E_k} + 45)}{e^{\frac{V_{E_k} + 45}{1.5}} - 1},  \\
+    i_{\infty}(V_{E_k}) & = \frac{1 + b_k e^{\frac{V_{E_k} + 60}{2}}}{1 + e^{\frac{V_{E_k} + 60}{2}}}, & \tau_i           & = \max\left(10, \frac{30000\beta_i}{1 + \alpha_i}\right),       \\
+    \alpha_i(V_{E_k})   & = e^{0.45(V_{E_k} + 66)},                                                    & \beta_i(V_{E_k}) & = e^{0.09(V_{E_k} + 66)},                                       \\
+    n_{\infty}          & = \frac{1}{1 + \alpha_n},                                                    & \tau_n           & = \max\left(2, \frac{50\beta_n}{1 + \alpha_n}\right),           \\
+    \alpha_n(V_{E_k})   & = e^{-0.11(V_{E_k} - 13)},                                                   & \beta_n(V_{E_k}) & = e^{-0.08(V_{E_k} - 13)},
+\end{align*}
+\begin{align*}
+    r_{\infty,\text{HCN2}}(V_{E_k}) & = \frac{1}{1 + e^{\frac{V_{E_k} - V_{50k}}{10.5}}},                                         & \tau_{r,\text{HCN2}}(V_{E_k}) & = \frac{1}{e^{-14.59 - 0.086V_{E_k} + e^{-1.87 + 0.0701V_{E_k}}}},                          \\
+    r_{\infty,\text{HCN1}}(V_{E_k}) & = \frac{1}{1 + e^{0.151(V_{E_k}-V_{50k})}},                                                 & \tau_{r,\text{HCN1}}(V_{E_k}) & = \frac{e^{0.033(V_{E_k} + 75)}}{0.011 \left( 1 + e^{0.0833(V_{E_k}+75)} \right)},          \\
+    a_{\infty}                      & = \frac{1}{1 + \alpha_a},                                                                   & \tau_a                        & = \max \left( 0.1, \frac{c_k \beta_a}{1 + \alpha_a} \right),                                \\
+    \alpha_a(V_{E_k})               & = e^{-0.038 \left( d_k + \frac{1}{1 + {\frac{e^V_{E_k} + 40}{5}}} \right) (V_{E_k} - e_k)}, & \beta_a(V_{E_k})              & = e^{-0.038 \left( f_k + \frac{1}{1 + {\frac{e^V_{E_k} + 40}{5}}} \right) (V_{E_k} - e_k)}, \\
+    b_{\infty}(V_{E_k})             & = \frac{1}{1 + e^{0.11(V_{E_k} + 56)}},                                                     & \tau_b(V_{E_k})               & = \max \left( 2, 0.26(V_{E_k} + 50) \right).
+\end{align*}
+For the experiments, the following parameters were used:
+\(E_{Na,E_k} = 55\) mV, \(E_{K,E_k} = -90\) mV, \(E_{h,E_k} = -30\) mV, \(E_{A,E_k} = -90\) mV.
+The ionic conductances values (in mS/cm\(^2\)) and values of other parameters dependent on the compartment are shown in the additional table section below.\pagebreak
 
 \section{Additional data}
 
@@ -112,6 +157,24 @@ mV.\pagebreak
 \section{Additional tables}
 
 \todo[inline]{Add additional tables here for all the celltypes and for the noise with all the parameters}
+
+\begin{table}[htbp]
+    \centering
+    \caption[Compartment dependent parameters]{Compartment dependent parameters. The ionic conductances are in mS/cm\(^2\).}
+    \begin{tabular}{l|cccccccccc}
+        \hline
+        \hline
+               & \( g_{h} \) & \( g_{A} \) & \( g_{Na} \) & \( g_{K} \) & \( V_{50} \) & \( b \) & \( c \) & \( d \) & \( e \) & \( f \) \\
+        \hline
+        Bdend  & 0.1         & 48          & 32           & 10          & -82          & 1       & 4       & 1.5     & 11      & 0.825   \\
+        Soma   & 0.1         & 48          & 32           & 10          & -82          & 0.8     & 4       & 1.5     & 11      & 0.825   \\
+        Adend1 & 0.2         & 72          & 32           & 10          & -82          & 0.5     & 4       & 1.5     & 11      & 0.825   \\
+        Adend2 & 0.4         & 120         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
+        Adend3 & 0.7         & 200         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
+        \hline
+        \hline
+    \end{tabular}
+\end{table}\label{table:compartment_dependent_parameters}
 
 \begin{table}[htbp]
     \centering
