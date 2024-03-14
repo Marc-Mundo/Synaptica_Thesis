@@ -1,19 +1,19 @@
 \chapter{Methods}
-This chapter describes the methods used in this research.
-
+\todo[inline]{Re-read everything, make sure that the methods for the external noise, burst anlysis of noise and recurrent connections are correct. Double check the convolution methods}
+\todo[inline]{Make sure that the methods for the sodium and potassium variants are correct.}
 \section{Computational model}
 The network model that was used in this research is a custom implementation
 made by \textcite{sanjayImpairedDendriticInhibition2015}. This model is based
 on the CA3 subfield region of the hippocampus and is implemented in the NEURON
 simulation environment using python version 3.9.16 as an interface
-\href{https://www.neuron.yale.edu}{(\url{https://www.neuron.yale.edu)}}. The
+\href{https://www.neuron.yale.edu}{(\url{https://www.neuron.yale.edu})}. The
 model consists of 1000 neurons, which are divided into populations containing
 three cell-types: 800 5-compartment pyramidal cells (three apical dendrites,
 one basal dendrite, and soma), 200 1-compartment soma-inhibiting basket cells
 and 200 1-compartment Oriens-Lacunosum Moleculare (O-LM) interneurons. The
 original source code of the model is available on ModelDB at the following
 link:
-\href{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421}{(\url{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421)}}.
+\href{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421}{\url{http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=139421}}.
 
 The implementation used in this research made in cooperation with Sean Gies is
 part of the \textit{Neuromics} software package by Synaptica Ltd. The
@@ -24,7 +24,7 @@ connections and stimulation parameters can be found in appendix A.
 
 The experimental source code for this research project can be found on request
 on GitHub at the following link:
-\href{https://github.com/SynapticaNL/Marc_network_sims}{(\url{https://github.com/SynapticaNL/Marc_network_sims}}.
+\href{https://github.com/SynapticaNL/Marc_network_sims}{\url{https://github.com/SynapticaNL/Marc_network_sims}}.
 
 \begin{figure}[htbp]
     \centering
@@ -96,12 +96,23 @@ based on the following references:
           compartment \(k\), respectively.
 \end{enumerate}
 
-For the full list of cell parameters, see appendix A.\pagebreak
+\noindent
+\textit{For further elaboration of the mathematical formulation of each cell type, see appendix A. For the full overview of cell and compartment parameters, see appendix
+    B.}
 
 \section{Model implementation: synaptic connections}
 The model contained three types of synaptic connections: excitatory, inhibitory
 based on AMPA, NMDA and GABA-A receptors. Synapses were modeled by standard
-NEURON double-exponential mechanism. The synaptic connections were implemented
+NEURON double-exponential mechanism. This approach entailed the assignment of
+specific rise \(\tau_1\) and decay \(\tau_2\) time constants, which correspond
+to the temporal profiles of conductance increase and subsequent decline,
+respectively, following a synaptic event. The conductance values, indicative of
+synaptic efficacy, were varied according to the type of presynaptic and
+postsynaptic neuron pairing, as well as the subtype of receptor involved (AMPA,
+NMDA, or GABA-A). These parameters informed the simulation of synaptic inputs,
+which govern the depolarization and hyperpolarization events in the
+postsynaptic neuron membrane, thereby influencing the temporal patterns of
+neuronal firing and network activity. The synaptic connections were implemented
 as follows:
 
 \begin{table}[htbp]
@@ -132,6 +143,9 @@ as follows:
     \end{tabular}\label{tab:synaptic_parameters}
 \end{table}
 
+\noindent
+\textit{For the full overview of synaptic parameters, see appendix B.}\pagebreak
+
 \section{Model implementation: stimulation and noise}
 The model was activated by external inputs originating from the entorhinal
 cortex, which were then transmitted to the pyramidal cells. Background random
@@ -141,7 +155,7 @@ shown in table~\ref{tab:synaptic_parameters}. The mechanism by which noise was
 applied to the model was defined via NEURON simulator's \textit{NetStim}
 object. This object type generated spike train according to a set of parameters
 such as stimulus interval, noise variability (Poisson-like), weight, target,
-start and delay times. These parameters can bee viewed in Appendix A.
+start and delay times. These parameters can be viewed in Appendix A.
 
 Similarly, the distal dendritic compartments of the pyramidal cells also
 received comparable inputs through the same types of receptors. Connections
@@ -160,10 +174,10 @@ dataset. Random seeds were used to generate the external noise, connections and
 cells for each trial and remained constant between trials and between
 experiments. The number of trials varies between experiments and are specified
 in their respective sub-sections that follow. In the network, the individual
-cells were assigned a global identifier to which all the data was associated in
-the same ascending order for each trial. The first 800 cells were always
-pyramidal cells, the next 200 were basket cells and the last 200 were OLM
-cells. For each trial, the individual cell spike times were saved for the
+cells were assigned a global identifier (GID) to which all the data was
+associated in the same ascending order for each trial. The first 800 cells were
+always pyramidal cells, the next 200 were basket cells and the last 200 were
+OLM cells. For each trial, the individual cell spike times were saved for the
 entire duration of the simulation. Pyramidal cell membrane soma voltage data
 was saved per cell in order to calculate the LFP signal (necessary for
 theta-gamma calculations).
@@ -196,10 +210,12 @@ times the baseline from 1.0 to 0.0. In addition to reduced connection strength,
 the external noise fed into the pyramidal cells was increased in increments of
 0.1X times the baseline from 1.0 to 2.0. By reducing the connectivity from OLM
 to pyramidal cells, dendritic inhibition was impaired and potential
-epileptiform activity was induced. The original results on which the validation
-experiment focussed on, were the following three aspects: changes in firing
-rates per population, the changes in dominant theta and gamma frequencies, and
-finally the changes in the power of the theta and gamma oscillations.
+epileptiform activity was induced.
+
+The original results on which the validation experiment focussed on, were the
+following three aspects: changes in firing rates per population, the changes in
+dominant theta and gamma frequencies, and finally the changes in the power of
+the theta and gamma oscillations.
 
 \subsection{Sodium and potassium variants}
 In this experiment, the sodium and potassium conductances of the all cell types
@@ -212,38 +228,71 @@ cell types on the same metrics as in the model validation experiment. 20 trials
 each were done per condition (6 total conditions) and the results were
 averaged.
 
+\subsubsection{Visualization of Neuronal Activity Variants}
+This section outlines the analytical approach adopted for visualizing the
+neuronal activity within our network model under different experimental
+conditions. Specifically, we focused on plotting the firing rates, theta-gamma
+frequencies, and theta-gamma power across all neuronal populations (pyramidal,
+basket, and OLM cells) for variants induced by alterations in sodium and
+potassium conductance levels.
+
+\subsubsection{Firing Rate Analysis}
+We initiated our analysis by examining the firing rates across different cell
+populations. A comparative visualization was generated to juxtapose the mean
+firing rates under sodium and potassium variant conditions, utilizing a grid
+layout for a side-by-side comparison. Each plot incorporated error bars to
+represent the standard error of the mean (SEM), thereby conveying the
+variability inherent in our simulation trials. Cell populations were
+differentiated by distinct markers and colors to facilitate clear distinction
+between pyramidal, basket, and OLM cells across varying conditions.
+
+\subsubsection{Theta-Gamma Frequency Analysis}
+Subsequent to firing rate analysis, we delved into the investigation of theta
+and gamma frequency bands. For each variant type (sodium and potassium), theta
+and gamma frequencies were plotted on a \(2\times2\) grid, delineating the mean
+frequency values extracted from the simulation data. This approach allowed for
+an intuitive understanding of the oscillatory dynamics prevalent in the network
+under different ionic conductance conditions, highlighting potential shifts in
+theta-gamma coupling associated with epileptiform activities.
+
+\subsubsection{Theta-Gamma Power Analysis}
+Complementing the frequency analysis, the power within the theta and gamma
+bands was explored, aiming to quantify the strength of oscillatory activity
+within these critical frequency ranges. Similar to our frequency analysis, a
+\(2\times2\) grid layout facilitated the comparison of theta and gamma power
+across sodium and potassium variants. This visual representation served to
+elucidate variations in oscillatory power, potentially correlating with changes
+in network excitability and synchronization under altered ionic conditions.\\
+
+\noindent Throughout the analysis, specific attention was given
+to maintaining consistency in data representation and visualization aesthetics,
+ensuring that the generated plots provided a coherent and comprehensive
+overview of our findings. This visualization strategy not only enabled the
+detailed examination of neuronal activity patterns but also supported the
+identification of key differences and similarities between sodium and potassium
+variant conditions, offering insights into the underlying mechanisms driving
+network behavior in response to ionic conductance modifications.
+
 \subsection{External noise variants}
 In this experiment, the external noise fed into the pyramidal cells was set a
 new baseline for the 1.0x condition, which was 20 times that of the original
 \textcite{sanjayImpairedDendriticInhibition2015} model. Reduced OLM to pyr
 connections were kept at 10\% of the original baseline. This was done because
 in the original article, epileptic activity was induced by feeding in 20 times
-more external noise at reduced dendritic inhibition. This condition was tested
-as a special condition in figure 7 of the article, and was expanded upon
-because of the occurrence of a depolarization block in the basket cell spike
-activity. This depolarization block occurrence was assumed to be the epileptic
-state in which the network is found at such conditions. This new baseline was
-changed times a range of pyramidal noise factors of the following values: 0.65,
-0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.10, 1.20, and 1.30. In addition to
-the range of noise factors, pyramidal conductances \(g_{\text{Na}}\) and
-\(g_{\text{K}}\) were modified over a range of 0.5x to 1.5x times the baseline
-in increments of 0.1. 15 trials were done per noise condition and the results
-were averaged.
+more external noise at reduced dendritic inhibition.
 
-\subsection{Recurrent connection strength variants}
-In this experiment, the recurrent connection strength between basket cells was
-modified over the following range: 1.00, 1.05, 1.10, 1.15 and 1.20 times the
-baseline. This was done in order to investigate the possibility of rescuing the
-epileptic network back to baseline activity by increasing the strength of soma
-inhibition. Similarly to the external noise variants, \(g_{\text{Na}}\) and
-\(g_{\text{K}}\) were modified over a slightly tighter range of plus or minus
-25\% of the baseline and including baseline of 1.00. Again, the OLM to
-pyramidal connection weight was kept at 10\% in order to be able to evoke the
-depolarization block in basket cell spike activity, while also feeding the 20x
-external noise to the pyramidal cells. 15 trials were done per condition and
-the results were averaged.
+This condition was tested as a special condition in figure 7 of the article,
+and was expanded upon because of the occurrence of a depolarization block in
+the basket cell spike activity. This depolarization block occurrence was
+assumed to be the epileptic state in which the network is found at such
+conditions. This new baseline was changed times a range of pyramidal noise
+factors of the following values: 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95,
+1.00, 1.10, 1.20, and 1.30. In addition to the range of noise factors,
+pyramidal conductances \(g_{\text{Na}}\) and \(g_{\text{K}}\) were modified
+over a range of 0.5x to 1.5x times the baseline in increments of 0.1. 15 trials
+were done per noise condition and the results were averaged.
 
-\subsubsection{Detection of epileptiform activity (Experiment: External noise variants)}
+\subsubsection{Detection of epileptiform activity (Experiments: External Noise and Recurrent Connection strength variants)}
 The detection of epileptic activity depends on the spiking activity of the
 basket cells, which according to results of figure 7 from the
 \textcite{sanjayImpairedDendriticInhibition2015} article occurs in the presence
@@ -252,8 +301,7 @@ baseline and with reduced dendritic inhibition by the OLM cells. Detection of a
 depolarization block in the basket cells was done by calculating the convoluted
 fire rates of the basket cell population.
 
-\noindent The systematic approach to analyzing basket cell firing rates through
-convolution with a Gaussian window was as follows:
+\noindent The systematic approach to analyzing basket cell firing rates through convolution with a Gaussian window was as follows:
 \begin{itemize}
     \item \textbf{Extracting Spike Times:} The \lstinline{get_spike_times_for_basket_cells}
           function is used for iterating over a range of GIDs. This process collects spike times from
@@ -276,6 +324,97 @@ convolution with a Gaussian window was as follows:
           that remain below a set threshold for a specified minimum duration.
 \end{itemize}
 
+\noindent
+\textit{This method for detecting depolarization blocks in the basket cell population
+    and convolution of spike activities was also used for the recurrent
+    connection strength variants experiment below.}
+
+\subsubsection{Analysis of External Noise Variants}
+This section elaborates on the methodological approach undertaken to assess the
+impact of varying levels of external noise on pyramidal cells, with the aim of
+understanding its influence on depolarization block occurrences within the
+network. The experiment's premise was based on the hypothesis that adjusting
+the external noise could modulate the epileptic state, characterized by
+depolarization blocks, within the neural network.
+
+\noindent The analysis was structured as follows:
+\begin{enumerate}
+    \item \textbf{Event Detection and Quantification:} For each variant of external noise levels, depolarization events were systematically identified. These results were quantified per trial. This process involved the enumeration of depolarization events, accumulation of their start and end times, and the computation of the overall duration of these events within each trial.
+
+    \item \textbf{Statistical Analysis:} Subsequent to the detection of depolarization events, the analysis proceeded with the calculation of average event duration and the computation of the percentage of trials exhibiting depolarization blocks. Furthermore, the mean delay and standard deviation for the onset of depolarization events were determined to gauge the temporal dynamics of the network's response to varying noise levels.
+
+    \item \textbf{Data Visualization:} To concisely present the findings, the analysis results were visualized through matrix plots. These plots delineated the relationship between pyramidal conductances (\(g_{\text{Na}}\) and \(g_{\text{K}}\)) and the observed network behavior under different external noise conditions. The visualizations highlighted the proportion of trials with depolarization blocks and detailed the temporal onset characteristics of these events, facilitating an intuitive understanding of the network's epileptic susceptibility.
+\end{enumerate}
+
+\noindent The investigative focus on external noise variants sought to delineate the conditions under which the network transitions into an epileptic state, as indicated by the presence of depolarization blocks. Through a comprehensive compilation of quantitative and visual analyses, this study aimed to unravel the complexities of neural dynamics in response to altered external stimulation, thereby contributing to a deeper insight into potential mechanisms for modulating epileptiform activities.
+
+\subsection{External noise: Burst analysis}
+Further analysis was conducted to investigate the burst dynamics of pyramidal
+and basket cell activity based on the observations done in the initial
+increased noise experiment. This experiment involved looking at the temporal
+shift in detected bursts surrounding the onset of a depolarization block event
+in the basket cell population.
+
+\subsubsection{Detection of Epileptiform Activity and Burst Analysis}
+This experiment employed a novel method for the detection of epileptiform
+activity, leveraging convolved spike activities and burst detection within
+neural populations. The approach was predicated on analyzing the temporal
+dynamics of neuronal firing rates, specifically focusing on the basket and
+pyramidal cell populations. A critical aspect of this analysis was the
+identification and analysis of bursts in relation to the onset of
+depolarization blocks (DPBs), offering insights into the neural dynamics
+associated with epileptiform activity.
+
+\noindent The unified methodology proceeded as follows:
+\begin{itemize}
+    \item \textbf{Identification of Depolarization Block Onset:} A custom python function \lstinline{find_depolarization_block} was employed to scan the simulation data for periods devoid of spiking activity within a specified window across basket cell populations.
+          This step was crucial in pinpointing the initial point of a depolarization block, thus serving as a reference for the subsequent analysis.
+
+    \item \textbf{Preparation and Convolution of Spike Activities:} Spike times were aggregated and subjected to a Gaussian filter, smoothing the data to represent neural firing rates over time effectively.
+          This step facilitated the identification of significant patterns in relation to the DPB onset.
+
+    \item \textbf{Burst Detection and Temporal Analysis:} The convolved spike activities were analyzed using a burst detection algorithm, identifying significant increases in activity as bursts.
+          These were classified based on their occurrence relative to the DPB onset—focusing on the last burst before, the second-last burst before, and the first burst after the onset. This classification shed light on the changes in neural dynamics preceding and following a depolarization block.
+
+    \item \textbf{Analytical Assessment and Summarization of Findings:} Start and end times were determined for detected bursts, as well as peak activity levels.
+          This comprehensive analysis of convolved spike activities and burst dynamics provided a detailed view of the neural mechanisms during critical phases of epileptiform activity.
+\end{itemize}
+
+\noindent The experiment utilized a 100 ms window and a 0.1 ms time step throughout the 5000 ms simulation duration, resulting in 50,000 indices for spike detection.
+The absence of basket cell firing within this window indicated a DPB, which was critical for burst detection.
+This methodology offered a nuanced understanding of epileptiform dynamics, highlighting the transitions of neural populations into and out of depolarization blocks which are indicative of epileptic activity in the network.
+Note that in the burst analysis the 1D-Gaussian convolution was performed on a histogram of the spike times of cells. Whereas in the previous convolution for the matrices, the convolutions were performed using a binary time series of the spike times.
+
+\subsection{Recurrent connection strength variants}
+This section describes the methodology employed to analyze the effects of
+varying recurrent connection strengths between basket cells on the incidence
+and characteristics of depolarization blocks within the network. This analysis
+aimed to explore the potential of modulating soma inhibition strength to
+mitigate epileptic activity and restore baseline network dynamics.
+
+The experiment adjusted the recurrent connection strength across a range of
+multipliers (1.00, 1.05, 1.10, 1.15, and 1.20 times the baseline), concurrently
+with modifications to \(g_{\text{Na}}\) and \(g_{\text{K}}\) within a plus or
+minus 25\% range of the baseline. The connection weight from OLM cells to
+pyramidal cells was fixed at 10\%, facilitating the induction of depolarization
+blocks under a 20x external noise condition on pyramidal cells. A total of 15
+trials were conducted for each condition, and the results were averaged for
+analysis.
+
+\subsubsection{Analysis of Recurrent Connection Strength Variants}
+\noindent The analysis procedure was as follows:
+\begin{enumerate}
+    \item \textbf{Event Detection and Aggregation:} The analysis began by identifying depolarization events across trials for each variant of the recurrent connection strength. This involved counting the number of depolarization events, their start and end times, and the total duration of depolarization within each trial. Trials devoid of depolarization events were separately tallied.
+
+    \item \textbf{Statistical Computation:} For trials exhibiting depolarization events, the average duration of these events was calculated. Additionally, the percentage of trials manifesting depolarization events and the statistical measures (mean and standard deviation) concerning the onset times of these events were determined.
+
+    \item \textbf{Matrix Visualization:} The analyzed data were visualized using matrix plots to illustrate the relationship between the recurrent connection strength variants and the properties of depolarization events under different \(g_{\text{Na}}\) and \(g_{\text{K}}\) conditions. These plots highlighted the percentage of trials with depolarization blocks and the count of depolarization events, offering insights into the efficacy of soma inhibition strength adjustments in modulating epileptic activity.
+\end{enumerate}
+
+\noindent
+This analytical approach facilitated a comprehensive examination of the impact of modifying recurrent connection strengths among basket cells on the network's susceptibility to epileptic disruptions.
+Through statistical and visual analyses, the dynamics governing epileptiform activity and the potential for intervention was investigated through targeted manipulation of inhibition mechanisms within the neural circuitry.
+
 \noindent For detecting depolarization blocks in the basket cell population, the
 methodology was as follows:
 \begin{itemize}
@@ -294,8 +433,4 @@ yet tiny as in the depolarization block there are no firing neurons in the
 basket population. The first 50 ms of the signal were excluded to avoid false
 positives. If the signal remained beneath the threshold for at least 100 ms,
 the condition was considered to be in a depolarization block state. This was
-done for each trial individually.\pagebreak
-
-\subsubsection{Detection of epileptiform activity (Experiment: Recurrent connection strength variants)}
-
-\subsubsection{Burst detection around depolarization block onset}
+done for each trial individually.

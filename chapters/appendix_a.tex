@@ -1,9 +1,11 @@
-\chapter{Appendix}\label{ch:appendix}
+\chapter{Appendix}\label{ch:appendix_a}
 \section{Cellular dynamics: equations and parameters}
 The mathematical formulations of the cell types below are based on the work of
 \textcite{sanjayImpairedDendriticInhibition2015} and have been implemented as
 published in their model release on GitHub in the relevant NEURON mod files.
-\noindent \textbf{Basket cells:} The transient sodium current was described by
+
+\noindent
+\textbf{Basket cells:} The transient sodium current was described by
 \[
     I_{Na,I} = g_{Na,I} m_{\infty}^3 h (V_I - E_{Na,I}),
 \]
@@ -149,73 +151,3 @@ where \(x = m, h, i, n, r, a, b\) and
 For the experiments, the following parameters were used:
 \(E_{Na,E_k} = 55\) mV, \(E_{K,E_k} = -90\) mV, \(E_{h,E_k} = -30\) mV, \(E_{A,E_k} = -90\) mV.
 The ionic conductances values (in mS/cm\(^2\)) and values of other parameters dependent on the compartment are shown in the additional table section below.\pagebreak
-
-\section{Additional data}
-
-\section{Additional figures}
-
-\section{Additional tables}
-
-\todo[inline]{Add additional tables here for all the celltypes and for the noise with all the parameters}
-
-\begin{table}[htbp]
-    \centering
-    \caption[Compartment dependent parameters]{Compartment dependent parameters. The ionic conductances are in mS/cm\(^2\).}
-    \begin{tabular}{l|cccccccccc}
-        \hline
-        \hline
-               & \( g_{h} \) & \( g_{A} \) & \( g_{Na} \) & \( g_{K} \) & \( V_{50} \) & \( b \) & \( c \) & \( d \) & \( e \) & \( f \) \\
-        \hline
-        Bdend  & 0.1         & 48          & 32           & 10          & -82          & 1       & 4       & 1.5     & 11      & 0.825   \\
-        Soma   & 0.1         & 48          & 32           & 10          & -82          & 0.8     & 4       & 1.5     & 11      & 0.825   \\
-        Adend1 & 0.2         & 72          & 32           & 10          & -82          & 0.5     & 4       & 1.5     & 11      & 0.825   \\
-        Adend2 & 0.4         & 120         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
-        Adend3 & 0.7         & 200         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
-        \hline
-        \hline
-    \end{tabular}
-\end{table}\label{table:compartment_dependent_parameters}
-
-\begin{table}[htbp]
-    \centering
-    \caption[Synaptic Parameters for the Connectivity Between Neurons in the Model]{Synaptic Parameters for the Connectivity Between Neurons in the Model: Pre- and postsynaptic receptor types are given for each cell type.
-        The time constants \(\tau_1\) and \(\tau_2\) are in milliseconds.
-        \(\tau_1\) is the rise time constant, the time it takes for synaptic conductance to increase from baseline to peak.
-        \(\tau_2\) is the decay time constant, the time it takes for the conductance to decrease from peak to baseline.
-        The conductance indicates the strength of the synaptic connection and its ability to conduct ionic current across the postsynaptic membrane.
-        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}
-    \begin{tabular}{lllccc}
-        \hline
-        Presynaptic & Postsynaptic & Receptor & \(\tau_1\) (ms) & \(\tau_2\) (ms) & Conductance (nS) \\
-        \hline
-        Pyramidal   & Pyramidal    & AMPA     & 0.05            & 5.3             & 0.02             \\
-        Pyramidal   & Pyramidal    & NMDA     & 15              & 150             & 0.004            \\
-        Pyramidal   & Basket       & AMPA     & 0.05            & 5.3             & 0.36             \\
-        Pyramidal   & Basket       & NMDA     & 15              & 150             & 1.38             \\
-        Pyramidal   & OLM          & AMPA     & 0.05            & 5.3             & 0.36             \\
-        Pyramidal   & OLM          & NMDA     & 15              & 150             & 0.72             \\
-        Basket      & Pyramidal    & GABA-A   & 0.07            & 9.1             & 0.72             \\
-        Basket      & Basket       & GABA-A   & 0.07            & 9.1             & 4.5              \\
-        Basket      & OLM          & GABA-A   & 0.07            & 9.1             & 0.0288           \\
-        OLM         & Pyramidal    & GABA-A   & 0.2             & 20              & 72               \\
-        MS          & Basket       & GABA-A   & 20              & 40              & 1.6              \\
-        MS          & OLM          & GABA-A   & 20              & 40              & 1.6              \\
-        \hline
-    \end{tabular}\label{tab:synaptic_parameters_copy}
-\end{table}
-
-\begin{table}[htbp]
-    \centering
-    \caption[NetStim Parameters Summary]{NetStim Parameters Summary. The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\), adjusting based on the specified interval for each stimulus.
-        This results in a target number of spikes over the simulation period.}
-    \begin{tabular}{lcccl}
-        \hline
-        \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (e-3)}                   & \textbf{Target} \\
-        \hline
-        Pyr 1             & 1                      & 1              & 0.05                                    & somaAMPAf       \\
-        Pyr 2             & 1                      & 1              & \(0.05 \cdot \text{pyr\_noise\_scale}\) & Adend3AMPAf     \\
-        Pyr 3             & 1                      & 1              & 0.012                                   & somaGABAf       \\
-        Pyr 4             & 1                      & 1              & 0.012                                   & Adend3GABAf     \\
-        Pyr 5             & 100                    & 1              & \(6.5 \cdot \text{pyr\_noise\_scale}\)  & Adend3NMDA      \\ \hline
-    \end{tabular}
-\end{table}\label{table:netstimparams_reduced}
