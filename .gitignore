@@ -27,3 +27,6 @@ dist/
 .vscode/
 .cspell/
 *-workspace
+
+# folder(s)
+/images*
