@@ -8,7 +8,7 @@
 \subsection{Compartment dependent parameters}
 \begin{table}[htbp]
     \centering
-    \caption[Compartment dependent parameters]{Compartment dependent parameters. The ionic conductances are in mS/cm\(^2\).}
+    \caption[Compartment dependent parameters]{Compartment dependent parameters. The ionic conductances are in mS/cm\(^2\).}\label{table:compartment_dependent_parameters}
     \begin{tabular}{l|cccccccccc}
         \hline
         \hline
@@ -22,7 +22,7 @@
         \hline
         \hline
     \end{tabular}
-\end{table}\label{table:compartment_dependent_parameters}
+\end{table}
 
 \begin{table}[htbp]
     \centering
@@ -31,7 +31,7 @@
         \(\tau_1\) is the rise time constant, the time it takes for synaptic conductance to increase from baseline to peak.
         \(\tau_2\) is the decay time constant, the time it takes for the conductance to decrease from peak to baseline.
         The conductance indicates the strength of the synaptic connection and its ability to conduct ionic current across the postsynaptic membrane.
-        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}
+        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}\label{tab:synaptic_parameters_copy}
     \begin{tabular}{lllccc}
         \hline
         \textbf{Presynaptic} & \textbf{Postsynaptic} & \textbf{Receptor} & \textbf{\(\tau_1\) (ms)} & \textbf{\(\tau_2\) (ms)} & \textbf{Conductance (nS)} \\
@@ -49,7 +49,7 @@
         MS                   & Basket                & GABA-A            & 20                       & 40                       & 1.6                       \\
         MS                   & OLM                   & GABA-A            & 20                       & 40                       & 1.6                       \\
         \hline
-    \end{tabular}\label{tab:synaptic_parameters_copy}
+    \end{tabular}
 \end{table}\pagebreak
 \subsection{Connections}
 \textbf{Note:} For all tables the weight values are given in microsiemens (µS).
@@ -57,7 +57,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
 % Pyr NMDA Connections
 \begin{table}[htbp]
     \centering
-    \caption[Pyr to Other Cells NMDA Connections Summary]{Pyramidal to Basket Weave Basket and OLM NMDA Synaptic Connections. This table summarizes the count and scaled synaptic weights for NMDA receptor-mediated connections originating from pyramidal neurons. The ``Scale'' variable allows modulation of the connection strength in various experimental conditions. Each connection specifies the number of synapses (`Count`) and the effective synaptic weight (`Weight`) after scaling, targeting NMDA receptors at specific postsynaptic sites.}
+    \caption[Pyr to Other Cells NMDA Connections Summary]{Pyramidal to Basket Weave Basket and OLM NMDA Synaptic Connections. This table summarizes the count and scaled synaptic weights for NMDA receptor-mediated connections originating from pyramidal neurons. The ``Scale'' variable allows modulation of the connection strength in various experimental conditions. Each connection specifies the number of synapses (`Count`) and the effective synaptic weight (`Weight`) after scaling, targeting NMDA receptors at specific postsynaptic sites.}\label{tab:pyr_nmda_connections}
     \begin{tabular}{lccc}
         \hline
         \textbf{Connection} & \textbf{Count} & \textbf{Weight (µS)}            & \textbf{Synapse} \\
@@ -67,12 +67,12 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Pyr to Pyr NMDA     & 25             & \( \text{scale} \times 0.004 \) & BdendNMDA        \\
         \hline
     \end{tabular}
-\end{table}\label{tab:pyr_nmda_connections}
+\end{table}
 
 % Pyr AMPA Connections
 \begin{table}[htbp]
     \centering
-    \caption[Pyr to Other Cells AMPA Connections Summary]{Pyramidal to Basket Weave Basket and OLM AMPA Synaptic Connections. Detailed here are the AMPA receptor-mediated synaptic connections from pyramidal neurons. The ``Scale'' factor is applied to the base synaptic weight to explore its effect on network dynamics. The ``Count'' column reflects the number of synaptic contacts, while the ``Weight'' column indicates the scaled weight, directed towards AMPA receptors at the soma or dendritic compartments.}
+    \caption[Pyr to Other Cells AMPA Connections Summary]{Pyramidal to Basket Weave Basket and OLM AMPA Synaptic Connections. Detailed here are the AMPA receptor-mediated synaptic connections from pyramidal neurons. The ``Scale'' factor is applied to the base synaptic weight to explore its effect on network dynamics. The ``Count'' column reflects the number of synaptic contacts, while the ``Weight'' column indicates the scaled weight, directed towards AMPA receptors at the soma or dendritic compartments.}\label{tab:pyr_ampa_connections}
     \begin{tabular}{lccc}
         \hline
         \textbf{Connection} & \textbf{Count} & \textbf{Weight (µS)}           & \textbf{Synapse} \\
@@ -82,12 +82,12 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Pyr to Pyr AMPA     & 25             & \( \text{scale} \times 0.02 \) & BdendAMPA        \\
         \hline
     \end{tabular}
-\end{table}\label{tab:pyr_ampa_connections}
+\end{table}
 
 % Basket GABA Connections
 \begin{table}[htbp]
     \centering
-    \caption[Bwb to Other Cells GABA Connections Summary]{Basket Cell GABAergic Synaptic Connections. This table provides information on the GABA receptor-mediated synaptic connections between basket weave basket cells and other neuronal types. The ``Scale'' factor adjusts the base synaptic weight for experimental analysis. The ``Count'' indicates how many synaptic connections are made, and the ``Weight'' reflects the scaled synaptic efficacy, impacting inhibitory GABAergic transmission.}
+    \caption[Bwb to Other Cells GABA Connections Summary]{Basket Cell GABAergic Synaptic Connections. This table provides information on the GABA receptor-mediated synaptic connections between basket weave basket cells and other neuronal types. The ``Scale'' factor adjusts the base synaptic weight for experimental analysis. The ``Count'' indicates how many synaptic connections are made, and the ``Weight'' reflects the scaled synaptic efficacy, impacting inhibitory GABAergic transmission.}\label{tab:bwb_gaba_connections}
     \begin{tabular}{lccc}
         \hline
         \textbf{Connection} & \textbf{Count} & \textbf{Weight (µS)}            & \textbf{Synapse} \\
@@ -97,12 +97,12 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Bwb to OLM GABA     & 17             & \( \text{scale} \times 0.036 \) & somaGABAf        \\
         \hline
     \end{tabular}
-\end{table}\label{tab:bwb_gaba_connections}
+\end{table}
 
 % OLM GABA Connections
 \begin{table}[htbp]
     \centering
-    \caption[OLM to Pyr GABA Connections Summary]{OLM to Pyramidal GABAergic Synaptic Connections. Presented here are the details of GABA receptor-mediated inhibitory connections from OLM cells to pyramidal neurons. The olm\_to\_pyr\_weight variable represents a specific scaling factor for these connections, potentially derived from experimental data. The ``Count'' column denotes the number of connections, and the ``Weight'' column shows the scaled synaptic strength affecting GABAergic signaling at distal dendritic sites.}
+    \caption[OLM to Pyr GABA Connections Summary]{OLM to Pyramidal GABAergic Synaptic Connections. Presented here are the details of GABA receptor-mediated inhibitory connections from OLM cells to pyramidal neurons. The olm\_to\_pyr\_weight variable represents a specific scaling factor for these connections, potentially derived from experimental data. The ``Count'' column denotes the number of connections, and the ``Weight'' column shows the scaled synaptic strength affecting GABAergic signaling at distal dendritic sites.}\label{tab:olm_gaba_connections}
     \begin{tabular}{lccc}
         \hline
         \textbf{Connection} & \textbf{Count} & \textbf{Weight (µS)}                          & \textbf{Synapse} \\
@@ -111,7 +111,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         OLM to Pyr GABA 2   & 10             & \( \text{olm\_to\_pyr\_weight} \times 1.44 \) & Adend2GABAs      \\
         \hline
     \end{tabular}
-\end{table}\label{tab:olm_gaba_connections}\pagebreak
+\end{table}\pagebreak
 
 \subsection{NetStim parameters}
 \textbf{Note:} For all tables the weight values are given in microsiemens (µS).
@@ -122,7 +122,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\) where h.tstop is 5000 ms,
         adjusting based on the specified interval for each stimulus.
         The pyr\_noise\_scale is used in the \textit{external noise variants} experiment.
-        This results in a target number of spikes over the simulation period.}
+        This results in a target number of spikes over the simulation period.}\label{table:netstimparams_pyr}
     \begin{tabular}{lcccl}
         \hline
         \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (µS)}                    & \textbf{Target} \\
@@ -133,7 +133,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Pyr 4             & 1                      & 1              & 0.012                                   & Adend3GABAf     \\
         Pyr 5             & 100                    & 1              & \(6.5 \cdot \text{pyr\_noise\_scale}\)  & Adend3NMDA      \\ \hline
     \end{tabular}
-\end{table}\label{table:netstimparams_pyr}
+\end{table}
 
 \begin{table}[htbp]
     \centering
@@ -141,7 +141,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\),
         with \(h.tstop\) representing the simulation stop time in ms,
         adjusted based on the specified interval for each stimulus.
-        Different seeds are used for each stimulus instance.}
+        Different seeds are used for each stimulus instance.}\label{tab:noise_to_OLM}
     \begin{tabular}{lcccl}
         \hline
         \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (µS)} & \textbf{Target} \\
@@ -150,14 +150,14 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         OLM 2             & 1                      & 1              & 0.2                  & somaGABAf       \\
         \hline
     \end{tabular}
-\end{table}\label{tab:noise_to_OLM}
+\end{table}
 
 \begin{table}[htbp]
     \centering
     \caption[Noise to BWB Parameters]{Noise to BWB NetStim Parameters Summary.
         The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\),
         where \(h.tstop\) is the simulation stop time in ms. Each stimulus is adjusted based on the specified interval.
-        Different seeds are used for each stimulus instance to introduce variability.}
+        Different seeds are used for each stimulus instance to introduce variability.}\label{tab:noise_to_BWB}
     \begin{tabular}{lcccl}
         \hline
         \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (µS)} & \textbf{Target} \\
@@ -166,7 +166,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Bwb 2             & 1                      & 1              & 0.2                  & somaGABAf       \\
         \hline
     \end{tabular}
-\end{table}\label{tab:noise_to_BWB}
+\end{table}
 
 \begin{table}[htbp]
     \centering
@@ -174,7 +174,7 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         The ``Number'' of spikes for each stimulus is calculated using the formula \((1e3 / \text{Interval}) \cdot h.tstop\),
         with \(h.tstop\) representing the simulation stop time in ms.
         The specified interval for each stimulus defines the rate at which the NetStim will deliver spikes,
-        with a non-random (noise=0) spike generation.}
+        with a non-random (noise=0) spike generation.}\label{tab:noise_from_MS_to_BWB_OLM}
     \begin{tabular}{lcccl}
         \hline
         \textbf{Stimulus} & \textbf{Interval (ms)} & \textbf{Noise} & \textbf{Weight (µS)} & \textbf{Target} \\
@@ -183,4 +183,4 @@ The weight is converted by taking into account that 1e-3 is equivalent to 1 µS.
         Bwb MS            & 150                    & 0              & 1.6                  & somaGABAss      \\
         \hline
     \end{tabular}
-\end{table}\label{tab:noise_from_MS_to_BWB_OLM}
+\end{table}

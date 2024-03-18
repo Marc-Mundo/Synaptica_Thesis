@@ -29,14 +29,14 @@ on GitHub at the following link:
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{model_design.png}
-    \caption[Schematic of the CA3 network model]{Schematic of the CA3 network model.}
+    \caption[Schematic of the CA3 network model]{Schematic of the CA3 network model.}\label{fig:model_design}
     \begin{minipage}{0.9\textwidth}
         The network comprises of many microcircuits with the connectivity as shown in the above figure. Pyr cells (pyramidal), BC cells (basket cells that inhibit soma),
         OLM cells (oriens lacunosum moleculare interneurons that inhibit dendrites), external inputs (mainly from the entorhinal cortex) to Pyr cells, and MS (medial septum).
         BC and OLM cells are stimulated by Pyr cells, while Pyr cells are inhibited by BC and OLM cells.
         Recurrent connections among Pyr cells are excitatory, whereas those among BC cells are inhibitory.
         OLM cells are inhibited by BC cells. The medial septum (MS) delivers inhibitory inputs every 150 ms to BC and OLM cells.
-    \end{minipage}\label{fig:model_design}
+    \end{minipage}
 \end{figure}\pagebreak
 
 \section{Model implementation: cell parameters}
@@ -122,7 +122,7 @@ as follows:
         \(\tau_1\) is the rise time constant, the time it takes for synaptic conductance to increase from baseline to peak.
         \(\tau_2\) is the decay time constant, the time it takes for the conductance to decrease from peak to baseline.
         The conductance indicates the strength of the synaptic connection and its ability to conduct ionic current across the postsynaptic membrane.
-        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}
+        This influences the extent to which the synaptic input can depolarize the postsynaptic neuron and is in nanoSiemens (nS).}\label{tab:synaptic_parameters}
     \begin{tabular}{lllccc}
         \hline
         Presynaptic & Postsynaptic & Receptor & \(\tau_1\) (ms) & \(\tau_2\) (ms) & Conductance (nS) \\
@@ -140,7 +140,7 @@ as follows:
         MS          & Basket       & GABA-A   & 20              & 40              & 1.6              \\
         MS          & OLM          & GABA-A   & 20              & 40              & 1.6              \\
         \hline
-    \end{tabular}\label{tab:synaptic_parameters}
+    \end{tabular}
 \end{table}
 
 \noindent
