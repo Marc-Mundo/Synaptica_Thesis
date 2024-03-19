@@ -100,10 +100,55 @@ the methods section in table~\ref{tab:original_validation_results}.
         \end{tabular}
     \end{adjustbox}
 \end{table}
-
+\pagebreak
 \section{Results of the Sodium-Potassium variants}
 
+\todo[inline]{add some text for the firing rates plot of sodium potassium}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Cell_firing_rates_per_pop_per_variant.png}
+    \caption[Sodium-Potassium variants: Firing rates per population]{Sodium-Potassium variants: Firing rates per population.}\label{fig:sodium_potassium_firing_rates}
+    \begin{minipage}{0.9\textwidth}
+        The above figure shows the firing rates of the Pyr cells, BC cells, and OLM cells for each modified cell type.
+        Each of the three cell types either had modified sodium or potassium conductance.
+        The firing rates were calculated from the spike activity of the cells in each population for the duration of the simulation (5000 ms).
+        The x-axis represents the percentage amount of changed sodium or potassium conductance, times the baseline.
+        The y-axis represents the firing rate in Hz.
+        The firing rates are per cell type: Pyr (blue), Basket (cyan) and OLM (red).
+        The error bars represent the standard error of the mean (SEM) of the firing rates per population.
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Theta_gamma_freqs_variants.png}
+    \caption[Sodium-Potassium variants: Dominant frequencies]{Sodium-Potassium variants: Dominant frequencies.}\label{fig:sodium_potassium_frequencies}
+    \begin{minipage}{0.9\textwidth}
+        The above figure shows the dominant theta-gamma frequencies in the network activity for each modified cell type.
+        Each of the three cell types either had modified sodium or potassium conductance (pyr = blue, OLM = red, basket = cyan).
+        The dominant frequencies were calculated from the local field potential (LFP) for the duration of the simulation (5000 ms).
+        The x-axis represents the percentage amount of changed sodium or potassium conductance, times the baseline.
+        The y-axis represents the dominant frequency in Hz for both theta (3--12 Hz, blue) and gamma (30--80 Hz, orange) oscillatory bands.
+    \end{minipage}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Theta_gamma_power_variants.png}
+    \caption[Sodium-Potassium variants: Theta-Gamma power]{Sodium-Potassium variants: Theta-Gamma power.}\label{fig:sodium_potassium_power}
+    \begin{minipage}{0.9\textwidth}
+        The above figure shows the power of the theta and gamma oscillations in the network for each modified cell type.
+        Each of the three cell types either had modified sodium or potassium conductance (pyr = blue, OLM = red, basket = cyan).
+        The power of the theta and gamma oscillations were calculated from the local field potential (LFP) for the duration of the simulation (5000 ms).
+        The x-axis represents the percentage amount of changed sodium or potassium conductance, times the baseline.
+        The y-axis represents the theta and gamma power (blue and orange, respectively).
+    \end{minipage}
+\end{figure}
+\pagebreak
+
 \section{Results of the External Noise variants}
+
+\todo[inline]{don't forget to add some text to the previous results sections, not just captions under figures.}
 
 \section{Results of the External Noise: Burst analysis}
 
