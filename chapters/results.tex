@@ -150,6 +150,143 @@ the methods section in table~\ref{tab:original_validation_results}.
 
 \todo[inline]{don't forget to add some text to the previous results sections, not just captions under figures.}
 
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_percentage_matrices/DPB_percentage_noise_0.65.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_percentage_matrices/DPB_percentage_noise_0.75.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \bigskip % Adds vertical space between the rows
+
+    % Row 2
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_percentage_matrices/DPB_percentage_noise_0.85.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_percentage_matrices/DPB_percentage_noise_0.95.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \caption[DPB percentage matrices]{Percentage of trials where depolarization block events occurred for all tested noise conditions.
+    The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
+    Modifications to pyramidal cells were applied to all compartments.
+    The color intensity scales from 0 to 100 \%, where high-intensity yellow equals a higher amount of DPB events in a condition.
+    The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_percentage_matrices}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_delay_matrices/DPB_delay_noise_0.65.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_delay_matrices/DPB_delay_noise_0.75.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \bigskip % Adds vertical space between the rows
+
+    % Row 2
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_delay_matrices/DPB_delay_noise_0.85.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_delay_matrices/DPB_delay_noise_0.95.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \caption[DPB delay matrices]{Average delay + Standard deviation of DPB in trials where depolarization block events occurred for all tested noise conditions.
+    The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
+    Modifications to pyramidal cells were applied to all compartments.
+    The color intensity shows the average delay, where high-intensity red equals a shorter delay in DPB events in a condition.
+    The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_delay_matrices}
+\end{figure}
+\pagebreak
 \section{Results of the External Noise: Burst analysis}
+% First page with 3 sub-figures
+\begin{figure}[!htb]
+    \centering
+    % First sub-figure
+    \includegraphics[width=1.0\linewidth]{network_activity_0.80_0.80_1.00.png}
+    \vspace{1em} % Space between the sub-figures
+
+    % Second sub-figure
+    \includegraphics[width=1.0\linewidth]{network_activity_0.80_1.20_1.00.png}
+    \vspace{1em} % Space between the sub-figures
+
+    % Third sub-figure
+    \includegraphics[width=1.0\linewidth]{network_activity_1.00_1.00_1.00.png}
+
+    \caption{Burst detection near the onset of the depolarization block. 
+    Shows the 2nd to last burst before the DPB (inter-ictal, left), the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right).
+    The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). 
+    The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve. 
+    The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}\label{fig:burst_detection}
+\end{figure}
+
+\clearpage % Ensure the continuation starts on a new page
+
+% Second page with 2 sub-figures continued
+\begin{figure}[!htb] \ContinuedFloat% Continue the figure from the previous page
+    \centering
+    % Fourth sub-figure
+    \includegraphics[width=1.0\linewidth]{network_activity_1.20_0.80_1.00.png}
+    \vspace{1em} % Space between the sub-figures
+
+    % Fifth sub-figure
+    \includegraphics[width=1.0\linewidth]{network_activity_1.20_1.20_1.00.png}
+
+    % No need for a new caption or label; it's a continuation
+\end{figure}
 
 \section{Results of the Recurrent Connections variants}
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.00.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.05.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \bigskip % Adds vertical space between the rows
+
+    % Row 2
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.10.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.15.png}
+        \caption{} % Optional caption
+    \end{subfigure}
+
+    \caption[RC DPB percentage matrices (all)]{Percentage of trials where depolarization block events occurred for all tested noise conditions.
+        The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
+        Modifications to pyramidal cells were applied to all compartments.
+        The color intensity shows the average delay, where high-intensity yellow equals higher percentage of DPB events in a condition.
+        The images are labeled from low noise to higher noise (a through e), respectively.}\label{fig:rc_dpb_percentage_matrices}
+\end{figure}
+
+% Page 2
+\begin{figure}[H] \ContinuedFloat
+    \centering
+    % Row 3
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.20.png}
+        \caption{} % Optional caption
+    \end{subfigure}\hfill
+\end{figure}

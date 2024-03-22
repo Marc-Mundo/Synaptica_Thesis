@@ -1,6 +1,8 @@
 \chapter{Methods}
 \todo[inline]{Re-read everything, make sure that the methods for the external noise, burst anlysis of noise and recurrent connections are correct. Double check the convolution methods}
 \todo[inline]{Make sure that the methods for the sodium and potassium variants are correct.}
+\todo[inline]{add examples of depolarization block detection and convolution for both methods.}
+
 \section{Computational model}
 The network model that was used in this research is a custom implementation
 made by \textcite{sanjayImpairedDendriticInhibition2015}. This model is based
@@ -340,6 +342,7 @@ baseline and with reduced dendritic inhibition by the OLM cells. Detection of a
 depolarization block in the basket cells was done by calculating the convoluted
 fire rates of the basket cell population.
 
+
 \noindent The systematic approach to analyzing basket cell firing rates through convolution with a Gaussian window was as follows:
 \begin{itemize}
     \item \textbf{Extracting Spike Times:} The \lstinline{get_spike_times_for_basket_cells}
@@ -366,7 +369,16 @@ fire rates of the basket cell population.
 \noindent
 \textit{This method for detecting depolarization blocks in the basket cell population
     and convolution of spike activities was also used for the recurrent
-    connection strength variants experiment below.}
+    connection strength variants experiment below. See the example in figure~\ref{fig:depolarization_block_basket_cells}.}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Depolarization_block_basket_cells.png}
+    \caption[Depolarization block in basket cells]{Depolarization block in basket cells. Example of a single trial where a depolarization block is found in the convoluted spike activity signal as a flat-line at 0 Hz. The firing rate is in Hz (y-axis) and the signal is calculated over the entire duration of the trial (5000 ms).
+    Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
+    In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:depolarization_block_basket_cells}
+\end{figure}
+\pagebreak
 
 \subsubsection{Analysis of External Noise Variants}
 This section elaborates on the methodological approach undertaken to assess the
@@ -375,6 +387,7 @@ understanding its influence on depolarization block occurrences within the
 network. The experiment's premise was based on the hypothesis that adjusting
 the external noise could modulate the epileptic state, characterized by
 depolarization blocks, within the neural network.
+
 
 \noindent The analysis was structured as follows:
 \begin{enumerate}
@@ -386,7 +399,7 @@ depolarization blocks, within the neural network.
 \end{enumerate}
 
 \noindent The investigative focus on external noise variants sought to delineate the conditions under which the network transitions into an epileptic state, as indicated by the presence of depolarization blocks. Through a comprehensive compilation of quantitative and visual analyses, this study aimed to unravel the complexities of neural dynamics in response to altered external stimulation, thereby contributing to a deeper insight into potential mechanisms for modulating epileptiform activities.
-
+\pagebreak
 \subsection{External noise: Burst analysis}
 Further analysis was conducted to investigate the burst dynamics of pyramidal
 and basket cell activity based on the observations done in the initial
@@ -423,7 +436,17 @@ associated with epileptiform activity.
 The absence of basket cell firing within this window indicated a DPB, which was critical for burst detection.
 This methodology offered a nuanced understanding of epileptiform dynamics, highlighting the transitions of neural populations into and out of depolarization blocks which are indicative of epileptic activity in the network.
 Note that in the burst analysis the 1D-Gaussian convolution was performed on a histogram of the spike times of cells. Whereas in the previous convolution for the matrices, the convolutions were performed using a binary time series of the spike times.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Convolved_Burst_detection_DPB_example.png}
+    \caption[Burst detection example]{Burst detection example. Example of a single trial where bursts in the neural populations are detected near the onset of a DPB using convoluted spike activity signals. The firing rate is in Hz (y-axis) and the signal is calculated over the entire duration of the trial (5000 ms).
+    The onset of a depolarization block in basket cells is indicated by a red dashed vertical line. The last and second to last bursts before, and the first burst after the DPB were detected and used for analysis.
+    Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
+    In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:example_burst_detection}
+\end{figure}
 \pagebreak
+
 \subsection{Recurrent connection strength variants}
 This section describes the methodology employed to analyze the effects of
 varying recurrent connection strengths between basket cells on the incidence
@@ -472,4 +495,5 @@ yet tiny as in the depolarization block there are no firing neurons in the
 basket population. The first 50 ms of the signal were excluded to avoid false
 positives. If the signal remained beneath the threshold for at least 100 ms,
 the condition was considered to be in a depolarization block state. This was
-done for each trial individually.
+done for each trial individually. An example of this can be seen in figure~\ref{fig:depolarization_block_basket_cells}.
+

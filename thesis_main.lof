@@ -1,15 +1,25 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{7}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Sanjay article results: Figure 6}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Sanjay article results: Figure 6}}{12}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Depolarization block in basket cells}}{15}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Burst detection example}}{18}{figure.caption.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{19}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Validation of the firing rates}}{20}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Validation of the firing rates}}{21}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{22}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{23}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{24}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{25}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{21}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Validation of the firing rates}}{22}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Validation of the firing rates}}{23}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{24}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{25}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{26}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{27}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces DPB percentage matrices}}{28}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces DPB delay matrices}}{29}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Burst detection near the onset of the depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left), the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right). The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve. The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}}{30}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces RC DPB percentage matrices (all)}}{32}{figure.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{47}{figure.caption.55}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{50}{figure.caption.58}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{53}{figure.caption.61}%
