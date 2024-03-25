@@ -114,7 +114,21 @@ postsynaptic neuron pairing, as well as the subtype of receptor involved (AMPA,
 NMDA, or GABA-A). These parameters informed the simulation of synaptic inputs,
 which govern the depolarization and hyperpolarization events in the
 postsynaptic neuron membrane, thereby influencing the temporal patterns of
-neuronal firing and network activity. The synaptic connections were implemented
+neuronal firing and network activity. These parameters adhere to the following formula:
+
+\begin{equation}
+    g(t) = \frac{g_{\text{max}}}{\tau_2 - \tau_1} \left( e^{-\frac{t}{\tau_2}} - e^{-\frac{t}{\tau_1}} \right)
+    \end{equation}
+
+The synaptic conductance at a given time \(t\) after a presynaptic spike is represented by \(g(t)\), where \(g_{\text{max}}\) indicates the peak conductance measured in NanoSiemens (nS). 
+The rise and decay of the synaptic conductance are characterized by the time constants \(\tau_1\) and \(\tau_2\), respectively, both of which are measured in milliseconds (ms). 
+Here, \(t\) stands for the time elapsed following the arrival of the presynaptic spike. 
+This model effectively describes the dynamic behavior of synaptic conductance, which initially rises during the onset phase and subsequently undergoes a more prolonged decrease, a pattern common to both excitatory and inhibitory postsynaptic potentials (EPSPs and IPSPs). 
+The variation in the time constants \(\tau_1\) and \(\tau_2\) facilitates the adjustment of the synaptic response's time profile, with \(\tau_1\) influencing the speed of onset and \(\tau_2\) affecting the length of the conductance alteration.
+\pagebreak
+
+\noindent
+The synaptic connections between neurons were implemented
 as follows:
 
 \begin{table}[htbp]
@@ -297,10 +311,9 @@ under different ionic conductance conditions, highlighting potential shifts in
 theta-gamma coupling associated with epileptiform activities.
 
 \subsubsection{Theta-Gamma Power Analysis}
-Complementing the frequency analysis, the power within the theta and gamma
-bands was explored, aiming to quantify the strength of oscillatory activity
-within these critical frequency ranges. Similar to our frequency analysis, a
-\(2\times2\) grid layout facilitated the comparison of theta and gamma power
+In addition to the frequency analysis, the power of theta and gamma oscillations were quantified.
+This step aimed to investigate the intensity of oscillatory activity within these critical frequency bands. 
+Similar to our frequency analysis, a \(2\times2\) grid layout facilitated the comparison of theta and gamma power
 across sodium and potassium variants. This visual representation served to
 elucidate variations in oscillatory power, potentially correlating with changes
 in network excitability and synchronization under altered ionic conditions.\\
