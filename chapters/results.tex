@@ -6,29 +6,53 @@
 In the initial experiment, the baseline activity of the CA3 network was
 observed from the \textit{original model} by
 \textcite{sanjayImpairedDendriticInhibition2015}. The network was simulated for
-5000 ms and showed somewhat synchronous activity throughout all three
+5000 ms and showed synchronous activity throughout all three
 populations (pyr, BC and OLM). Basket cells showed a higher firing rate
-compared to the pyramidal cells and OLM cells. The basket cells seem to swap
-between states of synchrony and asynchrony which is not observed in the other
-two populations. The OLM cells showed a lower firing rate compared to the
+compared to the pyramidal cells and O-LM cells. The basket cells also swapped
+between states of synchrony and asynchrony which was not observed in the other
+two populations. The O-LM cells showed the lowest firing rate compared to the
 pyramidal cells and basket cells. The baseline activity of the CA3 network is
 shown in figure~\ref{fig:baseline_activity}.
 
+The average firing rates of the populations were 2.36 ± 0.024 Hz for pyramidal cells, 
+16.05 ± 0.15 Hz for basket cells, and 0.96 ± 0.027 Hz for O-LM interneurons, 
+similar to observed results from \textcite{neymotinKetamineDisruptsTheta2011} which used the same model on which the Sanjay model is based upon.
+
+Just as reported in the original article, the network produces theta-modulated gamma oscillations 
+within the local field potential (LFP). These oscillations were influenced by signals from the Medial Septum (MS). 
+The gamma oscillations emerged from the inhibitory connections between basket cells that inhibit somas of pyramidal and O-LM cells, 
+as well as interactions among basket cells themselves. Conversely, theta oscillations were the result of interactions between 
+pyramidal cells and O-LM cells that inhibit dendrites. The network achieved a consistent theta frequency of 6.7 Hz due to periodic inputs 
+from the MS to both O-LM and basket cells every 150 ms. The frequency of the gamma component within the LFP was approximately 33 Hz. 
+Despite receiving similar MS inputs as O-LM cells, the impact on basket cells was significantly reduced because of their mutual interactions 
+and the enhanced influence from pyramidal cells.
+
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Network_spike_activity_OLM_baseline.png}
+    \includegraphics[width=1.0\textwidth]{Network_spike_activity_OLM_baseline.png}
     \caption[Baseline activity of the CA3 network]{Baseline activity of the CA3 network.}\label{fig:baseline_activity}
     \begin{minipage}{0.9\textwidth}
-        The above figure shows the baseline activity of the CA3 network. The network was simulated for 5000 ms. The spike activity in time of the Pyr cells, BC cells, and OLM cells are shown based on the Neuron ID\@. ID 0--799 = Pyramidal (blue), 800--999 = BC (green), 1000--1200 = OLM (red). The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
+        The above figure shows the baseline activity of the CA3 network. The network was simulated for 5000 ms. 
+        The spike activity in time of the Pyr cells, BC cells, and OLM cells are shown based on the Neuron ID\@. 
+        ID 0--799 = Pyramidal (blue), 800--999 = BC (green), 1000--1200 = OLM (red). 
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
     \end{minipage}
-\end{figure}i 
-
+\end{figure}
+\pagebreak
 \section{Results of the Model validation}
 To test whether our implementation of the CA3 network was able to replicate
 more elaborate results, results from figure 6 of the original
 \textcite{sanjayImpairedDendriticInhibition2015} article were replicated in
 figure~\ref{fig:validation_firing_rates},~\ref{fig:validation_frequencies} and
-~\ref{fig:validation_power}. The results show that the model was able to
+~\ref{fig:validation_power}.
+
+Like in the original experiment, O-LM-pyramidal connectivity was decreased in decrements of 0.1 and reduced dendritic inhibition.
+Simultaneously, external noise fed to pyramidal cells via AMPA and NMDA at the synaptic level was increased in increments of 0.1. 
+When O-LM-pyramidal connectivity was decreased to a range of 20--10 \%, desynchronization was observed among basket cells.
+Complete desynchronization was observed when the O-LM-pyramidal connectivity was reduced to 0 \%.
+Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustained synchronous activity.
+
+The results show that the model was able to
 replicate the results of the original article with slightly lower firing rates,
 theta-gamma frequencies and power, which can be seen in
 table~\ref{tab:validation_results}. The original article results are visible in
@@ -36,10 +60,10 @@ the methods section in table~\ref{tab:original_validation_results}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Sanjay_validation_firing_rates.png}
+    \includegraphics[width=1.0\textwidth]{Sanjay_validation_firing_rates.png}
     \caption[Validation of the firing rates]{Validation of the firing rates.}\label{fig:validation_firing_rates}
     \begin{minipage}{0.9\textwidth}
-        The above figure shows the firing rates of the Pyr cells, BC cells, and OLM cells when dendritic inhibition is decreased and external noise is increased.
+        The above figure shows the firing rates of the Pyr cells, BC cells, and O-LM cells when dendritic inhibition is decreased and external noise is increased.
         The firing rates were calculated from the spike activity of the cells in each population for the duration of the simulation (5000 ms).
         The double x-axis represents both decrement in the weight of dendritic inhibition on pyramidal cells by OLM interneurons,
         while simultaneously increasing external noise stimulation to pyramidal cells.
@@ -52,11 +76,11 @@ the methods section in table~\ref{tab:original_validation_results}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Sanjay_validation_frequencies.png}
+    \includegraphics[width=1.0\textwidth]{Sanjay_validation_frequencies.png}
     \caption[Validation of the firing rates]{Validation of dominant frequencies.}\label{fig:validation_frequencies}
     \begin{minipage}{0.9\textwidth}
         The above figure shows the dominant theta-gamma frequencies in the network activity when dendritic inhibition is decreased and external noise is increased.
-        The double x-axis represents both decrement in the weight of dendritic inhibition on pyramidal cells by OLM interneurons,
+        The double x-axis represents both decrement in the weight of dendritic inhibition on pyramidal cells by O-LM interneurons,
         while simultaneously increasing external noise stimulation to pyramidal cells.
         External noise levels rise and inhibition decreases by increments of 0.1, each representing a 10\% change relative to the baseline.
         The y-axis represents the dominant frequency in Hz for both theta (3--12 Hz, blue) and gamma (30--80 Hz, orange) oscillatory bands.
@@ -65,11 +89,11 @@ the methods section in table~\ref{tab:original_validation_results}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Sanjay_validation_power.png}
+    \includegraphics[width=1.0\textwidth]{Sanjay_validation_power.png}
     \caption[Validation of the firing rates]{Validation of Theta-Gamma power.}\label{fig:validation_power}
     \begin{minipage}{0.9\textwidth}
         The above figure shows the power of the theta and gamma oscillations in the network when dendritic inhibition is decreased and external noise is increased.
-        The double x-axis represents both decrement in the weight of dendritic inhibition on pyramidal cells by OLM interneurons,
+        The double x-axis represents both decrement in the weight of dendritic inhibition on pyramidal cells by O-LM interneurons,
         while simultaneously increasing external noise stimulation to pyramidal cells.
         External noise levels rise and inhibition decreases by increments of 0.1, each representing a 10\% change relative to the baseline.
         The y-axis represents the theta and gamma power (blue and orange, respectively).
@@ -110,7 +134,7 @@ the methods section in table~\ref{tab:original_validation_results}.
     \includegraphics[width=1.0\textwidth]{Cell_firing_rates_per_pop_per_variant.png}
     \caption[Sodium-Potassium variants: Firing rates per population]{Sodium-Potassium variants: Firing rates per population.}\label{fig:sodium_potassium_firing_rates}
     \begin{minipage}{0.9\textwidth}
-        The above figure shows the firing rates of the Pyr cells, BC cells, and OLM cells for each modified cell type.
+        The above figure shows the firing rates of the Pyr cells, BC cells, and O-LM cells for each modified cell type.
         Each of the three cell types either had modified sodium or potassium conductance.
         The firing rates were calculated from the spike activity of the cells in each population for the duration of the simulation (5000 ms).
         The x-axis represents the percentage amount of changed sodium or potassium conductance, times the baseline.
