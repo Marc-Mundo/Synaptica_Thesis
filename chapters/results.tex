@@ -52,11 +52,38 @@ When O-LM-pyramidal connectivity was decreased to a range of 20--10 \%, desynchr
 Complete desynchronization was observed when the O-LM-pyramidal connectivity was reduced to 0 \%.
 Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustained synchronous activity.
 
+\todo[inline]{insert a picture of network scatterplot at 0 \% and 20 or 10 \% olmpyrweight}
+
 The results show that the model was able to
 replicate the results of the original article with slightly lower firing rates,
 theta-gamma frequencies and power, which can be seen in
 table~\ref{tab:validation_results}. The original article results are visible in
-the methods section in table~\ref{tab:original_validation_results}.
+the methods section in table~\ref{tab:original_validation_results} for comparison.
+
+For the firing rates in figure~\ref{fig:validation_firing_rates},
+there was a notable increase in the firing rates of all neuron types as dendritic inhibition was 
+decreased while external noise was simultaneously increased.
+The individual cell firing frequencies showed a near linear increase throughout in both pyramidal and O-LM cells, 
+being most pronounced in the basket cell population.
+The basket cell population also showed the most variance in the standard deviation at the most extreme 
+condition from the baseline (0.0x OLM-Pyr weight and 2.0x external weight).
+
+The dominant frequencies in the network activity, as shown in figure~\ref{fig:validation_frequencies},
+showed that the theta frequency remained constant, while the gamma frequency only increased as dendritic inhibition was severely decreased and external noise increased.
+The theta frequency remained constant at 6.2 Hz, slightly lower than the original model's 6.7 Hz, due to the strong pacing from the MS at this frequency.
+
+The power of the theta and gamma oscillations in the network, as shown in figure~\ref{fig:validation_power},
+showed that the power of theta oscillations decreased, while the gamma power increased as dendritic inhibition was reduced.
+This shift in power distribution reflects changes in the balance of network excitability and inhibition, potentially leading to epileptic activity.
+The theta power reduced to 5.35 mV\textsuperscript{2} Hz\textsuperscript{-1} to 0 mV\textsuperscript{2} Hz\textsuperscript{-1}.
+The gamma power increased significantly from at 20 to 10 \% O-LM-pyramidal connection. The gamma power increased from 0.93 mV\textsuperscript{2} Hz\textsuperscript{-1} 
+at baseline to 5.82 mV\textsuperscript{2} Hz\textsuperscript{-1} before dropping down to 1.87 mV\textsuperscript{2} Hz\textsuperscript{-1} in the last condition.
+The gamma power was mostly due to basket cell activity, which were much more tightly synchronized than the other cell types.
+
+The trends in the original figures were similar in figure~\ref{fig:validation_original_results} to the ones of this section.
+Therefore, it was assumed that the model was correctly implemented and the results were valid.
+
+\todo[inline]{explain PSD calculation for the theta and gamma power in the methods}.
 
 \begin{figure}[htbp]
     \centering

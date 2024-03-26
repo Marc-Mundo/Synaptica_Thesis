@@ -2,5 +2,7 @@
 \contentsline {todo}{Make sure that the methods for the sodium and potassium variants are correct.}{6}{section*.6}%
 \contentsline {todo}{add examples of depolarization block detection and convolution for both methods.}{6}{section*.7}%
 \contentsline {todo}{fix the captions for the figures, see the article for the correct captions.}{22}{section*.22}%
-\contentsline {todo}{add some text for the firing rates plot of sodium potassium}{28}{section*.28}%
-\contentsline {todo}{don't forget to add some text to the previous results sections, not just captions under figures.}{31}{section*.32}%
+\contentsline {todo}{insert a picture of network scatterplot at 0 \% and 20 or 10 \% olmpyrweight}{24}{section*.24}%
+\contentsline {todo}{explain PSD calculation for the theta and gamma power in the methods}{24}{section*.25}%
+\contentsline {todo}{add some text for the firing rates plot of sodium potassium}{28}{section*.30}%
+\contentsline {todo}{don't forget to add some text to the previous results sections, not just captions under figures.}{31}{section*.34}%
