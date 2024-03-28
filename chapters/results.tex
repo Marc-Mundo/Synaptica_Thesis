@@ -173,9 +173,9 @@ Therefore, it was assumed that the model was correctly implemented and the resul
 \end{table}
 \pagebreak
 \section{Results of the Sodium-Potassium variants}
-
-\todo[inline]{add some text for the firing rates plot of sodium potassium}
-
+In this experiment, the sodium and potassium conductance of the pyramidal, basket, and O-LM cells were modified in increments of 0.1.
+This was done in a range of 0.5 to 1.5 times the baseline conductance.
+Similarly to the previous experiment, the network was simulated for 5000 ms and the firing rates, dominant frequencies, and power of the theta and gamma oscillations were calculated in figures~\ref{fig:sodium_potassium_firing_rates},~\ref{fig:sodium_potassium_frequencies} and~\ref{fig:sodium_potassium_power}, respectively.
 
 \begin{figure}[htbp]
     \centering
@@ -192,6 +192,45 @@ Therefore, it was assumed that the model was correctly implemented and the resul
     \end{minipage}
 \end{figure}
 
+\subsection{Firing rates: Pyramidal cells}
+In figure~\ref{fig:sodium_potassium_firing_rates}, the firing rates of pyramidal cells showed the largest change when the sodium conductance (\(g_{\text{Na}}\)) of O-LM cells was modified.
+When the sodium conductance of O-LM cells (dendrite-inhibiting) was decreased, the firing rate of pyramidal cells increased, and vice versa.
+Sodium conductance of basket cells (soma-inhibiting) was also modified. Interestingly, the firing rate of pyramidal cells was unaffected when \(g_{\text{Na}}\) was increased.
+However, when \(g_{\text{Na}}\) was decreased by more than 30 \% the firing rate of pyramidal cells increased sharply.
+Lastly, increasing the \(g_{\text{Na}}\) in the pyramidal cells themselves led only to a marginal in- and decrease in firing rates.
+
+Changing the potassium conductance (\(g_{\text{K}}\)) had more profound effects on pyramidal firing rates.
+When the potassium conductance of O-LM cells was increased, the firing rate of pyramidal cells decreased, and vice versa.
+Changing \(g_{\text{K}}\) of basket cells had almost no effect on the firing rate of pyramidal cells.
+However, when the potassium conductance of pyramidal cells was modified, the effect of potassium on the pyramidal firing rates were almost the exact opposite of modified the O-LM cells.
+
+\subsection{Firing rates: Basket cells}
+Compared to pyramidal cell firing rates, the basket cell population has some significantly different trends in firing rates.
+When the \(g_{\text{Na}}\) of O-LM cells was modified, the firing rate of basket cells decreased, and vice versa.
+Interestingly, at -40 \% \(g_{\text{Na}}\) of O-LM the firing rate peaks and then decreases sharply, instead of a linear decrease.
+Changing the \(g_{\text{Na}}\) of pyramidal cells had barely any effect on the firing rate of basket cells.
+Whereas changing the \(g_{\text{Na}}\) of basket cells themselves, led to a sharp decrease in firing rate at -30 \% \(g_{\text{Na}}\) and a complete loss of firing at a -40 \%  \(g_{\text{Na}}\).
+Generally, the firing rates were much higher and the effects on the firing rates were more pronounced compared to the pyramidal cells and O-LM cells (with the largest SEM).
+
+Changing the \(g_{\text{K}}\) of basket cells had a similar effect to that of pyramidal population, albeit with larger in- and decreases in Hz.
+Just like the pyramidal firing rates, the basket firing rate increases when O-LM \(g_{\text{K}}\) is increased and vice versa.
+The firing rate of basket cells was unaffected when the \(g_{\text{K}}\) of basket cells was modified.
+Whereas increasing the \(g_{\text{K}}\) of pyramidal cells led to a decrease of basket cell firing rate and vice versa.
+
+\subsection{Firing rates: O-LM cells}
+The O-LM population showed the most unique variations in firing rates.
+When the \(g_{\text{Na}}\) of O-LM cells was modified, the firing rate of O-LM cells increased, and vice versa.
+However, when the \(g_{\text{Na}}\) of basket cells was decreased below -30 \%, the firing rate of O-LM cells increased sharply to more than double the Hz.
+Pyramidal \(g_{\text{Na}}\) had a a weak and linear effect on the O-LM firing rates, where increased \(g_{\text{Na}}\) led to increased firing rates and decreased \(g_{\text{Na}}\) led to decreased firing rates.
+
+Changing the \(g_{\text{K}}\) of O-LM cells had an inverted effect on firing rates compared to \(g_{\text{Na}}\).
+Modifications to basket cell \(g_{\text{K}}\), again, had little to no effect on the firing rate of O-LM cells.
+However, when the \(g_{\text{K}}\) of pyramidal cells was modified, the effect on the O-LM firing rates was almost the same as the O-LM \(g_{\text{K}}\) modifications.
+\pagebreak
+
+\subsection{Dominant frequencies}
+Add general text dominant frequencies.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Theta_gamma_freqs_variants.png}
@@ -204,6 +243,15 @@ Therefore, it was assumed that the model was correctly implemented and the resul
         The y-axis represents the dominant frequency in Hz for both theta (3--12 Hz, blue) and gamma (30--80 Hz, orange) oscillatory bands.
     \end{minipage}
 \end{figure}
+
+\subsubsection{Theta frequency}
+Add text theta frequency for sodium and potassium.
+\subsubsection{Gamma frequency}
+Add text gamma frequency for sodium and potassium.
+
+\subsection{Theta-gamma power}
+Add general text theta-gamma power.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Theta_gamma_power_variants.png}
@@ -216,6 +264,12 @@ Therefore, it was assumed that the model was correctly implemented and the resul
         The y-axis represents the theta and gamma power (blue and orange, respectively).
     \end{minipage}
 \end{figure}
+
+\subsubsection{Theta power}
+Add theta power results here for sodium and potassium.
+\subsubsection{Gamma power}
+Add gamma power results here for sodium and potassium.
+\todo[inline]{add pictures of LFPs theta-gamma power shift, see ppt.}
 \pagebreak
 
 \section{Results of the External Noise variants}
