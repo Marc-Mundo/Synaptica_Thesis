@@ -309,10 +309,23 @@ Basket cell modifications had a more random effect on gamma power, with some mor
 \pagebreak
 
 \section{Results of the External Noise variants}
+Building on the experiment of the sodium-potassium experiment, the network's sensitivity to a range of external noise conditions was tested for different combinations of modified pyramidal sodium/potassium conductance.
+The occurrence of depolarization block events in basket cells were quantified, including the average delay of these events in trials where they occurred.
+The external noise fed to the pyramidal cells was modified in increments of 0.05, ranging from 0.65 to 0.95 times the baseline noise level.
 
-\todo[inline]{This section needs a lot of work.}
 
-\begin{figure}[H]
+\noindent
+\textit{More noise conditions are available for review in appendix~\ref{ch:appendix_c}.}
+
+\subsection{Occurrence of depolarization block events across noise conditions}
+To test the susceptibility of the network to depolarization block (DPB) events, the percentage of trials where DPB events occurred was calculated in figure~\ref{fig:dpb_percentage_matrices}.
+The color intensity of the matrices indicate how often the network entered an epileptic state per noise condition for different combinations of pyramidal cell modifications of sodium and potassium.
+In matrix a in figure~\ref{fig:dpb_percentage_matrices}, there were barely any DPB events in the 15 trials per condition. Most of the DPB events occurred near baseline \(g_{\text{Na}}\) and \(g_{\text{K}}\) conditions and with elevated \(g_{\text{K}}\) only.
+In matrix b, the number of DPB events increased significantly, with the most events occurring at elevated pyramidal sodium conductance conditions.
+Matrix c showed a similar trend to matrix b, with more DPB events occurring also at more severely elevated pyramidal potassium conductance conditions.
+Matrix d showed the most DPB events, with the most events occurring at elevated pyramidal sodium conductance conditions with the exception of severely reduced sodium and potassium conductance combinations (bottom left).
+
+\begin{figure}[htbp]
     \centering
     % Row 1
     \begin{subfigure}{0.48\textwidth}
@@ -343,7 +356,14 @@ Basket cell modifications had a more random effect on gamma power, with some mor
     The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_percentage_matrices}
 \end{figure}
 
-\begin{figure}[H]
+\subsection{Average delay of depolarization block events across noise conditions}
+The average delay (+ standard deviation) of depolarization block (DPB) events was calculated in trials where these events occurred in figure~\ref{fig:dpb_delay_matrices}.
+These matrices showed similar trends to the DPB percentage matrices, with the average delay of DPB events being the shortest in the conditions where the most DPB events occurred.
+These same conditions are associated with the the shortest average delay of DPB events and least standard deviation (\ref{fig:dpb_delay_matrices}, c and d).
+
+\todo[inline, color=red]{Add more text here. This is where I left off!}
+
+\begin{figure}[htbp]
     \centering
     % Row 1
     \begin{subfigure}{0.48\textwidth}
@@ -375,6 +395,7 @@ Basket cell modifications had a more random effect on gamma power, with some mor
     The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_delay_matrices}
 \end{figure}
 \pagebreak
+
 \section{Results of the External Noise: Burst analysis}
 % First page with 3 sub-figures
 \begin{figure}[!htb]
@@ -427,7 +448,7 @@ Basket cell modifications had a more random effect on gamma power, with some mor
 \end{figure}
 
 \section{Results of the Recurrent Connections variants}
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
     % Row 1
     \begin{subfigure}{0.48\textwidth}
