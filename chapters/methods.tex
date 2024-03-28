@@ -1,7 +1,6 @@
 \chapter{Methods}
 \todo[inline]{Re-read everything, make sure that the methods for the external noise, burst anlysis of noise and recurrent connections are correct. Double check the convolution methods}
 \todo[inline]{Make sure that the methods for the sodium and potassium variants are correct.}
-\todo[inline]{add examples of depolarization block detection and convolution for both methods.}
 
 \section{Computational model}
 The network model that was used in this research is a custom implementation
@@ -124,6 +123,26 @@ The rise and decay of the synaptic conductance are characterized by the time con
 Here, \(t\) stands for the time elapsed following the arrival of the presynaptic spike. 
 This model effectively describes the dynamic behavior of synaptic conductance, which initially rises during the onset phase and subsequently undergoes a more prolonged decrease, a pattern common to both excitatory and inhibitory postsynaptic potentials (EPSPs and IPSPs). 
 The variation in the time constants \(\tau_1\) and \(\tau_2\) facilitates the adjustment of the synaptic response's time profile, with \(\tau_1\) influencing the speed of onset and \(\tau_2\) affecting the length of the conductance alteration.
+For the parameters used, see table~\ref{table:compartment_dependent_parameters} and~\ref{tab:synaptic_parameters}.
+\begin{table}[htbp]
+    \centering
+    \caption[Compartment dependent parameters]{Compartment dependent parameters used in the formulations of the three neuronal cell types according to equation 2.4. 
+    See appendix~\ref{ch:appendix_a} for the full equations. 
+    The ionic conductances are in mS/cm\(^2\).}\label{table:compartment_dependent_parameters}
+    \begin{tabular}{l|cccccccccc}
+        \hline
+        \hline
+               & \( g_{h} \) & \( g_{A} \) & \( g_{Na} \) & \( g_{K} \) & \( V_{50} \) & \( b \) & \( c \) & \( d \) & \( e \) & \( f \) \\
+        \hline
+        Bdend  & 0.1         & 48          & 32           & 10          & -82          & 1       & 4       & 1.5     & 11      & 0.825   \\
+        Soma   & 0.1         & 48          & 32           & 10          & -82          & 0.8     & 4       & 1.5     & 11      & 0.825   \\
+        Adend1 & 0.2         & 72          & 32           & 10          & -82          & 0.5     & 4       & 1.5     & 11      & 0.825   \\
+        Adend2 & 0.4         & 120         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
+        Adend3 & 0.7         & 200         & 32           & 10          & -90          & 0.5     & 2       & 1.8     & -1      & 0.7     \\
+        \hline
+        \hline
+    \end{tabular}
+\end{table}
 \pagebreak
 
 \noindent
@@ -317,14 +336,12 @@ across sodium and potassium variants. This visual representation served to
 elucidate variations in oscillatory power, potentially correlating with changes
 in network excitability and synchronization under altered ionic conditions.\\
 
-\noindent Throughout the analysis, specific attention was given
-to maintaining consistency in data representation and visualization aesthetics,
-ensuring that the generated plots provided a coherent and comprehensive
-overview of our findings. This visualization strategy not only enabled the
-detailed examination of neuronal activity patterns but also supported the
-identification of key differences and similarities between sodium and potassium
-variant conditions, offering insights into the underlying mechanisms driving
-network behavior in response to ionic conductance modifications.
+\subsubsection{Power Spectral Density (PSD) Calculation}
+The aforementioned theta-gamma analyses used the \lstinline{calc_psd} function to compute the power spectral density (PSD) of an LFP signal, focusing on theta (3--12 Hz) and gamma (30--80 Hz) frequencies. 
+Initial signal processing includes discarding the first millisecond to avoid transient effects and down-sampling according to a predefined maximum frequency (\textit{fmax}). 
+The PSD calculation uses a Fast Fourier Transform (FFT) approach, adjusting for the signal mean. 
+For both theta and gamma ranges, the function identifies relevant frequencies, calculates mean power by averaging power values within these ranges, and identifies the dominant frequency by locating the frequency with the maximum power value. 
+This analysis facilitated the quantification of signal power and rhythmic activity within specific frequency bands, essential for understanding neural dynamics in these ranges.
 
 \subsection{External noise variants}
 In this experiment, the external noise fed into the pyramidal cells was set a

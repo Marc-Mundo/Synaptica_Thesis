@@ -48,11 +48,33 @@ figure~\ref{fig:validation_firing_rates},~\ref{fig:validation_frequencies} and
 
 Like in the original experiment, O-LM-pyramidal connectivity was decreased in decrements of 0.1 and reduced dendritic inhibition.
 Simultaneously, external noise fed to pyramidal cells via AMPA and NMDA at the synaptic level was increased in increments of 0.1. 
-When O-LM-pyramidal connectivity was decreased to a range of 20--10 \%, desynchronization was observed among basket cells.
-Complete desynchronization was observed when the O-LM-pyramidal connectivity was reduced to 0 \%.
+When O-LM-pyramidal connectivity was decreased to a range of 20--10 \%, desynchronization was observed among basket cells (figure~\ref{fig:scatterplot_20_con_olm_pyr}).
+Complete desynchronization was observed when the O-LM-pyramidal connectivity was reduced to 0 \% (figure~\ref{fig:scatterplot_0_con_olm_pyr}).
 Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustained synchronous activity.
 
-\todo[inline]{insert a picture of network scatterplot at 0 \% and 20 or 10 \% olmpyrweight}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Olm_pyr_20_con_scatter.png}
+    \caption[20 \% OLM-Pyr connection scatter plot]{Scatter plot of the network activity at 20 \% OLM-Pyr connection}\label{fig:scatterplot_20_con_olm_pyr}
+    \begin{minipage}{0.9\textwidth}
+        The above figure shows the network activity at 20 \% OLM-Pyr connection with significant asynchrony amongst the basket cells.
+        The network was simulated for 5000 ms. 
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red). 
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Olm_pyr_no_connection_scatter.png}
+    \caption[0 \% OLM-Pyr connection scatter plot]{Scatter plot of the network activity at 0 \% OLM-Pyr connection}\label{fig:scatterplot_0_con_olm_pyr}
+    \begin{minipage}{0.9\textwidth}
+        The above figure shows the network activity at 0 \% OLM-Pyr connection with complete asynchrony amongst the basket cells.
+        The network was simulated for 5000 ms. 
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red). 
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+    \end{minipage}
+\end{figure}
 
 The results show that the model was able to
 replicate the results of the original article with slightly lower firing rates,
@@ -82,8 +104,6 @@ The gamma power was mostly due to basket cell activity, which were much more tig
 
 The trends in the original figures were similar in figure~\ref{fig:validation_original_results} to the ones of this section.
 Therefore, it was assumed that the model was correctly implemented and the results were valid.
-
-\todo[inline]{explain PSD calculation for the theta and gamma power in the methods}.
 
 \begin{figure}[htbp]
     \centering
@@ -155,6 +175,7 @@ Therefore, it was assumed that the model was correctly implemented and the resul
 \section{Results of the Sodium-Potassium variants}
 
 \todo[inline]{add some text for the firing rates plot of sodium potassium}
+
 
 \begin{figure}[htbp]
     \centering
@@ -268,34 +289,48 @@ Therefore, it was assumed that the model was correctly implemented and the resul
 \begin{figure}[!htb]
     \centering
     % First sub-figure
-    \includegraphics[width=1.0\linewidth]{network_activity_0.80_0.80_1.00.png}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{network_activity_0.80_0.80_1.00.png}
+        \caption{} % Optional caption or label
+    \end{subfigure}
     \vspace{1em} % Space between the sub-figures
 
     % Second sub-figure
-    \includegraphics[width=1.0\linewidth]{network_activity_0.80_1.20_1.00.png}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{network_activity_0.80_1.20_1.00.png}
+        \caption{} % Optional caption or label
+    \end{subfigure}
     \vspace{1em} % Space between the sub-figures
 
     % Third sub-figure
-    \includegraphics[width=1.0\linewidth]{network_activity_1.00_1.00_1.00.png}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{network_activity_1.00_1.00_1.00.png}
+        \caption{} % Optional caption or label
+    \end{subfigure}
 
-    \caption{Burst detection near the onset of the depolarization block. 
-    Shows the 2nd to last burst before the DPB (inter-ictal, left), the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right).
+    \caption{Burst detection near the onset of the depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left), 
+    the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right). 
     The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). 
     The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve. 
     The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}\label{fig:burst_detection}
 \end{figure}
-
 \clearpage % Ensure the continuation starts on a new page
 
 % Second page with 2 sub-figures continued
 \begin{figure}[!htb] \ContinuedFloat% Continue the figure from the previous page
     \centering
     % Fourth sub-figure
-    \includegraphics[width=1.0\linewidth]{network_activity_1.20_0.80_1.00.png}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{network_activity_1.20_0.80_1.00.png}
+        \caption{} % Optional caption or label
+    \end{subfigure}
     \vspace{1em} % Space between the sub-figures
 
     % Fifth sub-figure
-    \includegraphics[width=1.0\linewidth]{network_activity_1.20_1.20_1.00.png}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{network_activity_1.20_1.20_1.00.png}
+        \caption{} % Optional caption or label
+    \end{subfigure}
 
     % No need for a new caption or label; it's a continuation
 \end{figure}
@@ -329,15 +364,5 @@ Therefore, it was assumed that the model was correctly implemented and the resul
         The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
         Modifications to pyramidal cells were applied to all compartments.
         The color intensity shows the average delay, where high-intensity yellow equals higher percentage of DPB events in a condition.
-        The images are labeled from low noise to higher noise (a through e), respectively.}\label{fig:rc_dpb_percentage_matrices}
-\end{figure}
-
-% Page 2
-\begin{figure}[H] \ContinuedFloat% Continue the figure from the previous page
-    \centering
-    % Row 3
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\linewidth]{DPB_RC_Percentages/DPB_percentages_RC_1.20.png}
-        \caption{} % Optional caption
-    \end{subfigure}\hfill
+        The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:rc_dpb_percentage_matrices}
 \end{figure}

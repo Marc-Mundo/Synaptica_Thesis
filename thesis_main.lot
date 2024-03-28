@@ -1,26 +1,27 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{10}{table.caption.9}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Summary of Original Network Simulation Parameters and Results}}{12}{table.caption.10}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Compartment dependent parameters}}{9}{table.caption.8}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{10}{table.caption.9}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Summary of Original Network Simulation Parameters and Results}}{12}{table.caption.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of Model validation: Network simulation Parameters and Results}}{25}{table.caption.29}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of Model validation: Network simulation Parameters and Results}}{26}{table.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Sodium variant: Pyramidal cell}}{42}{table.caption.41}%
-\contentsline {table}{\numberline {B.2}{\ignorespaces Sodium variant: Basket cell}}{42}{table.caption.42}%
-\contentsline {table}{\numberline {B.3}{\ignorespaces Sodium variant: OLM cell}}{43}{table.caption.43}%
-\contentsline {table}{\numberline {B.4}{\ignorespaces Potassium variant: Pyramidal cell}}{43}{table.caption.44}%
-\contentsline {table}{\numberline {B.5}{\ignorespaces Potassium variant: Basket cell}}{43}{table.caption.45}%
-\contentsline {table}{\numberline {B.6}{\ignorespaces Potassium variant: OLM cell}}{44}{table.caption.46}%
-\contentsline {table}{\numberline {B.7}{\ignorespaces Compartment dependent parameters}}{44}{table.caption.47}%
-\contentsline {table}{\numberline {B.8}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{45}{table.caption.48}%
-\contentsline {table}{\numberline {B.9}{\ignorespaces Pyr to Other Cells NMDA Connections Summary}}{45}{table.caption.49}%
-\contentsline {table}{\numberline {B.10}{\ignorespaces Pyr to Other Cells AMPA Connections Summary}}{46}{table.caption.50}%
-\contentsline {table}{\numberline {B.11}{\ignorespaces Bwb to Other Cells GABA Connections Summary}}{46}{table.caption.51}%
-\contentsline {table}{\numberline {B.12}{\ignorespaces OLM to Pyr GABA Connections Summary}}{46}{table.caption.52}%
-\contentsline {table}{\numberline {B.13}{\ignorespaces NetStim Parameters Pyramidal cells}}{47}{table.caption.53}%
-\contentsline {table}{\numberline {B.14}{\ignorespaces Noise to OLM Parameters}}{47}{table.caption.54}%
-\contentsline {table}{\numberline {B.15}{\ignorespaces Noise to BWB Parameters}}{47}{table.caption.55}%
-\contentsline {table}{\numberline {B.16}{\ignorespaces Noise from MS to BWB \& OLM Parameters}}{48}{table.caption.56}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces Sodium variant: Pyramidal cell}}{43}{table.caption.41}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Sodium variant: Basket cell}}{43}{table.caption.42}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Sodium variant: OLM cell}}{44}{table.caption.43}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Potassium variant: Pyramidal cell}}{44}{table.caption.44}%
+\contentsline {table}{\numberline {B.5}{\ignorespaces Potassium variant: Basket cell}}{44}{table.caption.45}%
+\contentsline {table}{\numberline {B.6}{\ignorespaces Potassium variant: OLM cell}}{45}{table.caption.46}%
+\contentsline {table}{\numberline {B.7}{\ignorespaces Compartment dependent parameters}}{45}{table.caption.47}%
+\contentsline {table}{\numberline {B.8}{\ignorespaces Synaptic Parameters for the Connectivity Between Neurons in the Model}}{46}{table.caption.48}%
+\contentsline {table}{\numberline {B.9}{\ignorespaces Pyr to Other Cells NMDA Connections Summary}}{46}{table.caption.49}%
+\contentsline {table}{\numberline {B.10}{\ignorespaces Pyr to Other Cells AMPA Connections Summary}}{47}{table.caption.50}%
+\contentsline {table}{\numberline {B.11}{\ignorespaces Bwb to Other Cells GABA Connections Summary}}{47}{table.caption.51}%
+\contentsline {table}{\numberline {B.12}{\ignorespaces OLM to Pyr GABA Connections Summary}}{47}{table.caption.52}%
+\contentsline {table}{\numberline {B.13}{\ignorespaces NetStim Parameters Pyramidal cells}}{48}{table.caption.53}%
+\contentsline {table}{\numberline {B.14}{\ignorespaces Noise to OLM Parameters}}{48}{table.caption.54}%
+\contentsline {table}{\numberline {B.15}{\ignorespaces Noise to BWB Parameters}}{48}{table.caption.55}%
+\contentsline {table}{\numberline {B.16}{\ignorespaces Noise from MS to BWB \& OLM Parameters}}{49}{table.caption.56}%
 \addvspace {10\p@ }

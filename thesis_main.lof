@@ -1,25 +1,27 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{7}{figure.caption.7}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Sanjay article results: Figure 6}}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Depolarization block in basket cells}}{16}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Burst detection example}}{19}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Depolarization block in basket cells}}{16}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Burst detection example}}{19}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{23}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Validation of the firing rates}}{25}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Validation of the firing rates}}{26}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{27}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{28}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{29}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{30}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces DPB percentage matrices}}{31}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces DPB delay matrices}}{32}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Burst detection near the onset of the depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left), the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right). The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve. The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}}{33}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces RC DPB percentage matrices (all)}}{35}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 20 \% OLM-Pyr connection scatter plot}}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 0 \% OLM-Pyr connection scatter plot}}{25}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{27}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Validation of the firing rates}}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Validation of the firing rates}}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{30}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{31}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{32}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces DPB percentage matrices}}{33}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces DPB delay matrices}}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Burst detection near the onset of the depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left), the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right). The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve. The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}}{35}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces RC DPB percentage matrices (all)}}{37}{figure.caption.40}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{50}{figure.caption.57}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{53}{figure.caption.60}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{56}{figure.caption.63}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{51}{figure.caption.57}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{54}{figure.caption.60}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{57}{figure.caption.63}%
