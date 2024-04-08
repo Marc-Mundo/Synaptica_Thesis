@@ -12,15 +12,19 @@ The chapter then discusses the role of computational modeling in neuroscience.
 Finally, the chapter discusses the literature gap that this research aims to address.
 
 \subsection{Introduction to Epilepsy and Its Complexity}
-Epilepsy is a neurological disorder characterized by recurrent seizures, cognitive 
-challenges, language difficulties, and an increased risk of mental health issues, 
+Epilepsy is a neurological disorder characterized recurrent seizures. 
+Seizures have to be two or more unprovoked and more than 24 hours apart, a single unprovoked
+seizure with a high recurrence risk (>60 \% over the next 10 years); or the patient needs to have been previously diagnosed with an epilepsy syndrome.
+Patients with epilepsy usually also suffer cognitive challenges, language difficulties, and an increased risk of mental health issues, 
 such as anxiety and depression~\parencite{fisherILAEOfficialReport2014}. At its core, epilepsy 
-involves an imbalance between excitatory and inhibitory processes within the brain, 
-making it a kind of network disorder. This imbalance can originate in specific brain 
-regions and spread, affecting various areas and leading to seizures.
+involves an imbalance between excitatory and inhibitory processes within the brain. 
+This imbalance can originate in specific brain regions and spread, affecting various interconnected areas 
+outside of the epileptogenic zone~\parencite{ludersEpileptogenicZoneGeneral2006}.
+The minimum amount of brain tissue of an associated region that initiates a seizure is therefore not fixed and is the 
+reason epilepsy is often though of as a network disorder.
 
 \subsection{Temporal Lobe Epilepsy: A Closer Look}
-Temporal Lobe Epilepsy (TLE), the most prevalent form of epilepsy in adults, 
+Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults, 
 impacts over 50 million people globally. TLE's epileptic events often begin in 
 brain regions like the hippocampus and entorhinal cortex, known for their 
 capacity to independently produce epileptiform activities~\parencite{lyttonComputerSimulationEpilepsy2005}.
@@ -35,6 +39,9 @@ with its dense connections and low epilepsy activation threshold, is particularl
 susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}. Seizures can be 
 triggered by excessive stimulation from the entorhinal cortex, highlighting the 
 complex interplay between different brain regions in TLE\@.
+
+\subsection{Functional Brain Networks in Epilepsy}
+
 
 \subsection{Neural Oscillations and Epilepsy}
 Characteristic neural oscillations in the hippocampus, such as theta (3--12 Hz) 
@@ -52,6 +59,10 @@ activity. These intermittent bursts highlight the underlying dysfunction in
 neural processing characteristic of epileptic networks, even outside of 
 seizure episodes.
 
+\subsection{Sodium and Potassium Channels in Epilepsy}
+Sodium and potassium channels are essential for maintaining the resting
+membrane potential and action potential generation in neurons.
+Dysfunctional sodium and potassium channels can lead to hyperexcitability in neurons.
 \subsection{Computational Modeling in Neuroscience with NEURON}
 The NEURON simulator is a powerful tool for modeling the intricate dynamics 
 of neurons and their networks. It supports detailed simulations of membrane 
@@ -64,13 +75,16 @@ providing invaluable insights into the functioning of the nervous system
 and the development of therapeutic strategies.
 
 \subsection{Aim of the research}
-This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy, by adapting the computational model of the CA3 region of the hippocampus by~\textcite{neymotinKetamineDisruptsTheta2011} in the NEURON simulator.
+This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy, 
+by adapting the computational model of the CA3 region of the hippocampus by~\textcite{neymotinKetamineDisruptsTheta2011} in the NEURON simulator.
 The model consists of 800 pyramidal, 200 O-LM interneurons and 200 basket cells. 
 The baseline model contains enough biophysical detail to replicate homeostatic neural activity, consisting of theta-modulated gamma oscillations.
 
-This research builds upon experiments by~\textcite{sanjayImpairedDendriticInhibition2015}, which focussed on reducing dendritic inhibition, increasing external stimulation and modifying synaptic connectivity as potential causes for TLE\@.
+This research builds upon experiments by~\textcite{sanjayImpairedDendriticInhibition2015}, 
+which focussed on reducing dendritic inhibition, increasing external stimulation and modifying synaptic connectivity as potential causes for TLE\@.
 
-Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network, the sensitivity for external noise in such conditions and the effects varied recurrent connectivity.
+Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network, 
+the sensitivity for external noise in such conditions and the effects varied recurrent connectivity.
 
 \subsection{Literature Gap}
 
