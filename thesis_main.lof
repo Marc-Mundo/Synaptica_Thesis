@@ -1,28 +1,28 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Sanjay article results: Figure 6}}{15}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Depolarization block in basket cells}}{18}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Burst detection example}}{21}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic of the CA3 network model}}{9}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Sanjay article results: Figure 6}}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Depolarization block in basket cells}}{18}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Burst detection example}}{21}{figure.caption.24}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{25}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces 20 \% OLM-Pyr connection scatter plot}}{26}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 0 \% OLM-Pyr connection scatter plot}}{27}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{29}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Validation of the firing rates}}{30}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Validation of the firing rates}}{31}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{32}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{34}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{36}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparative FFT of LFP\spacefactor \@m {}: O-LM variants}}{37}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces DPB percentage matrices}}{39}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces DPB delay matrices}}{40}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Burst detection near the onset of a depolarization block}}{42}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces RC DPB percentage matrices (all)}}{45}{figure.caption.47}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Baseline activity of the CA3 network}}{25}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 20 \% OLM-Pyr connection scatter plot}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 0 \% OLM-Pyr connection scatter plot}}{27}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Validation of the firing rates}}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Validation of the firing rates}}{30}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Validation of the firing rates}}{31}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Sodium-Potassium variants: Firing rates per population}}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{34}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{36}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparative FFT of LFP\spacefactor \@m {}: O-LM variants}}{37}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces DPB percentage matrices}}{39}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces DPB delay matrices}}{40}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Burst detection near the onset of a depolarization block}}{42}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces RC DPB percentage matrices (all)}}{45}{figure.caption.46}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{59}{figure.caption.64}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{62}{figure.caption.67}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{65}{figure.caption.70}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{59}{figure.caption.63}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{62}{figure.caption.66}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{65}{figure.caption.69}%
