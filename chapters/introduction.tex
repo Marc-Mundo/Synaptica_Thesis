@@ -36,28 +36,67 @@ The hippocampus, located in the temporal lobe, is crucial for memory formation
 and retrieval, emotion regulation, and spatial navigation. In TLE, it often 
 serves as the seizure's focal point, especially its CA3 subfield. The CA3 region, 
 with its dense connections and low epilepsy activation threshold, is particularly 
-susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}. Seizures can be 
-triggered by excessive stimulation from the entorhinal cortex, highlighting the 
-complex interplay between different brain regions in TLE\@.
+susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}. 
+Seizures can be triggered by excessive stimulation from higher cortical regions, such as the visual or auditory cortex
+that project to the hippocampus via the entorhinal cortex in TLE\@.
 
-\subsection{Functional Brain Networks in Epilepsy}
+\subsection{Functional Brain Networks and Oscillations}
+How excessive stimulation is handled however, is dependent on the network's intrinsic properties and its functional connectivity.
+The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive function. 
+Perturbations in the connectivity of the CA3 region are common in TLE and directly impacts the working memory (WM)
+of the network~\parencite{arskiOscillatoryBasisWorking2021}. However, the exact mechanisms by which these perturbations lead to epileptiform 
+activity are not well understood. The hippocampus is particularly susceptible to connectivity variability which can be transiently induced by epileptic discharge. 
+This is likely due to the high processing demands for WM~\parencite{aldenkampEffectsEpileptiformEEG2004}.
 
-
-\subsection{Neural Oscillations and Epilepsy}
+The neural assemblies that constitute the circuits in the CA3 region are highly regulated and the transfer of 
+information propagates through specific oscillatory patterns. 
 Characteristic neural oscillations in the hippocampus, such as theta (3--12 Hz) 
-and gamma (30--80 Hz) rhythms, play significant roles in memory and cognition. 
+and gamma (30--80 Hz) rhythms, play significant roles in forming episodic memory and cognition~\parencite{nyhusFunctionalRoleGamma2010}. 
 Epilepsy is associated with alterations in Cross-Frequency Coupling (CFC), where 
 the phase of slower waves modulates the amplitude of faster waves, reflecting 
 disrupted network functionality. Abnormalities in Theta-Gamma Phase-Amplitude 
-Coupling (PAC) correlate with cognitive impairments in epilepsy, underscoring 
-the importance of understanding these oscillations in neurological disorders.
+Coupling (PAC) correlate with cognitive impairments in epilepsy. Therefore, tracking changes
+in these neural oscillations can provide insights into the disease's progression.
 
-\subsection{Interictal Network Dynamics}
-The interictal state, marking intervals between seizures, reveals sporadic 
-spiking in local field potentials (LFPs) indicative of abnormal electrical 
-activity. These intermittent bursts highlight the underlying dysfunction in 
-neural processing characteristic of epileptic networks, even outside of 
-seizure episodes.
+\subsection{Epileptic States}
+Detecting the state of the brain is crucial for predicting and managing seizures, as patients of epilepsy
+only experience the effects of their disease during seizures.
+The gold standard of brain activity detection utilizes the electroencephalogram (EEG), 
+which measures electrical fluctuations ranging from < 1 Hz to several kHz.
+
+The associated brain region of an epilepsy patient when investigated can be in one of three states that have been generally defined using 
+various epilepsy detection algorithms. These classification methods extract epileptic features from the EEG based on comparison of 
+different kernels (Linear, Sigmoid, Grid, etc) The classification accuracy of these methods vary but are fairly high (>98.9 \%) for methods such as
+Support Vector Machine (SVM) or Wavelet Neural Network (WNN) classification~\parencite{yayikEpilepticStateDetection2015}.
+\pagebreak
+
+These general epilepsy states for a patient are defined as follows:
+\begin{itemize}
+    \item \textbf{Inter-ictal State}
+    \begin{itemize}
+        \item \textit{Definition}: The period between seizures, with no active seizure activity.
+        \item \textit{Characterization}: Characterized by inter-ictal spikes or sharp waves in EEG\@.
+        These spikes indicate abnormal electrical discharges that are not actual seizures.
+    \end{itemize}
+    \item \textbf{Ictal State}
+    \begin{itemize}
+        \item \textit{Definition}: The period during which a seizure occurs.
+        \item \textit{Characterization}: EEG shows sustained, rhythmic electrical activity distinct from normal or inter-ictal activity, 
+        with corresponding behavioral symptoms based on seizure type.
+    \end{itemize}
+    \item \textbf{Pre-ictal State}
+    \begin{itemize}
+        \item \textit{Definition}: The period immediately before the onset of a seizure.
+        \item \textit{Characterization}: Marked by subtle and variable changes in EEG and other physiological signals that precede seizures, 
+        crucial for seizure prediction efforts.
+    \end{itemize}
+\end{itemize}
+
+\noindent
+Identification of the aforementioned states provides a benchmark for potential epileptiform activity in a (simulated) network.
+Epilepsy as a whole could be viewed particular brain functioning state, manifested in a multi-state network of coupled oscillatory systems.
+Thus tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights 
+into the network's susceptibility to ictal transitions~\parencite{kalitzinEpilepsyManifestationMultistate2019a}.
 
 \subsection{Sodium and Potassium Channels in Epilepsy}
 In the past 20 years, research has shown that at least half of all epilepsy cases have a genetic basis.
@@ -72,18 +111,22 @@ A lot of epileptic mutations have been found in \textit{voltage-gated} type ion 
 For sodium these are most often related to the brain-expressed SCN family (\textit{SCN1A, SCN2A, SCN3A and SCN8A}, \textcite{brunklausSodiumChannelEpilepsies2020}), 
 or KCNA family for potassium  (\textit{KCNA1 and KCNA2}, \textcite{gaoPotassiumChannelsEpilepsy2022}).
 The SCN gene family is involved in  generalized epilepsy with febrile seizures plus (GEFS+) syndrome, while KCNA in episodic ataxia type 1 (EA1, \textcite{gravesIonChannelsEpilepsy2006}).
-
+\todo[inline]{add more info on the role of these channels in epilepsy.}
 
 \subsection{Computational Modeling in Neuroscience with NEURON}
 The NEURON simulator is a powerful tool for modeling the intricate dynamics 
 of neurons and their networks. It supports detailed simulations of membrane 
 dynamics, synaptic interactions, and the Hodgkin-Huxley model for action 
-potentials. NEURON's Python interface facilitates scripting and integration 
+potentials. The Hodgkin-Huxley model, a cornerstone of computational neuroscience,
+describes the ionic currents underlying action potentials in neurons based
+on non-linear differential equations~\parencite{hodgkinMeasurementCurrentvoltageRelations1952}.
+
+NEURON's Python interface facilitates scripting and integration 
 with other Python-based tools, enhancing its utility in neuroscience research.
 This simulator is crucial for studying neural phenomena, the effects of 
-anti-epileptic drugs, and diseases caused by dysfunctional ion channels, 
+anti-epileptic drugs, and diseases caused by dysfunctional ion channels for sodium and potassium, 
 providing invaluable insights into the functioning of the nervous system 
-and the development of therapeutic strategies.
+and the development of therapeutic strategies~\parencite{miglioreParallelNetworkSimulations2006}.
 
 \subsection{Aim of the research}
 This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy, 
@@ -97,8 +140,5 @@ which focussed on reducing dendritic inhibition, increasing external stimulation
 Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network, 
 the sensitivity for external noise in such conditions and the effects varied recurrent connectivity.
 
-\subsection{Literature Gap}
-
 \section{Research question}
-
-\section{Outline of the thesis}
+Insert research questions here.
