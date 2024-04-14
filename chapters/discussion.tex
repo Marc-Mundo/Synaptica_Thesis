@@ -5,6 +5,29 @@ findings. It also includes the limitations of the research and suggestions for
 future research.
 
 \section{Discussion of the results}
+This study used a computer model of the CA3 subfield of the hippocampus originally developed by \textcite{neymotinKetamineDisruptsTheta2011}.
+This model was used to study the effects of several different parameters that could initiate an epileptic state.
+
+Initially, the implementation of the baseline model was verified to ensure that the model was functioning as expected.
+Similar metrics, to the ones tested in the adaptation by \textcite{sanjayImpairedDendriticInhibition2015} were used to verify the model.
+These metrics included population firing rates and theta-gamma oscillations (power and frequency).
+The experiments by \textcite{sanjayImpairedDendriticInhibition2015} explored the effects of impaired dendritic inhibition in the CA3 network
+as the main cause of epilepsy in the highly vulnerable brain region that is the CA3 subfield.
+
+The results of our baseline model were consistent with the results of the \textcite{sanjayImpairedDendriticInhibition2015} study,
+which made it possible to proceed with variations and additional experiments using the same CA3 model in NEURON simulator.
+
+First, the network dynamics due to dysfunctional voltage-gated ion channels for sodium and potassium 
+were investigated in pyramidal, basket and O-LM cells populations within a CA3 hippocampal network.
+These variations of channel dynamics (conductance) were simulated to resemble epileptic genetic profiles which could be related TLE patients.
+
+In addition to that, the networks susceptibility to external noise was tested by varying the noise level in the network with similar channel dynamics.
+Per trial of a condition, the amount of occurrences of depolarization blocks in the basket cell populations were counted and the average delay in the 
+loss in basket cell activity was calculated.
+
+Lastly, it was explored if the network could be rescued from an epileptic state by gradually increasing the strength of soma inhibition by basket cells 
+by increasing the weight of recurrent connection within the basket cell population. Again, counting the amount of occurrences of depolarization blocks 
+in the basket cell populations.
 
 \section{Implications of the findings}
 
