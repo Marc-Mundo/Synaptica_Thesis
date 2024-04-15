@@ -29,6 +29,25 @@ Lastly, it was explored if the network could be rescued from an epileptic state 
 by increasing the weight of recurrent connection within the basket cell population. Again, counting the amount of occurrences of depolarization blocks 
 in the basket cell populations.
 
+\section{Model assumptions and Observations}
+In the original experiments \textcite{sanjayImpairedDendriticInhibition2015} the authors studied if impaired dendritic 
+inhibition could lead to epileptic activity in the network.
+In their three experiment scenario's, they impaired the dendritic inhibition by O-LM cells on pyramidal cells (1), increased external noise to distal dendrites of pyramidal cells (2),
+and modified the connection strength of all cell types in the network (3). Their findings had no previous experimental validation and a linear relationship was assumed.
+
+In this study, the experiments build upon the observations made by \textcite{sanjayImpairedDendriticInhibition2015} and further explored the network dynamics.
+Simulations were done separately, with step-wise modifications to parameters such as conductance or connection weight.
+This was necessary in order to be able to find the threshold values that could lead to epileptic activity.
+
+In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations.
+
+\subsubsection{Experiment 1: Sodium and Potassium variants}
+In the first experiment, sodium and potassium conductance parameters were modified in each cell type separately 
+to identify which population had the most influence on causing an epileptic network state.
+
+
+
+
 \section{Implications of the findings}
 
 \section{Limitations of the research}
