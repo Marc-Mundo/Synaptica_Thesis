@@ -32,22 +32,61 @@ in the basket cell populations.
 \section{Model assumptions and Observations}
 In the original experiments \textcite{sanjayImpairedDendriticInhibition2015} the authors studied if impaired dendritic 
 inhibition could lead to epileptic activity in the network.
-In their three experiment scenario's, they impaired the dendritic inhibition by O-LM cells on pyramidal cells (1), increased external noise to distal dendrites of pyramidal cells (2),
-and modified the connection strength of all cell types in the network (3). Their findings had no previous experimental validation and a linear relationship was assumed.
+In their three experiment scenario's, they impaired the dendritic inhibition by O-LM cells on pyramidal cells (1), increased external noise to distal 
+dendrites of pyramidal cells (2), and modified the connection strength of all cell types in the network (3). 
+Their findings had no previous experimental validation and a linear relationship was assumed.
 
 In this study, the experiments build upon the observations made by \textcite{sanjayImpairedDendriticInhibition2015} and further explored the network dynamics.
 Simulations were done separately, with step-wise modifications to parameters such as conductance or connection weight.
-This was necessary in order to be able to find the threshold values that could lead to epileptic activity.
+This was necessary in order to be able to determine the extent in which these parameters could potentially lead to epileptic activity.
 
-In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations.
+In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations 
+and simulations ran for 5 seconds in each trial for consistency.
 
-\subsubsection{Experiment 1: Sodium and Potassium variants}
-In the first experiment, sodium and potassium conductance parameters were modified in each cell type separately 
-to identify which population had the most influence on causing an epileptic network state.
+\subsection{Experiment 1: Sodium and Potassium variants}
+In the first experiment, sodium and potassium conductance parameters were modified
+in each cell type separately to identify which population had the most influence
+on firing activity of the other cell types and on the theta-gamma oscillations.
 
+\subsubsection{Pyramidal cells}
+In the case of pyramidal cells, modifications to sodium in O-LM cells had the most 
+significant effect on their firing rate (figure~\ref{fig:sodium_potassium_firing_rates}, left). Similarly to directly 
+reducing dendritic inhibition via modification of connection weight as in scenario 1 of the \textcite{sanjayImpairedDendriticInhibition2015},
+the pyramidal cells showed increased activity in their activity as (\(g_{\text{Na}}\)) for O-LM cells was reduced. 
+This also increased the firing rates of the other two cell types, as they receive inputs from the 
+pyramidal cells (figure~\ref{fig:model_design}). The large increase in basket cell firing rate directly influenced
+the gamma component of the LFP (figure~\ref{fig:sodium_potassium_power}), while O-LM reduced the theta component.
+These findings are consistent with the results of the \textcite{sanjayImpairedDendriticInhibition2015} study.
 
+Out of all the cell types, pyramidal cells show the most linear relationship between the conductance of sodium 
+and potassium channels and their firing rate. Potassium had an oppositely proportional effect on the firing rate of 
+pyramidal cells compared to sodium. This result is somewhat unsurprising considering the role of potassium. In normal action potential
+dynamics, voltage-dependent sodium current depolarizes the membrane via voltage-gated ion channels. As a response so too are
+voltage-activated potassium channels activated that hyperpolarize the membrane potential. This effect inactivates sodium channels
+as the membrane potential goes back to its polarized resting state, which in turn tunes down the firing frequency as observed. 
 
+\subsubsection{Basket cells}
+In the basket cells a similar trend is visible, although the firing rate shift is much more pronounced for both modified ions.
+Again, this is a sensible result, considering the fast acting GABAergic inhibitory role as an interneuron~\parencite{wangGammaOscillationSynaptic1996}. 
+In addition, basket cells contain extensive axonal arborization that allow them to form many connections with pyramidal cells and 
+to other interneurons~\parencite{tukkerDistinctDendriticArborization2013}. Especially, their many connections to cells of their own type,
+might result in highly synchronized firing patterns that were observed in the population activity (Figure~\ref{fig:scatterplot_20_con_olm_pyr}).
+This effect is also expressed in the model, through the many-to-one connection design of the basket cells (Table~\ref{tab:bwb_gaba_connections}).
 
+\subsubsection{O-LM cells}
+O-LM cells had again somewhat linear, but relative small impact on the firing rates.
+Potentially, these effects are dependent on the morphology of the O-LM cells.
+O-LM cells primarily target the distal dendrites of pyramidal cells in the stratum lacunosum moleculare. 
+This targeting influences their firing properties, as the distal dendritic locations typically receive inputs that are less intense or 
+less frequent compared to the somatic or proximal dendritic inputs received by basket cells. Additionally, O-LM cells have less extensive 
+local axonal arborizations compared to basket cells, which limits their range of influence and the synaptic inputs they receive~\parencite{saragaActiveDendritesSpike2003}.
+
+The primary role of O-LM cells is to modulate the input to the hippocampus from the entorhinal cortex, 
+affecting the integration of cortical information. This modulation often requires precise, but less frequent, 
+inhibition compared to the broad, fast inhibition exerted by basket cells on the pyramidal cell bodies. 
+Therefore, their activity is more phasic or conditional, dependent on specific synaptic events that do not necessitate high-frequency firing.
+
+\subsection{Experiment 2: External noise}
 \section{Implications of the findings}
 
 \section{Limitations of the research}
