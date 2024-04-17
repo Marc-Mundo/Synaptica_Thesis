@@ -15,14 +15,15 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Sodium-Potassium variants: Dominant frequencies}}{36}{figure.caption.33}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Sodium-Potassium variants: Theta-Gamma power}}{38}{figure.caption.36}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Comparative FFT of LFP\spacefactor \@m {}: O-LM variants}}{39}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces DPB percentage matrices}}{41}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces DPB delay matrices}}{42}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Burst detection near the onset of a depolarization block}}{44}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces RC DPB percentage matrices (all)}}{47}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces 10 \% O-LM-Pyr connection with increased external noise scatter plot}}{41}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces DPB percentage matrices}}{42}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces DPB delay matrices}}{43}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Burst detection near the onset of a depolarization block}}{45}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces RC DPB percentage matrices (all)}}{48}{figure.caption.46}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{64}{figure.caption.66}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{67}{figure.caption.69}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{70}{figure.caption.72}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces DPB percentage matrices (all)}}{65}{figure.caption.68}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces DPB delay matrices (all)}}{68}{figure.caption.71}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces RC DPB percentage matrices (all)}}{71}{figure.caption.74}%

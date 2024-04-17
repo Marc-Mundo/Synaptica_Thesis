@@ -318,11 +318,31 @@ The external noise fed to the pyramidal cells was modified in increments of 0.05
 \subsection{Occurrence of depolarization block events across noise conditions}
 To test the susceptibility of the network to depolarization block (DPB) events, the percentage of trials where DPB events occurred was calculated in figure~\ref{fig:dpb_percentage_matrices}.
 The color intensity of the matrices indicate how often the network entered an epileptic state per noise condition for different combinations of pyramidal cell modifications of sodium and potassium.
+At baseline sodium-potassium conductance and 20 times noise the network response is visible with a clear depolarization block in basket cells in figure~\ref{fig:scatterplot_1_con_olm_pyr_ext_noise_20x}.
+
 In matrix a in figure~\ref{fig:dpb_percentage_matrices}, there were barely any DPB events in the 15 trials per condition. Most of the DPB events occurred near baseline \(g_{\text{Na}}\) and \(g_{\text{K}}\) conditions and with elevated \(g_{\text{K}}\) only.
+
 In matrix b, the number of DPB events increased significantly, with the most events occurring at elevated pyramidal sodium conductance conditions.
+
 Matrix c showed a similar trend to matrix b, with more DPB events occurring also at more severely elevated pyramidal potassium conductance conditions.
+
 Matrix d showed the most DPB events, with the most events occurring at elevated pyramidal sodium conductance conditions with the exception of severely reduced sodium and potassium conductance combinations (bottom left).
 The selected noise levels are a percentage of the fixed 20x times baseline external noise level (0.65, 0.75, 0.85, 0.95).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{ictal_tonic_baseline_noise_20x_0.10_OLM_pyr.png}
+    \caption[10 \% O-LM-Pyr connection with increased external noise scatter plot]{Scatter plot of the network activity at 10 \% O-LM-Pyr connection with increased external noise}\label{fig:scatterplot_1_con_olm_pyr_ext_noise_20x}
+    \begin{minipage}{1.0\textwidth}
+        The above figure shows the network activity at 10 \% O-LM-Pyr connection with a depolarization block in the basket cell population.
+        There is a clear ictal-tonic pattern in the population activity, along with very high synchronous spiking between O-LM and Pyr cells.
+        The network was simulated for 5000 ms. 
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and O-LM cells (red). 
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+    \end{minipage}
+\end{figure}
+\pagebreak
+
 \begin{figure}[htbp]
     \centering
     % Row 1

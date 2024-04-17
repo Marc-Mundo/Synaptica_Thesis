@@ -3140,10 +3140,13 @@
     <bcf:citekey order="76" intorder="1">wangGammaOscillationSynaptic1996</bcf:citekey>
     <bcf:citekey order="77" intorder="1">vanvreeswijkWhenInhibitionNot1994</bcf:citekey>
     <bcf:citekey order="77" intorder="2">khazipovSynchronizationGABAergicInterneuronal1997</bcf:citekey>
-    <bcf:citekey order="78" intorder="1">ajibolaHypothalamicGlutamateGABA2021</bcf:citekey>
-    <bcf:citekey order="78" intorder="2">micheliMechanisticModelNMDA2021</bcf:citekey>
-    <bcf:citekey order="79" intorder="1">sanjayImpairedDendriticInhibition2015</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">lyttonSimulationsCorticalPyramidal1991</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">ajibolaHypothalamicGlutamateGABA2021</bcf:citekey>
+    <bcf:citekey order="79" intorder="2">micheliMechanisticModelNMDA2021</bcf:citekey>
     <bcf:citekey order="80" intorder="1">sanjayImpairedDendriticInhibition2015</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">sanjayImpairedDendriticInhibition2015</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">sanjayImpairedDendriticInhibition2015</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">sanjayImpairedDendriticInhibition2015</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
