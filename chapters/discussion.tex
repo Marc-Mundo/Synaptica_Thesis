@@ -17,30 +17,30 @@ as the main cause of epilepsy in the highly vulnerable brain region that is the 
 The results of our baseline model were consistent with the results of the \textcite{sanjayImpairedDendriticInhibition2015} study,
 which made it possible to proceed with variations and additional experiments using the same CA3 model in NEURON simulator.
 
-First, the network dynamics due to dysfunctional voltage-gated ion channels for sodium and potassium 
+First, the network dynamics due to dysfunctional voltage-gated ion channels for sodium and potassium
 were investigated in pyramidal, basket and O-LM cells populations within a CA3 hippocampal network.
 These variations of channel dynamics (conductance) were simulated to resemble epileptic genetic profiles which could be related TLE patients.
 
 In addition to that, the networks susceptibility to external noise was tested by varying the noise level in the network with similar channel dynamics.
-Per trial of a condition, the amount of occurrences of depolarization blocks in the basket cell populations were counted and the average delay in the 
+Per trial of a condition, the amount of occurrences of depolarization blocks in the basket cell populations were counted and the average delay in the
 loss in basket cell activity was calculated.
 
-Lastly, it was explored if the network could be rescued from an epileptic state by gradually increasing the strength of soma inhibition by basket cells 
-by increasing the weight of recurrent connection within the basket cell population. Again, counting the amount of occurrences of depolarization blocks 
+Lastly, it was explored if the network could be rescued from an epileptic state by gradually increasing the strength of soma inhibition by basket cells
+by increasing the weight of recurrent connection within the basket cell population. Again, counting the amount of occurrences of depolarization blocks
 in the basket cell populations.
 \pagebreak
 \section{Model assumptions and Observations}
-In the original experiments \textcite{sanjayImpairedDendriticInhibition2015} the authors studied if impaired dendritic 
+In the original experiments \textcite{sanjayImpairedDendriticInhibition2015} the authors studied if impaired dendritic
 inhibition could lead to epileptic activity in the network.
-In their three experiment scenario's, they impaired the dendritic inhibition by O-LM cells on pyramidal cells (1), increased external noise to distal 
-dendrites of pyramidal cells (2), and modified the connection strength of all cell types in the network (3). 
+In their three experiment scenario's, they impaired the dendritic inhibition by O-LM cells on pyramidal cells (1), increased external noise to distal
+dendrites of pyramidal cells (2), and modified the connection strength of all cell types in the network (3).
 Their findings had no previous experimental validation and a linear relationship was assumed.
 
 In this study, the experiments build upon the observations made by \textcite{sanjayImpairedDendriticInhibition2015} and further explored the network dynamics.
 Simulations were done separately, with step-wise modifications to parameters such as conductance or connection weight.
 This was necessary in order to be able to determine the extent in which these parameters could potentially lead to epileptic activity.
 
-In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations 
+In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations
 and simulations ran for 5 seconds in each trial for consistency.
 
 \subsection{Experiment 1: Sodium and Potassium variants}
@@ -49,65 +49,81 @@ in each cell type separately to identify which population had the most influence
 on firing activity of the other cell types and on the theta-gamma oscillations.
 
 \subsubsection{Pyramidal cells}
-In the case of pyramidal cells, modifications to sodium in O-LM cells had the most 
-significant effect on their firing rate (figure~\ref{fig:sodium_potassium_firing_rates}, left). Similarly to directly 
+In the case of pyramidal cells, modifications to sodium in O-LM cells had the most
+significant effect on their firing rate (figure~\ref{fig:sodium_potassium_firing_rates}, left). Similarly to directly
 reducing dendritic inhibition via modification of connection weight as in scenario 1 of the \textcite{sanjayImpairedDendriticInhibition2015},
-the pyramidal cells showed increased activity in their activity as (\(g_{\text{Na}}\)) for O-LM cells was reduced. 
-This also increased the firing rates of the other two cell types, as they receive inputs from the 
+the pyramidal cells showed increased activity in their activity as (\(g_{\text{Na}}\)) for O-LM cells was reduced.
+This also increased the firing rates of the other two cell types, as they receive inputs from the
 pyramidal cells (figure~\ref{fig:model_design}). The large increase in basket cell firing rate directly influenced
 the gamma component of the LFP (figure~\ref{fig:sodium_potassium_power}), while O-LM reduced the theta component.
 These findings are consistent with the results of the \textcite{sanjayImpairedDendriticInhibition2015} study.
 
-Out of all the cell types, pyramidal cells show the most linear relationship between the conductance of sodium 
-and potassium channels and their firing rate. Potassium had an oppositely proportional effect on the firing rate of 
+Out of all the cell types, pyramidal cells show the most linear relationship between the conductance of sodium
+and potassium channels and their firing rate. Potassium had an oppositely proportional effect on the firing rate of
 pyramidal cells compared to sodium. This result is somewhat unsurprising considering the role of potassium. In normal action potential
 dynamics, voltage-dependent sodium current rapidly depolarizes the membrane via voltage-gated ion channels. As a response so too are
 voltage-activated potassium channels activated that hyperpolarize the membrane potential. This effect inactivates sodium channels
-as the membrane potential goes back to its polarized resting state, which in turn tunes down the firing frequency as observed. 
+as the membrane potential goes back to its polarized resting state, which in turn tunes down the firing frequency as observed.
 
 \subsubsection{Basket cells}
 In the basket cells a similar trend is visible, although the firing rate shift is much more pronounced for both modified ions.
-Again, this is a sensible result, considering the fast acting GABAergic inhibitory role as an interneuron~\parencite{wangGammaOscillationSynaptic1996}. 
-In addition, basket cells contain extensive axonal arborization that allow them to form many connections with pyramidal cells and 
+Again, this is a sensible result, considering the fast acting GABAergic inhibitory role as an interneuron~\parencite{wangGammaOscillationSynaptic1996}.
+In addition, basket cells contain extensive axonal arborization that allow them to form many connections with pyramidal cells and
 to other interneurons~\parencite{tukkerDistinctDendriticArborization2013}. Especially, their many connections to cells of their own type,
-might result in highly synchronized firing patterns that were observed in the population activity (Figure~\ref{fig:scatterplot_20_con_olm_pyr}).
+might result in highly synchronized firing patterns that were observed in the population activity (figure~\ref{fig:scatterplot_20_con_olm_pyr}).
 This effect is also expressed in the model, through the many-to-one connection design of the basket cells (Table~\ref{tab:bwb_gaba_connections}).
 
 \subsubsection{O-LM cells}
 O-LM cells had again somewhat linear, but relative small impact on the firing rates.
 Potentially, these effects are dependent on the morphology of the O-LM cells.
-O-LM cells primarily target the distal dendrites of pyramidal cells in the stratum lacunosum moleculare. 
-This targeting influences their firing properties, as the distal dendritic locations typically receive inputs that are less intense or 
-less frequent compared to the somatic or proximal dendritic inputs received by basket cells. Additionally, O-LM cells have less extensive 
+O-LM cells primarily target the distal dendrites of pyramidal cells in the stratum lacunosum moleculare.
+This targeting influences their firing properties, as the distal dendritic locations typically receive inputs that are less intense or
+less frequent compared to the somatic or proximal dendritic inputs received by basket cells. Additionally, O-LM cells have less extensive
 local axonal arborizations compared to basket cells, which limits their range of influence and the synaptic inputs they receive~\parencite{saragaActiveDendritesSpike2003}.
 
-The primary role of O-LM cells is to modulate the input to the hippocampus from the entorhinal cortex, 
-affecting the integration of cortical information~\parencite{leaoOLMInterneuronsDifferentially2012}. This modulation often requires precise, 
-but less frequent, inhibition compared to the broad, fast inhibition exerted by basket cells on the pyramidal cell bodies. 
+The primary role of O-LM cells is to modulate the input to the hippocampus from the entorhinal cortex,
+affecting the integration of cortical information~\parencite{leaoOLMInterneuronsDifferentially2012}. This modulation often requires precise,
+but less frequent, inhibition compared to the broad, fast inhibition exerted by basket cells on the pyramidal cell bodies.
 Therefore, their activity is more phasic or conditional, dependent on specific synaptic events that do not necessitate high-frequency firing.
 
 \subsubsection{Theta-gamma oscillations}
 Interestingly, theta remains relatively stable across all cell types, while gamma oscillations are more affected by the conductance modifications.
-Like in the original studies using the same model by \textcite{sanjayImpairedDendriticInhibition2015,neymotinKetamineDisruptsTheta2011}, 
+Like in the original studies using the same model by \textcite{sanjayImpairedDendriticInhibition2015,neymotinKetamineDisruptsTheta2011},
 theta is resilient to changes in the network. This resilience is mostly due to the strong pacing which is provided to the interneurons by the MS\@.
+For sodium, while the theta component of the LFP appears to change a lot per condition, they are a factor 10 times smaller than does observed in the gamma component.
+With potassium modifications however, only the pyramidal cells seem to resemble a linear relationship with the theta power compared to the other cell types.
+
+Potassium conductance influences the speed at which the membrane potential returns to its resting state.
+In the case of the the studied network, increased potassium conductance potentially causes faster repolarization of action potentials.
+This can shorten the duration of individual spikes and reduce the overall excitability of pyramidal cells, leading to a lower firing rate.
+However, this rapid repolarization can also allow neurons to return more quickly to a state where they can fire again, potentially aiding in
+synchronization~\parencite{mysinMechanismsFunctionsRole2022}.
+Alternatively, The quick recovery of neurons to their resting or near-threshold state can facilitate better phase-locking among neurons within
+the network~\parencite{leungPhasicModulationHippocampal2020a}. This synchronization is crucial for enhancing the coherence and power of network
+oscillations like theta.
+
+GABAergic interneurons, such as the basket and O-LM cells play a significant role in shaping the response of the network.
+As pyramidal cells fire less frequently or less synchronously due to increased potassium conductance,
+basket and O-LM interneurons effectively increase their control over the timing of pyramidal cell output~\parencite{unalSpatiotemporalSpecializationGABAergic2018}.
+This can help enforce a more regimented and synchronized firing pattern in line with the theta rhythm.
 
 Gamma oscillations, on the other hand, are more sensitive to changes in the network. Especially in the case for O-LM modifications of at least -30 \% (\(g_{\text{Na}}\))
-(figure~\ref{fig:sodium_potassium_power}, bottom left). As the O-LM cells disinhibit the pyramidal cells, the basket cells receive more excitatory input which 
+(figure~\ref{fig:sodium_potassium_power}, bottom left). As the O-LM cells disinhibit the pyramidal cells, the basket cells receive more excitatory input which
 increases the gamma component of the LFP\@. The gamma power promptly returns to baseline levels when the O-LM cells are restored to their original conductance.
-Again showcasing, the high sensitivity of basket cells to changes in the network. 
+Again showcasing, the high sensitivity of basket cells to changes in the network.
 
-Classically it is thought that fast gamma oscillations are generated by the recurrent excitation between principle (pyramidal) neurons in 
-generation of the theta-modulated gamma rhythm~\parencite{wangGammaOscillationSynaptic1996}. However, synchronization of basket cells and 
-desynchronization of the other cell types in the more extreme experimental conditions suggests that the synaptic connection might be pivotal 
+Classically it is thought that fast gamma oscillations are generated by the recurrent excitation between principle (pyramidal) neurons in
+generation of the theta-modulated gamma rhythm~\parencite{wangGammaOscillationSynaptic1996}. However, synchronization of basket cells and
+desynchronization of the other cell types in the more extreme experimental conditions suggests that the synaptic connection might be pivotal
 in the observed response (example of such effects in are seen in figures~\ref{fig:scatterplot_20_con_olm_pyr} and~\ref{fig:scatterplot_0_con_olm_pyr}).
 
 Early research has already shown that the type of synaptic input on AMPA type receptors can actually desynchronize, rather than synchronize
-a network of coupled neurons like in the model of this study~\parencite{vanvreeswijkWhenInhibitionNot1994,khazipovSynchronizationGABAergicInterneuronal1997}. 
-Thus, the oscillatory coherence in the network might be more dependent on rhythmic inhibition by fast-spiking interneurons 
-like basket cells~\parencite{lyttonSimulationsCorticalPyramidal1991}. 
+a network of coupled neurons like in the model of this study~\parencite{vanvreeswijkWhenInhibitionNot1994,khazipovSynchronizationGABAergicInterneuronal1997}.
+Thus, the oscillatory coherence in the network might be more dependent on rhythmic inhibition by fast-spiking interneurons
+like basket cells~\parencite{lyttonSimulationsCorticalPyramidal1991}.
 
-More modern investigations seem to support the idea that contrasting neurotransmitter release at the synapse, like glutamate/GABA or NMDA/AMPA co-transmission 
-can regulate input-output dynamics in hippocampal circuits, rather than just membrane 
+More modern investigations seem to support the idea that contrasting neurotransmitter release at the synapse, like glutamate/GABA or NMDA/AMPA co-transmission
+can regulate input-output dynamics in hippocampal circuits, rather than just membrane
 conductance dynamics~\parencite{ajibolaHypothalamicGlutamateGABA2021,micheliMechanisticModelNMDA2021}.
 
 \subsection{Experiment 2: External noise}
@@ -115,15 +131,40 @@ Throughout this experiment, O-LM-pyramidal connection strength was kept at 10 \%
 In the \textcite{sanjayImpairedDendriticInhibition2015} paper, the authors increased the noise through distal dendrites of pyramidal cells up to 15 times,
 where they noticed that the basket cell population entered a depolarization block. Similarly, in this study the presence of a depolarization block is the main factor
 that indicates the pathological state in the CA3 network. In this state the driving force is the increased pyramidal cell activity which lacks dendritic inhibition.
-In this situation, the LFP signal of the network showed an ictal-tonic pattern, as did the 
-population (Figure~\ref{fig:depolarization_block_basket_cells} and~\ref{fig:scatterplot_1_con_olm_pyr_ext_noise_20x}).
+In this situation, the LFP signal of the network showed an ictal-tonic pattern, as did the
+population (figure~\ref{fig:depolarization_block_basket_cells} and~\ref{fig:scatterplot_1_con_olm_pyr_ext_noise_20x}).
+
+Comparing all the noise levels, it is readily apparent that in higher sodium conductance conditions, the network is much more excitable.
+As noise increases, elevated sodium rapidly induces an epileptic state 100 \% of the time even though the jump in external noise goes from 16 to 17 times the
+baseline (0.80 and 0.85 noise levels, figure~\ref{fig:rc_dpb_percentage_matrices}). Likewise, lower sodium levels are far less susceptible to hyperexcitability.
+At around -50 \% (\(g_{\text{Na}}\)), the input from pyramidal cells is barely strong enough to induce a depolarization block even at 20 times baseline noise.
+In combination with elevated potassium, the network showed the most severe susceptibility for epileptic activity.
+From the noise matrices it becomes apparent that the network is quite sensitive to small changes in noise level, where increments of 0.05 in noise levels
+induced significantly more depolarization blocks generally for each condition.
+
 
 
 \subsubsection{Burst Analysis}
+A deeper investigation into the burst activity of the population was performed for basket and pyramidal cells.
+Considering that pyramidal activity is the apparent driving force behind the depolarization block, the exact reason of initiation was unclear.
+Therefore, a closer look at the burst timings and peak sizes reveals that beyond the baseline there are some consistent patterns (figure~\ref{fig:burst_detection}).
 
+During the inter-ictal state the basket cells burst came before the pyramidal cells, whereas all other noise conditions did not show this burst pattern.
+In the pre-ictal state the basket cell burst seemed to shift in time, from before, to after the pyramidal cells burst.
+Thus, it is not always the case that the pyramidal input comes slightly before the basket cell burst, when the population might be in the refractory period and become locked in a depolarization block
+due to the constant excessive excitatory drive.
+The ictal pyramidal activity did not show much variance from the baseline, in shape and in intensity.
+Throughout the trials the intensity of the population burst did not vary as is seen by the very small deviation, but the size of the generated noise also never did.
+This suggests that although the network is very sensitive to noise, the amount of noise does not necessarily the characteristics of the burst activity.
+
+\subsubsection{Recurrent connections of Basket cells}
+The recurrent connections of basket cells were also investigated in this experiment.
 
 \section{Implications of the findings}
+How exactly does it relate to epilepsy?
 
 \section{Limitations of the research}
+Cressman, lacking a proper calcium channel dynamics in the model.
 
 \section{Suggestions for future research}
+Add perhaps actual genetic profiling.

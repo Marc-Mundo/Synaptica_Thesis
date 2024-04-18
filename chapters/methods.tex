@@ -116,19 +116,19 @@ neuronal firing and network activity. These parameters adhere to the following f
 
 \begin{equation}
     g(t) = \frac{g_{\text{max}}}{\tau_2 - \tau_1} \left( e^{-\frac{t}{\tau_2}} - e^{-\frac{t}{\tau_1}} \right)
-    \end{equation}
+\end{equation}
 
-The synaptic conductance at a given time \(t\) after a presynaptic spike is represented by \(g(t)\), where \(g_{\text{max}}\) indicates the peak conductance measured in NanoSiemens (nS). 
-The rise and decay of the synaptic conductance are characterized by the time constants \(\tau_1\) and \(\tau_2\), respectively, both of which are measured in milliseconds (ms). 
-Here, \(t\) stands for the time elapsed following the arrival of the presynaptic spike. 
-This model effectively describes the dynamic behavior of synaptic conductance, which initially rises during the onset phase and subsequently undergoes a more prolonged decrease, a pattern common to both excitatory and inhibitory postsynaptic potentials (EPSPs and IPSPs). 
+The synaptic conductance at a given time \(t\) after a presynaptic spike is represented by \(g(t)\), where \(g_{\text{max}}\) indicates the peak conductance measured in NanoSiemens (nS).
+The rise and decay of the synaptic conductance are characterized by the time constants \(\tau_1\) and \(\tau_2\), respectively, both of which are measured in milliseconds (ms).
+Here, \(t\) stands for the time elapsed following the arrival of the presynaptic spike.
+This model effectively describes the dynamic behavior of synaptic conductance, which initially rises during the onset phase and subsequently undergoes a more prolonged decrease, a pattern common to both excitatory and inhibitory postsynaptic potentials (EPSPs and IPSPs).
 The variation in the time constants \(\tau_1\) and \(\tau_2\) facilitates the adjustment of the synaptic response's time profile, with \(\tau_1\) influencing the speed of onset and \(\tau_2\) affecting the length of the conductance alteration.
 For the parameters used, see table~\ref{table:compartment_dependent_parameters} and~\ref{tab:synaptic_parameters}.
 \begin{table}[htbp]
     \centering
-    \caption[Compartment dependent parameters]{Compartment dependent parameters used in the formulations of the three neuronal cell types according to equation 2.4. 
-    See appendix~\ref{ch:appendix_a} for the full equations. 
-    The ionic conductances are in mS/cm\(^2\).}\label{table:compartment_dependent_parameters}
+    \caption[Compartment dependent parameters]{Compartment dependent parameters used in the formulations of the three neuronal cell types according to equation 2.4.
+        See appendix~\ref{ch:appendix_a} for the full equations.
+        The ionic conductances are in mS/cm\(^2\).}\label{table:compartment_dependent_parameters}
     \begin{tabular}{l|cccccccccc}
         \hline
         \hline
@@ -214,7 +214,9 @@ always pyramidal cells, the next 200 were basket cells and the last 200 were
 OLM cells. For each trial, the individual cell spike times were saved for the
 entire duration of the simulation. Pyramidal cell membrane soma voltage data
 was saved per cell in order to calculate the LFP signal (necessary for
-theta-gamma calculations).
+theta-gamma calculations). In all simulations the LFP is calculated by
+taking the sum of the differences in membrane potential of the distal apical
+and basal dendritic compartments of all cells in the pyramidal population.
 
 \subsection{Baseline activity}
 In order to obtain baseline activity in the network as shown in figure
@@ -330,24 +332,24 @@ theta-gamma coupling associated with epileptiform activities.
 
 \subsubsection{Theta-Gamma Power Analysis}
 In addition to the frequency analysis, the power of theta and gamma oscillations were quantified.
-This step aimed to investigate the intensity of oscillatory activity within these critical frequency bands. 
+This step aimed to investigate the intensity of oscillatory activity within these critical frequency bands.
 Similar to our frequency analysis, a \(2\times2\) grid layout facilitated the comparison of theta and gamma power
 across sodium and potassium variants. This visual representation served to
 elucidate variations in oscillatory power, potentially correlating with changes
 in network excitability and synchronization under altered ionic conditions.\\
 
 \subsubsection{Power Spectral Density (PSD) Calculation}
-The aforementioned theta-gamma analyses used the \lstinline{calc_psd} function to compute the power spectral density (PSD) of an LFP signal, focusing on theta (3--12 Hz) and gamma (30--80 Hz) frequencies. 
-Initial signal processing includes discarding the first millisecond to avoid transient effects and down-sampling according to a predefined maximum frequency (\textit{fmax}). 
-The PSD calculation uses a Fast Fourier Transform (FFT) approach, adjusting for the signal mean. 
-For both theta and gamma ranges, the function identifies relevant frequencies, calculates mean power by averaging power values within these ranges, and identifies the dominant frequency by locating the frequency with the maximum power value. 
+The aforementioned theta-gamma analyses used the \lstinline{calc_psd} function to compute the power spectral density (PSD) of an LFP signal, focusing on theta (3--12 Hz) and gamma (30--80 Hz) frequencies.
+Initial signal processing includes discarding the first millisecond to avoid transient effects and down-sampling according to a predefined maximum frequency (\textit{fmax}).
+The PSD calculation uses a Fast Fourier Transform (FFT) approach, adjusting for the signal mean.
+For both theta and gamma ranges, the function identifies relevant frequencies, calculates mean power by averaging power values within these ranges, and identifies the dominant frequency by locating the frequency with the maximum power value.
 This analysis facilitated the quantification of signal power and rhythmic activity within specific frequency bands, essential for understanding neural dynamics in these ranges.
 
 \subsection{External noise variants}
-In this experiment, the external noise fed into the distal dendrites of 
+In this experiment, the external noise fed into the distal dendrites of
 pyramidal cells was set a new baseline for the 1.0x condition, which was 20 times that of the original
 \textcite{sanjayImpairedDendriticInhibition2015} model. Excitatory inputs were fed through
-AMPA and NMDA receptors. Reduced OLM to pyr connections were kept at 10\% of 
+AMPA and NMDA receptors. Reduced OLM to pyr connections were kept at 10\% of
 the original baseline. This was done because in the original article, epileptic activity was induced by feeding in 20 times
 more external noise at reduced dendritic inhibition.
 
@@ -404,8 +406,8 @@ fire rates of the basket cell population.
     \centering
     \includegraphics[width=1.0\textwidth]{Depolarization_block_basket_cells.png}
     \caption[Depolarization block in basket cells]{Depolarization block in basket cells. Example of a single trial where a depolarization block is found in the convoluted spike activity signal as a flat-line at 0 Hz. The firing rate is in Hz (y-axis) and the signal is calculated over the entire duration of the trial (5000 ms).
-    Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
-    In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:depolarization_block_basket_cells}
+        Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
+        In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:depolarization_block_basket_cells}
 \end{figure}
 \pagebreak
 
@@ -470,9 +472,9 @@ Note that in the burst analysis the 1D-Gaussian convolution was performed on a h
     \centering
     \includegraphics[width=1.0\textwidth]{Convolved_Burst_detection_DPB_example.png}
     \caption[Burst detection example]{Burst detection example. Example of a single trial where bursts in the neural populations are detected near the onset of a DPB using convoluted spike activity signals. The firing rate is in Hz (y-axis) and the signal is calculated over the entire duration of the trial (5000 ms).
-    The onset of a depolarization block in basket cells is indicated by a red dashed vertical line. The last and second to last bursts before, and the first burst after the DPB were detected and used for analysis.
-    Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
-    In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:example_burst_detection}
+        The onset of a depolarization block in basket cells is indicated by a red dashed vertical line. The last and second to last bursts before, and the first burst after the DPB were detected and used for analysis.
+        Note that the signal has to pass the threshold for an extended period of 100 ms to be considered a DPB\@.
+        In addition, the first 50 ms are excluded from detection to avoid false positives. This detection method was done for each individual trial.}\label{fig:example_burst_detection}
 \end{figure}
 \pagebreak
 
