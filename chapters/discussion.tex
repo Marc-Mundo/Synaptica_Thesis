@@ -1,10 +1,5 @@
 \chapter{Discussion}
 
-This chapter holds the discussion of the results and the implications of the
-findings. It also includes the limitations of the research and suggestions for
-future research.
-
-\section{Discussion of the results}
 This study used a computer model of the CA3 subfield of the hippocampus originally developed by \textcite{neymotinKetamineDisruptsTheta2011}.
 This model was used to study the effects of several different parameters that could initiate an epileptic state.
 
@@ -29,6 +24,7 @@ Lastly, it was explored if the network could be rescued from an epileptic state 
 by increasing the weight of recurrent connection within the basket cell population. Again, counting the amount of occurrences of depolarization blocks
 in the basket cell populations.
 \pagebreak
+
 \section{Model assumptions and Observations}
 In the original experiments \textcite{sanjayImpairedDendriticInhibition2015} the authors studied if impaired dendritic
 inhibition could lead to epileptic activity in the network.
@@ -164,14 +160,30 @@ due to the constant excessive excitatory drive.
 
 The ictal pyramidal activity did not show much variance from the baseline, in shape and in intensity.
 Throughout the trials the intensity of the population burst did not vary as is seen by the very small deviation, but the size of the generated noise also never did.
-This suggests that although the network is very sensitive to noise, the amount of noise does not necessarily the characteristics of the burst activity.
+This suggested that the network is quite sensitive to noise. Moreover, the amount of noise did not necessarily determine the characteristics of the bursts themselves.
+
+Pyramidal cells are known to depend on the interaction between glutamatergic and GABAergic receptor activity, a powerful mechanism
+of intra-burst spike frequency modulation~\parencite{dzhalaExcitatoryActionsEndogenously2003}. Although the basket cells do not fire at all after a DPB, the remaining O-LM influence (10 \%)
+on pyramidal cells is perhaps enough to keep the pyramidal burst consistent.
 
 The data suggests that the all-or-none bursting of pyramidal or basket cells is not necessarily dependent on precise timing.
 Rather, the ability for the population to recover from strong synchronized input appeared to be an issue especially for basket cells.
 
+This non-dependence on timing has been explored for the hippocampus by \textcite{menendezdelapridaThresholdBehaviorInitiation2006}, where
+they identified that populations actually go through three phases of firing periodically. These include: a recovery phase (from the previous burst), a plateau period of fluctuating activity,
+and a buildup were the firing rate accelerates just before the burst. These phases are also recognizable in the shown bursts of pyramidal and basket cells in figure~\ref{fig:burst_detection}.
+However, it remains unclear if the timing of the proposed epileptic discharge (near the onset of a DPB) of pyramidal cells actually matters in the initiation of the depolarization block in basket cells.
 
 \subsubsection{Recurrent connections of Basket cells}
-The recurrent connections of basket cells were also investigated in this experiment.
+A further investigation in the depolarization block phenomenon was done in the last experiment.
+Here it was explored if increasing input among basket cells via increasingly stronger recurrent connection strength
+could overpower the massive external drive from the pyramidal cells and rescue the network from entering into the epileptic state.
+
+The twenty times external input from the entorhinal cortex resembles heavy visual or auditory stimuli that possibly triggers
+epilepsy in the CA3 network. Yet the results show that even in the situation of disinhibition by O-LM cells (10 \% connection strength),
+the network can be strengthened to almost completely avoid depolarization blocks in basket cells (figure~\ref{fig:rc_dpb_percentage_matrices}).
+This could suggest that patients suffering from TLE could indeed be helped via anti-epileptic drugs (AEDs) such as benzodiazepines or barbiturates.
+Especially those that specifically stimulate GABAergic interneurons, such as basket cells that can  dampen the firing of pyramidal cells of the hippocampus.
 
 \section{Implications of the findings}
 How exactly does it relate to epilepsy?
