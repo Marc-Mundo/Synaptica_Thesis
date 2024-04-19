@@ -39,7 +39,7 @@ This was necessary in order to be able to determine the extent in which these pa
 In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations
 and simulations ran for 5 seconds in each trial for consistency.
 
-\subsection{Experiment 1: Sodium and Potassium variants}
+\subsection{Sodium and Potassium variants}
 In the first experiment, sodium and potassium conductance parameters were modified
 in each cell type separately to identify which population had the most influence
 on firing activity of the other cell types and on the theta-gamma oscillations.
@@ -122,7 +122,7 @@ More modern investigations seem to support the idea that contrasting neurotransm
 can regulate input-output dynamics in hippocampal circuits, rather than just membrane
 conductance dynamics~\parencite{ajibolaHypothalamicGlutamateGABA2021,micheliMechanisticModelNMDA2021}.
 
-\subsection{Experiment 2: External noise}
+\subsection{External noise variants}
 Throughout this experiment, O-LM-pyramidal connection strength was kept at 10 \% of the baseline value.
 In the \textcite{sanjayImpairedDendriticInhibition2015} paper, the authors increased the noise through distal dendrites of pyramidal cells up to 15 times,
 where they noticed that the basket cell population entered a depolarization block. Similarly, in this study the presence of a depolarization block is the main factor
@@ -172,25 +172,81 @@ Rather, the ability for the population to recover from strong synchronized input
 This non-dependence on timing has been explored for the hippocampus by \textcite{menendezdelapridaThresholdBehaviorInitiation2006}, where
 they identified that populations actually go through three phases of firing periodically. These include: a recovery phase (from the previous burst), a plateau period of fluctuating activity,
 and a buildup were the firing rate accelerates just before the burst. These phases are also recognizable in the shown bursts of pyramidal and basket cells in figure~\ref{fig:burst_detection}.
-However, it remains unclear if the timing of the proposed epileptic discharge (near the onset of a DPB) of pyramidal cells actually matters in the initiation of the depolarization block in basket cells.
 
-\subsubsection{Recurrent connections of Basket cells}
+However, it remains unclear if the timing of the proposed epileptic discharge (near the onset of a DPB) of pyramidal cells actually matters in the initiation of the depolarization block in basket cells.
+There are hints in the literature that sustained inter-ictal and ictal-like activity might even co-occur within the same network, provided the dysfunction of neural populations
+is beyond a certain excitability threshold~\parencite{dzhalaTransitionInterictalIctal2003}.
+
+\subsection{Recurrent connection strength of Basket cells}
 A further investigation in the depolarization block phenomenon was done in the last experiment.
 Here it was explored if increasing input among basket cells via increasingly stronger recurrent connection strength
 could overpower the massive external drive from the pyramidal cells and rescue the network from entering into the epileptic state.
+Similarly to the noise experiment, in enhanced excitatory conditions with high sodium and potassium conductance it was significantly less effective to reduce
+the amount of DPBs via enhanced recurrent inhibition.
 
 The twenty times external input from the entorhinal cortex resembles heavy visual or auditory stimuli that possibly triggers
-epilepsy in the CA3 network. Yet the results show that even in the situation of disinhibition by O-LM cells (10 \% connection strength),
+epilepsy in a CA3 network. Nevertheless, the results show that even in the situation of disinhibition by O-LM cells (10 \% connection strength),
 the network can be strengthened to almost completely avoid depolarization blocks in basket cells (figure~\ref{fig:rc_dpb_percentage_matrices}).
 This could suggest that patients suffering from TLE could indeed be helped via anti-epileptic drugs (AEDs) such as benzodiazepines or barbiturates.
-Especially those that specifically stimulate GABAergic interneurons, such as basket cells that can  dampen the firing of pyramidal cells of the hippocampus.
+Especially those that specifically stimulate GABAergic interneurons, such as basket cells that can dampen the firing of pyramidal cells of the hippocampus.
 
 \section{Implications of the findings}
-How exactly does it relate to epilepsy?
-AEDs?
+The results of this study highlight the critical role of ion channel dynamics, particularly sodium and potassium, in the generation of epileptic activity in the CA3 network.
+Modifications in these channels simulate conditions akin to those of specific genetic profiles that are associated with TLE\@.
+Furthermore, the network's response to small variations in elevated external noise levels in such conditions show that the CA3 subfield is indeed exceptionally
+excitable and susceptible to enter an epileptic state. In addition, the role of interneurons in network stability became apparent as
+even in a case of impaired dendritic inhibition by O-LM cells, epileptic networks can be rescued by influence of other interneurons like basket cells.
+Therefore, inducing such effects could be the focal point of medicinal intervention.
+
+These results thus imply that manipulating interneuron activity, particularly through enhancing soma inhibition provides a theoretical bases for therapeutic strategies.
+Simulating the various scenarios of this study and observing the outcomes, has shown that this computer model could serve as a predictive tool for understanding how certain genetic
+or environmental changes might precipitate epilepsy. This could be invaluable for developing personalized medicine approaches for TLE management.
+
+The simulation's ability to reproduce and explore effects of synaptic plasticity via connection strength, offers a window into how long-term changes
+at synapses might contribute to epilepsy. This aligns with contemporary research suggesting that alterations in synaptic strength and
+plasticity play a significant role in the disease's progression.
 
 \section{Limitations of the research}
-Cressman, lacking a proper calcium channel dynamics in the model.
+As previously mentioned, there are many models available on ModelDB that explore the CA3 network in the hippocampus
+\href{http://senselab.med.yale.edu/modeldb}{(\url{http://senselab.med.yale.edu/modeldb})}.
+
+The~\textcite{neymotinKetamineDisruptsTheta2011} model adapted by~\textcite{sanjayImpairedDendriticInhibition2015} in particular was chosen
+because of the relative high degree of complexity and the presence of homeostatic mechanisms, such as theta-modulated gamma oscillations
+as a baseline. The individual neuron types also contained many biophysical properties displayed in models and experiments of normal physiology.
+However, the model is still a simplification of the actual biological system and is lacking in terms of the full complexity of the CA3 network.
+
+Also, the specific focus on the CA3 subfield and its particular cell types limits the generalizability of the findings to other regions of the hippocampus,
+even other subfields like CA1 or the dentate gyrus. Such that the unique properties and connections in the CA3 subfield do not
+reflect the broader dynamics involved in TLE\@.
+
+Moreover, the simulation's results are heavily dependent on the initial assumptions and parameters set by the original researchers.
+The linear-relationship that was assumed in terms of synaptic interactions may not hold under more realistic conditions.
+The simulations also have a limited scope in terms of the number of trials, which was a decision made based on the computational resources available.
+Yet, there are indications that due to random seeding (figure~\ref{tab:validation_results}), more trials would possibly yield more consistent results.
+
+Other earlier models have studied the influence of specific currents, conductances and synaptic connections in relationship with the generation
+of epileptic activity. Of which, CA3 has been investigated fewer times still, partially due to the heterogenous nature of this region.
+
+Single cell conductance-based models such as the one designed by~\textcite{cressmanInfluenceSodiumPotassium2009}, have already shown that role of ion concentration dynamics
+even in reduced models are amenable. They are both qualitatively and quantitatively similar to full epilepsy network models such the one from this study. They also
+adhere to the Hodgkin-Huxley formalism which makes comparison between models easier.
+
+Integrating aspects of single cell models with more parameters remains difficult however, as they increase the complexity of bifurcation analysis in neural networks.
+Meanwhile the identification ictal state transitions also becomes more difficult as the number of parameters increases.
 
 \section{Suggestions for future research}
-Add perhaps actual genetic profiling.
+Like in the original model, only two main inhibitory mechanisms are integrated. Namely somatic and dendritic through basket and O-LM cells respectively.
+However, in vivo, the CA3 network contains many more interneuron types that could be included in the model.
+
+A goal of this study was to explore if certain genetic profiles could be translated into model dynamics.
+Genotype-phenotype relationships are complex and often involve multiple genes and environmental factors~\parencite{adiga*TherapeuticsEpilepsyReview2023}.
+Therefore, future endeavors could focus on incorporating data from sequenced genomes of TLE patients linked to channelopathies.
+This could provide a more accurate representation of the genetic basis of epilepsy and how it manifests in the CA3 network,
+provided there is data on how these mutations manifest in channel dynamics.
+
+In addition, managing epilepsy is not only about preventing seizures, but also about improving the quality of life for patients.
+The key to that remains providing adequate medication with AEDs tailored to the individual form of epilepsy in the patient.
+
+Therapeutic approaches aimed at reinstating the disrupted balance between excitatory and inhibitory processes hold significant potential for mitigating pathological brain activities.
+The integration of computational research with forthcoming experimental studies presents a robust avenue for enhancing our current understanding and formulating effective treatments for neurodegenerative diseases.
+This multidisciplinary strategy is expected to yield substantial advancements in the field as technology and the capacity for realistic simulations improves.
