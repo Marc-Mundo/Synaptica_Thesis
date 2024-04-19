@@ -3,67 +3,67 @@
 \todo[inline]{Re-read, expand some sections perhaps.}
 
 \section{Background}
-In this chapter, the research topic is introduced. 
-The chapter starts with a brief overview of epilepsy, followed by a discussion on the role of the hippocampus in temporal lobe epilepsy. 
-The chapter then discusses the role of the CA3 region of the hippocampus in epilepsy. 
-The chapter then discusses the role of computational modeling in neuroscience. 
+In this chapter, the research topic is introduced.
+The chapter starts with a brief overview of epilepsy, followed by a discussion on the role of the hippocampus in temporal lobe epilepsy.
+The chapter then discusses the role of the CA3 region of the hippocampus in epilepsy.
+The chapter then discusses the role of computational modeling in neuroscience.
 Finally, the chapter discusses the literature gap that this research aims to address.
 
 \subsection{Introduction to Epilepsy and Its Complexity}
-Epilepsy is a neurological disorder characterized recurrent seizures. 
+Epilepsy is a neurological disorder characterized recurrent seizures.
 Seizures have to be two or more unprovoked and more than 24 hours apart, a single unprovoked
 seizure with a high recurrence risk (\(>\)60 \% over the next 10 years); or the patient needs to have been previously diagnosed with an epilepsy syndrome.
-Patients with epilepsy usually also suffer cognitive challenges, language difficulties, and an increased risk of mental health issues, 
-such as anxiety and depression~\parencite{fisherILAEOfficialReport2014}. At its core, epilepsy 
-involves an imbalance between excitatory and inhibitory processes within the brain. 
-This imbalance can originate in specific brain regions and spread, affecting various interconnected areas 
+Patients with epilepsy usually also suffer cognitive challenges, language difficulties, and an increased risk of mental health issues,
+such as anxiety and depression~\parencite{fisherILAEOfficialReport2014}. At its core, epilepsy
+involves an imbalance between excitatory and inhibitory processes within the brain.
+This imbalance can originate in specific brain regions and spread, affecting various interconnected areas
 outside of the epileptogenic zone~\parencite{ludersEpileptogenicZoneGeneral2006}.
-The minimum amount of brain tissue of an associated region that initiates a seizure is therefore not fixed and is the 
+The minimum amount of brain tissue of an associated region that initiates a seizure is therefore not fixed and is the
 reason epilepsy is often though of as a network disorder.
 
 \subsection{Temporal Lobe Epilepsy: A Closer Look}
-Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults, 
-impacts over 50 million people globally. TLE's epileptic events often begin in 
-brain regions like the hippocampus and entorhinal cortex, known for their 
+Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults,
+impacts over 50 million people globally. TLE's epileptic events often begin in
+brain regions like the hippocampus and entorhinal cortex, known for their
 capacity to independently produce epileptiform activities~\parencite{lyttonComputerSimulationEpilepsy2005}.
-Despite many TLE patients not responding to medication, research into TLE's 
+Despite many TLE patients not responding to medication, research into TLE's
 underlying mechanisms is vital for developing new treatments.
 
 \subsection{The Hippocampus and Its Role in TLE}
-The hippocampus, located in the temporal lobe, is crucial for memory formation 
-and retrieval, emotion regulation, and spatial navigation. In TLE, it often 
-serves as the seizure's focal point, especially its CA3 subfield. The CA3 region, 
-with its dense connections and low epilepsy activation threshold, is particularly 
-susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}. 
+The hippocampus, located in the temporal lobe, is crucial for memory formation
+and retrieval, emotion regulation, and spatial navigation. In TLE, it often
+serves as the seizure's focal point, especially its CA3 subfield. The CA3 region,
+with its dense connections and low epilepsy activation threshold, is particularly
+susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}.
 In TLE, seizures can be triggered by excessive stimulation from higher cortical regions, such as the visual or auditory cortex
 that project to the hippocampus via the entorhinal cortex.
 
 \subsection{Functional Brain Networks and Oscillations}
 How excessive stimulation is handled however, is dependent on the network's intrinsic properties and its functional connectivity.
-The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive function. 
+The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive function.
 Perturbations in the connectivity of the CA3 region are common in TLE and directly impacts the working memory (WM)
-of the network~\parencite{arskiOscillatoryBasisWorking2021}. However, the exact mechanisms by which these perturbations lead to epileptiform 
-activity are not well understood. The hippocampus is particularly susceptible to connectivity variability which can be transiently induced by epileptic discharge. 
+of the network~\parencite{arskiOscillatoryBasisWorking2021}. However, the exact mechanisms by which these perturbations lead to epileptiform
+activity are not well understood. The hippocampus is particularly susceptible to connectivity variability which can be transiently induced by epileptic discharge.
 This is likely due to the high processing demands for WM~\parencite{aldenkampEffectsEpileptiformEEG2004}.
 
-The neural assemblies that constitute the circuits in the CA3 region are highly regulated and the transfer of 
-information propagates through specific oscillatory patterns. 
-Characteristic neural oscillations in the hippocampus, such as theta (3--12 Hz) 
-and gamma (30--80 Hz) rhythms, play significant roles in forming episodic memory and cognition~\parencite{nyhusFunctionalRoleGamma2010}. 
-Epilepsy is associated with alterations in Cross-Frequency Coupling (CFC), where 
-the phase of slower waves modulates the amplitude of faster waves, reflecting 
-disrupted network functionality. Abnormalities in Theta-Gamma Phase-Amplitude 
+The neural assemblies that constitute the circuits in the CA3 region are highly regulated and the transfer of
+information propagates through specific oscillatory patterns.
+Characteristic neural oscillations in the hippocampus, such as theta (3--12 Hz)
+and gamma (30--80 Hz) rhythms, play significant roles in forming episodic memory and cognition~\parencite{nyhusFunctionalRoleGamma2010}.
+Epilepsy is associated with alterations in Cross-Frequency Coupling (CFC), where
+the phase of slower waves modulates the amplitude of faster waves, reflecting
+disrupted network functionality. Abnormalities in Theta-Gamma Phase-Amplitude
 Coupling (PAC) correlate with cognitive impairments in epilepsy. Therefore, tracking changes
 in these neural oscillations can provide insights into the disease's progression.
 
 \subsection{Epileptic States}
 Detecting the state of the brain is crucial for predicting and managing seizures, as patients of epilepsy
 only experience the effects of their disease during seizures.
-The gold standard of brain activity detection utilizes the electroencephalogram (EEG), 
+The gold standard of brain activity detection utilizes the electroencephalogram (EEG),
 which measures electrical fluctuations ranging from \(<\) 1 Hz to several kHz.
 
-The associated brain region of an epilepsy patient when investigated can be in one of three states that have been generally defined using 
-various epilepsy detection algorithms. These classification methods extract epileptic features from the EEG based on comparison of 
+The associated brain region of an epilepsy patient when investigated can be in one of three states that have been generally defined using
+various epilepsy detection algorithms. These classification methods extract epileptic features from the EEG based on comparison of
 different kernels (Linear, Sigmoid, Grid, etc) The classification accuracy of these methods vary but are fairly high (\(>\)98.9 \%) for methods such as
 Support Vector Machine (SVM) or Wavelet Neural Network (WNN) classification~\parencite{yayikEpilepticStateDetection2015}.
 \pagebreak
@@ -71,29 +71,29 @@ Support Vector Machine (SVM) or Wavelet Neural Network (WNN) classification~\par
 These general epilepsy states for a patient are defined as follows:
 \begin{itemize}
     \item \textbf{Inter-ictal State}
-    \begin{itemize}
-        \item \textit{Definition}: The period between seizures, with no active seizure activity.
-        \item \textit{Characterization}: Characterized by inter-ictal spikes or sharp waves in EEG\@.
-        These spikes indicate abnormal electrical discharges that are not actual seizures.
-    \end{itemize}
+          \begin{itemize}
+              \item \textit{Definition}: The period between seizures, with no active seizure activity.
+              \item \textit{Characterization}: Characterized by inter-ictal spikes or sharp waves in EEG\@.
+                    These spikes indicate abnormal electrical discharges that are not actual seizures.
+          \end{itemize}
     \item \textbf{Ictal State}
-    \begin{itemize}
-        \item \textit{Definition}: The period during which a seizure occurs.
-        \item \textit{Characterization}: EEG shows sustained, rhythmic electrical activity distinct from normal or inter-ictal activity, 
-        with corresponding behavioral symptoms based on seizure type.
-    \end{itemize}
+          \begin{itemize}
+              \item \textit{Definition}: The period during which a seizure occurs.
+              \item \textit{Characterization}: EEG shows sustained, rhythmic electrical activity distinct from normal or inter-ictal activity,
+                    with corresponding behavioral symptoms based on seizure type.
+          \end{itemize}
     \item \textbf{Pre-ictal State}
-    \begin{itemize}
-        \item \textit{Definition}: The period immediately before the onset of a seizure.
-        \item \textit{Characterization}: Marked by subtle and variable changes in EEG and other physiological signals that precede seizures, 
-        crucial for seizure prediction efforts.
-    \end{itemize}
+          \begin{itemize}
+              \item \textit{Definition}: The period immediately before the onset of a seizure.
+              \item \textit{Characterization}: Marked by subtle and variable changes in EEG and other physiological signals that precede seizures,
+                    crucial for seizure prediction efforts.
+          \end{itemize}
 \end{itemize}
 
 \noindent
 Identification of the aforementioned states provides a benchmark for potential epileptiform activity in a (simulated) network.
 Epilepsy as a whole could be viewed particular brain functioning state, manifested in a multi-state network of coupled oscillatory systems.
-Thus tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights 
+Thus tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights
 into the network's susceptibility to ictal transitions~\parencite{kalitzinEpilepsyManifestationMultistate2019a}.
 
 \subsection{Sodium and Potassium Channels in Epilepsy}
@@ -109,42 +109,54 @@ This in turn can have destabilizing effects on neural circuits in regions such a
 A lot of epileptic mutations have been found in \textit{voltage-gated} type ion channel genes.
 For example, for sodium these are most often related to the brain-expressed SCN family (\textit{SCN1A, SCN2A, SCN3A and SCN8A}, \textcite{brunklausSodiumChannelEpilepsies2020}).
 Highly conserved across species, these genes encode for the pore-forming alpha subunits of the sodium channel and are responsible for the fast depolarizing current in neurons.
-Previous research has shown that mutations in these genes have become increasingly frequent in Mendelian epilepsy syndromes in recent years~\parencite{brunklausSodiumChannelEpilepsies2020}. 
+Previous research has shown that mutations in these genes have become increasingly frequent in Mendelian epilepsy syndromes in recent years~\parencite{brunklausSodiumChannelEpilepsies2020}.
 These SCN genes are involved in generalized epilepsy with febrile seizures plus (GEFS+) syndrome.
 SCN1A in particular encodes predominantly in inhibitory GABAergic neurons, usually enriched in axonal segments and facilitates initiation of action potentials~\parencite{yuReducedSodiumCurrent2006}.
+Classically, these voltage-gated channels only allow for passage of ions transiently, and are closed at rest.
+However, a fraction of sodium ions passes through constantly (1\%-2\%).
+So while these channels form the foundation for excitable cell function, a small fraction of channels shows persistent current, \(\text{I}_{\text{NaP}}\).
+This current is normally contributes to proper physiological function of neurons, but can become pathogenic when dysregulated.
+In recent years \(\text{I}_{\text{NaP}}\) has been identified as an important factor in sodium channelopathies, which could provide targets for novel anti-seizure medication strategies~\parencite{wengertRolePersistentSodium2021}.
 
 Similarly, there are also common mutations in potassium channels that are associated with epilepsy.
 The KCNA family genes that encode the respective subunits in potassium channels (\textit{KCNA1 and KCNA2}, \textcite{gaoPotassiumChannelsEpilepsy2022})
 are commonly involved in episodic ataxia type 1 (EA1, \textcite{gravesIonChannelsEpilepsy2006}).
-The dysfunction of these channels can lead to hyperexcitability in neurons, which can again lead to a destabilized network.
+The dysfunction of these channels can lead to hyperexcitability in neurons, where modified dynamics of voltage gated channels lead to changes in the action potential's shape and duration.
+In healthy neurons regulation of current happens via inwardly rectifying potassium channels that maintain the resting membrane potential~\parencite{isomotoInwardlyRectifyingPotassium1997}.
+In channelopathies regarding voltage-gated potassium channels, altered potassium gradients or accelerated hyperpolarization might occur which can no longer be compensated for by the rectifying
+potassium channels~\parencite{nikitinPotassiumChannelsProminent2021}.
 
- \todo[inline]{Add more information on potassium channels, what kind of cells and what function.}
- 
+A lot of genetic variety exists for both of these major channels and can both lead to a destabilized network, hallmark of epileptic activity.
+However, it remains difficult to quantitatively translate the genetic profile to network dynamics.
+
 \subsection{Computational Modeling in Neuroscience with NEURON}
-The NEURON simulator is a powerful tool for modeling the intricate dynamics 
-of neurons and their networks. It supports detailed simulations of membrane 
-dynamics, synaptic interactions, and the Hodgkin-Huxley model for action 
+The NEURON simulator is a powerful tool for modeling the intricate dynamics
+of neurons and their networks. It supports detailed simulations of membrane
+dynamics, synaptic interactions, and the Hodgkin-Huxley model for action
 potentials. The Hodgkin-Huxley model, a cornerstone of computational neuroscience,
 describes the ionic currents underlying action potentials in neurons based
 on non-linear differential equations~\parencite{hodgkinMeasurementCurrentvoltageRelations1952}.
+This simulation framework allows for quite realistic representation of life-like neurons based
+on experimentally-defined cellular characteristics. Many of which are freely available on ModelDB,
+but vary in terms of complexity such as morphology, synapses or 3D-micro-environment.
 
-NEURON's Python interface facilitates scripting and integration 
+NEURON's Python interface facilitates scripting and integration
 with other Python-based tools, enhancing its utility in neuroscience research.
-This simulator is crucial for studying neural phenomena, the effects of 
-anti-epileptic drugs, and diseases caused by dysfunctional ion channels for sodium and potassium, 
-providing invaluable insights into the functioning of the nervous system 
+This simulator is crucial for studying neural phenomena, the effects of
+anti-epileptic drugs, and diseases caused by dysfunctional ion channels for sodium and potassium,
+providing invaluable insights into the functioning of the nervous system
 and the development of therapeutic strategies~\parencite{miglioreParallelNetworkSimulations2006}.
 
 \subsection{Aim of the research}
-This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy, 
+This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy,
 by adapting the computational model of the CA3 region of the hippocampus by~\textcite{neymotinKetamineDisruptsTheta2011} in the NEURON simulator.
-The model consists of 800 pyramidal, 200 O-LM interneurons and 200 basket cells. 
+The model consists of 800 pyramidal, 200 O-LM interneurons and 200 basket cells.
 The baseline model contains enough biophysical detail to replicate homeostatic neural activity, consisting of theta-modulated gamma oscillations.
 
-This research builds upon experiments by~\textcite{sanjayImpairedDendriticInhibition2015}, 
+This research builds upon experiments by~\textcite{sanjayImpairedDendriticInhibition2015},
 which focussed on reducing dendritic inhibition, increasing external stimulation and modifying synaptic connectivity as potential causes for TLE\@.
 
-Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network, 
+Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network,
 the sensitivity for external noise in such conditions and the effects increasing recurrent connectivity of inhibitory basket cells.
 \pagebreak
 \section{Research question}
@@ -159,9 +171,9 @@ This research is focused on on the following research question:
 \subsection*{Main Hypothesis}
 
 \begin{itemize}
-    \item It is hypothesized that by emulating specific genetic profiles within simulated CA3 hippocampal neural networks, 
-    we can replicate their impact on the networks' behavior. Furthermore, it is expected that inducing cellular dynamics that 
-    reduce seizure-like (ictal) activity will rescue normal network function.
+    \item It is hypothesized that by emulating specific genetic profiles within simulated CA3 hippocampal neural networks,
+          we can replicate their impact on the networks' behavior. Furthermore, it is expected that inducing cellular dynamics that
+          reduce seizure-like (ictal) activity will rescue normal network function.
 \end{itemize}
 
 \subsection*{Investigative Sub-Questions}

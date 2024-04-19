@@ -134,15 +134,23 @@ that indicates the pathological state in the CA3 network. In this state the driv
 In this situation, the LFP signal of the network showed an ictal-tonic pattern, as did the
 population (figure~\ref{fig:depolarization_block_basket_cells} and~\ref{fig:scatterplot_1_con_olm_pyr_ext_noise_20x}).
 
+\subsubsection{Percentage matrices}
 Comparing all the noise levels, it is readily apparent that in higher sodium conductance conditions, the network is much more excitable.
 As noise increases, elevated sodium rapidly induces an epileptic state 100 \% of the time even though the jump in external noise goes from 16 to 17 times the
-baseline (0.80 and 0.85 noise levels, figure~\ref{fig:rc_dpb_percentage_matrices}). Likewise, lower sodium levels are far less susceptible to hyperexcitability.
+baseline (0.80 and 0.85 noise levels, figure~\ref{fig:dpb_percentage_matrices}). Likewise, lower sodium levels are far less susceptible to hyperexcitability.
 At around -50 \% (\(g_{\text{Na}}\)), the input from pyramidal cells is barely strong enough to induce a depolarization block even at 20 times baseline noise.
 In combination with elevated potassium, the network showed the most severe susceptibility for epileptic activity.
 From the noise matrices it becomes apparent that the network is quite sensitive to small changes in noise level, where increments of 0.05 in noise levels
 induced significantly more depolarization blocks generally for each condition.
 
-
+\subsubsection{Delay matrices}
+The onset of the depolarization block changes with the noise level and the conductance of sodium and potassium.
+In the conditions with more DPBs, the average delay becomes significantly shorter and with less variance (figure~\ref{fig:dpb_delay_matrices}).
+The original~\textcite{sanjayImpairedDendriticInhibition2015} study states in the discussion that the shorter delay in the depolarization block
+that they perceived could be due to difference in synaptic plasticity that could include axonal or dendritic sprouting (scenario 3: effect of changes in connectivity at all
+synapses in the network). However, synapses (except the O-LM to pyr connection) were unchanged when measuring the delay of the DPB in this experiment.
+Yet, enhanced neural activity presented here showed similar results to that of a potentiated network that has been observed in other models with modified synaptic strength~\parencite{leitePlasticitySynapticStrength2005}.
+Key is that the faster generation of epileptic activity, while sometimes result of long-term potentiation, usually occurs in various network circuitry throughout the brain~\parencite{cookePlasticityHumanCentral2006}.
 
 \subsubsection{Burst Analysis}
 A deeper investigation into the burst activity of the population was performed for basket and pyramidal cells.
@@ -153,15 +161,21 @@ During the inter-ictal state the basket cells burst came before the pyramidal ce
 In the pre-ictal state the basket cell burst seemed to shift in time, from before, to after the pyramidal cells burst.
 Thus, it is not always the case that the pyramidal input comes slightly before the basket cell burst, when the population might be in the refractory period and become locked in a depolarization block
 due to the constant excessive excitatory drive.
+
 The ictal pyramidal activity did not show much variance from the baseline, in shape and in intensity.
 Throughout the trials the intensity of the population burst did not vary as is seen by the very small deviation, but the size of the generated noise also never did.
 This suggests that although the network is very sensitive to noise, the amount of noise does not necessarily the characteristics of the burst activity.
+
+The data suggests that the all-or-none bursting of pyramidal or basket cells is not necessarily dependent on precise timing.
+Rather, the ability for the population to recover from strong synchronized input appeared to be an issue especially for basket cells.
+
 
 \subsubsection{Recurrent connections of Basket cells}
 The recurrent connections of basket cells were also investigated in this experiment.
 
 \section{Implications of the findings}
 How exactly does it relate to epilepsy?
+AEDs?
 
 \section{Limitations of the research}
 Cressman, lacking a proper calcium channel dynamics in the model.
