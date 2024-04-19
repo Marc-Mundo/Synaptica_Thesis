@@ -1,5 +1,7 @@
 \chapter{Results}
 
+\todo[inline, color=red]{maybe add some numerical information to all the results sections?}
+
 \section{Results of the Baseline activity}
 In the initial experiment, the baseline activity of the CA3 network was
 observed from the \textit{original model} by
@@ -12,17 +14,17 @@ two populations. The O-LM cells showed the lowest firing rate compared to the
 pyramidal cells and basket cells. The baseline activity of the CA3 network is
 shown in figure~\ref{fig:baseline_activity}.
 
-The average firing rates of the populations were 2.36 ± 0.024 Hz for pyramidal cells, 
-16.05 ± 0.15 Hz for basket cells, and 0.96 ± 0.027 Hz for O-LM interneurons, 
+The average firing rates of the populations were 2.36 ± 0.024 Hz for pyramidal cells,
+16.05 ± 0.15 Hz for basket cells, and 0.96 ± 0.027 Hz for O-LM interneurons,
 similar to observed results from \textcite{neymotinKetamineDisruptsTheta2011} which used the same model on which the Sanjay model is based upon.
 
-Just as reported in the original article, the network produces theta-modulated gamma oscillations 
-within the local field potential (LFP). These oscillations were influenced by signals from the Medial Septum (MS). 
-The gamma oscillations emerged from the inhibitory connections between basket cells that inhibit somas of pyramidal and O-LM cells, 
-as well as interactions among basket cells themselves. Conversely, theta oscillations were the result of interactions between 
-pyramidal cells and O-LM cells that inhibit dendrites. The network achieved a consistent theta frequency of 6.7 Hz due to periodic inputs 
-from the MS to both O-LM and basket cells every 150 ms. The frequency of the gamma component within the LFP was approximately 33 Hz. 
-Despite receiving similar MS inputs as O-LM cells, the impact on basket cells was significantly reduced because of their mutual interactions 
+Just as reported in the original article, the network produces theta-modulated gamma oscillations
+within the local field potential (LFP). These oscillations were influenced by signals from the Medial Septum (MS).
+The gamma oscillations emerged from the inhibitory connections between basket cells that inhibit somas of pyramidal and O-LM cells,
+as well as interactions among basket cells themselves. Conversely, theta oscillations were the result of interactions between
+pyramidal cells and O-LM cells that inhibit dendrites. The network achieved a consistent theta frequency of 6.7 Hz due to periodic inputs
+from the MS to both O-LM and basket cells every 150 ms. The frequency of the gamma component within the LFP was approximately 33 Hz.
+Despite receiving similar MS inputs as O-LM cells, the impact on basket cells was significantly reduced because of their mutual interactions
 and the enhanced influence from pyramidal cells.
 
 \begin{figure}[htbp]
@@ -30,9 +32,9 @@ and the enhanced influence from pyramidal cells.
     \includegraphics[width=1.0\textwidth]{Network_spike_activity_OLM_baseline.png}
     \caption[Baseline activity of the CA3 network]{Baseline activity of the CA3 network.}\label{fig:baseline_activity}
     \begin{minipage}{0.9\textwidth}
-        The above figure shows the baseline activity of the CA3 network. The network was simulated for 5000 ms. 
-        The spike activity in time of the Pyr cells, BC cells, and OLM cells are shown based on the Neuron ID\@. 
-        ID 0--799 = Pyramidal (blue), 800--999 = BC (green), 1000--1200 = OLM (red). 
+        The above figure shows the baseline activity of the CA3 network. The network was simulated for 5000 ms.
+        The spike activity in time of the Pyr cells, BC cells, and OLM cells are shown based on the Neuron ID\@.
+        ID 0--799 = Pyramidal (blue), 800--999 = BC (green), 1000--1200 = OLM (red).
         The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
     \end{minipage}
 \end{figure}
@@ -45,7 +47,7 @@ figure~\ref{fig:validation_firing_rates},~\ref{fig:validation_frequencies} and
 ~\ref{fig:validation_power}.
 
 Like in the original experiment, O-LM-pyramidal connectivity was decreased in decrements of 0.1 and reduced dendritic inhibition.
-Simultaneously, external noise fed to pyramidal cells via AMPA and NMDA at the synaptic level was increased in increments of 0.1. 
+Simultaneously, external noise fed to pyramidal cells via AMPA and NMDA at the synaptic level was increased in increments of 0.1.
 When O-LM-pyramidal connectivity was decreased to a range of 20--10 \%, desynchronization was observed among basket cells (figure~\ref{fig:scatterplot_20_con_olm_pyr}).
 Complete desynchronization was observed when the O-LM-pyramidal connectivity was reduced to 0 \% (figure~\ref{fig:scatterplot_0_con_olm_pyr}).
 Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustained synchronous activity.
@@ -56,9 +58,9 @@ Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustai
     \caption[20 \% OLM-Pyr connection scatter plot]{Scatter plot of the network activity at 20 \% OLM-Pyr connection}\label{fig:scatterplot_20_con_olm_pyr}
     \begin{minipage}{0.9\textwidth}
         The above figure shows the network activity at 20 \% OLM-Pyr connection with significant asynchrony amongst the basket cells.
-        The network was simulated for 5000 ms. 
-        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red). 
-        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+        The network was simulated for 5000 ms.
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red).
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
     \end{minipage}
 \end{figure}
 
@@ -68,9 +70,9 @@ Pyramidal to O-LM connectivity was was unchanged, thus these cells showed sustai
     \caption[0 \% OLM-Pyr connection scatter plot]{Scatter plot of the network activity at 0 \% OLM-Pyr connection}\label{fig:scatterplot_0_con_olm_pyr}
     \begin{minipage}{0.9\textwidth}
         The above figure shows the network activity at 0 \% OLM-Pyr connection with complete asynchrony amongst the basket cells.
-        The network was simulated for 5000 ms. 
-        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red). 
-        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+        The network was simulated for 5000 ms.
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and OLM cells (red).
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
     \end{minipage}
 \end{figure}
 
@@ -81,11 +83,11 @@ table~\ref{tab:validation_results}. The original article results are visible in
 the methods section in table~\ref{tab:original_validation_results} for comparison.
 
 For the firing rates in figure~\ref{fig:validation_firing_rates},
-there was a notable increase in the firing rates of all neuron types as dendritic inhibition was 
+there was a notable increase in the firing rates of all neuron types as dendritic inhibition was
 decreased while external noise was simultaneously increased.
-The individual cell firing frequencies showed a near linear increase throughout in both pyramidal and O-LM cells, 
+The individual cell firing frequencies showed a near linear increase throughout in both pyramidal and O-LM cells,
 being most pronounced in the basket cell population.
-The basket cell population also showed the most variance in the standard deviation at the most extreme 
+The basket cell population also showed the most variance in the standard deviation at the most extreme
 condition from the baseline (0.0x OLM-Pyr weight and 2.0x external weight).
 
 The dominant frequencies in the network activity, as shown in figure~\ref{fig:validation_frequencies},
@@ -96,7 +98,7 @@ The power of the theta and gamma oscillations in the network, as shown in figure
 showed that the power of theta oscillations decreased, while the gamma power increased as dendritic inhibition was reduced.
 This shift in power distribution reflects changes in the balance of network excitability and inhibition, potentially leading to epileptic activity.
 The theta power reduced to 5.35 mV\textsuperscript{2} Hz\textsuperscript{-1} to 0 mV\textsuperscript{2} Hz\textsuperscript{-1}.
-The gamma power increased significantly from at 20 to 10 \% O-LM-pyramidal connection. The gamma power increased from 0.93 mV\textsuperscript{2} Hz\textsuperscript{-1} 
+The gamma power increased significantly from at 20 to 10 \% O-LM-pyramidal connection. The gamma power increased from 0.93 mV\textsuperscript{2} Hz\textsuperscript{-1}
 at baseline to 5.82 mV\textsuperscript{2} Hz\textsuperscript{-1} before dropping down to 1.87 mV\textsuperscript{2} Hz\textsuperscript{-1} in the last condition.
 The gamma power was mostly due to basket cell activity, which were much more tightly synchronized than the other cell types.
 
@@ -298,10 +300,10 @@ Basket cell modifications had a more random effect on gamma power, with some mor
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Comparative_FFT_LFP_OLM_variant.png}
-    \caption[Comparative FFT of LFP\@: O-LM variants]{Comparative FFT of the LFP for OLM variants. 
-    The magnitude of the LFP is in arbitrary units.
-    The signal is plotted for the frequency range that includes both theta and gamma in a range of 0 to 80 Hz.
-    Blue is the baseline LFP, whereas orange represents a -40 \% sodium conductance variant of O-LM cells.}\label{fig:comparative_fft_olm_variant}
+    \caption[Comparative FFT of LFP\@: O-LM variants]{Comparative FFT of the LFP for OLM variants.
+        The magnitude of the LFP is in arbitrary units.
+        The signal is plotted for the frequency range that includes both theta and gamma in a range of 0 to 80 Hz.
+        Blue is the baseline LFP, whereas orange represents a -40 \% sodium conductance variant of O-LM cells.}\label{fig:comparative_fft_olm_variant}
 \end{figure}
 
 \pagebreak
@@ -336,9 +338,9 @@ The selected noise levels are a percentage of the fixed 20x times baseline exter
     \begin{minipage}{1.0\textwidth}
         The above figure shows the network activity at 10 \% O-LM-Pyr connection with a depolarization block in the basket cell population.
         There is a clear ictal-tonic pattern in the population activity, along with very high synchronous spiking between O-LM and Pyr cells.
-        The network was simulated for 5000 ms. 
-        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and O-LM cells (red). 
-        The x-axis represents the time in ms and the y-axis represents the neuron ID\@. 
+        The network was simulated for 5000 ms.
+        The scatter plot shows the spike activity of the Pyr cells (blue), BC cells (green), and O-LM cells (red).
+        The x-axis represents the time in ms and the y-axis represents the neuron ID\@.
     \end{minipage}
 \end{figure}
 \pagebreak
@@ -368,10 +370,10 @@ The selected noise levels are a percentage of the fixed 20x times baseline exter
     \end{subfigure}
 
     \caption[DPB percentage matrices]{Percentage of trials where depolarization block events occurred for all tested noise conditions.
-    The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
-    Modifications to pyramidal cells were applied to all compartments.
-    The color intensity scales from 0 to 100 \%, where high-intensity yellow equals a higher amount of DPB events in a condition.
-    The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_percentage_matrices}
+        The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
+        Modifications to pyramidal cells were applied to all compartments.
+        The color intensity scales from 0 to 100 \%, where high-intensity yellow equals a higher amount of DPB events in a condition.
+        The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_percentage_matrices}
 \end{figure}
 
 \subsection{Average delay of depolarization block events across noise conditions}
@@ -405,17 +407,17 @@ The selected noise ranges are the same as in the percentage matrices, a percenta
     \end{subfigure}
 
     \caption[DPB delay matrices]{Average delay + Standard deviation of DPB in trials where depolarization block events occurred for all tested noise conditions.
-    The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
-    Modifications to pyramidal cells were applied to all compartments.
-    The color intensity shows the average delay, where high-intensity red equals a shorter delay in DPB events in a condition.
-    An asterisk (*) is an indication that no DPB events occurred in the condition and is colorless.
-    The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_delay_matrices}
+        The x-axis shows all the sodium conductance changes in pyramidal cells, whereas the y-axis shows the potassium conductance changes in pyramidal cells.
+        Modifications to pyramidal cells were applied to all compartments.
+        The color intensity shows the average delay, where high-intensity red equals a shorter delay in DPB events in a condition.
+        An asterisk (*) is an indication that no DPB events occurred in the condition and is colorless.
+        The images are labeled from low noise to higher noise (a through d), respectively.}\label{fig:dpb_delay_matrices}
 \end{figure}
 \pagebreak
 
 \section{Results of the External Noise: Burst analysis}
 In addition to the depolarization block (DPB) analysis, the population bursts of pyramidal and basket neurons were analyzed near the onset of a DPB event.
-Both peak height and general shape of the bursts were visualized in figure~\ref{fig:burst_detection}. 
+Both peak height and general shape of the bursts were visualized in figure~\ref{fig:burst_detection}.
 The 2nd to last before, last burst before and 1st burst after the DPB event were detected and analyzed.
 A range of sodium:potassium conductance changes in pyramidal cells were tested, namely: 1.00--1.00, 0.80--1.20, 1.20--0.80, and 1.20--1.20.
 The external noise was fixed at 20x times the baseline of the original model.
@@ -423,9 +425,9 @@ Each burst has been aligned relative to the onset of the burst of the pyramidal 
 The bursts were averaged over 15 trials, and the standard deviation of the spike activity was visualized as a filled gradient surrounding the curve.
 
 \subsection{Inter-ictal state}
-For the baseline condition, in the inter-ictal state the 2nd to last burst before the depolarization block was detected. 
+For the baseline condition, in the inter-ictal state the 2nd to last burst before the depolarization block was detected.
 The basket cell population burst occurred slightly before the pyramidal population burst with fairly low variance (\ref{fig:burst_detection}, a).
-In all other conditions the basket cell burst occurred at least 50 ms after the pyramidal population burst. 
+In all other conditions the basket cell burst occurred at least 50 ms after the pyramidal population burst.
 The size of the basket cell burst only showed more variance in the 0.80--0.80 sodium:potassium condition (\ref{fig:burst_detection}, d), where the pyramidal burst also showed the most size variance.
 
 \subsection{Pre-ictal state}
@@ -466,13 +468,13 @@ The height of the pyramidal burst peak stayed consistent across all conditions.
         \caption{} % Optional caption or label
     \end{subfigure}
 
-    \caption[Burst detection near the onset of a depolarization block]{Burst detection near the onset of a depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left), 
-    the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right). 
-    The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms). 
-    The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve.
-    A horizontal dashed black line was added to the pre-ictal plot to more easily compare the shift in burst timing for the basket population.
-    Y-axes were normalized across all conditions.
-    The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}\label{fig:burst_detection}
+    \caption[Burst detection near the onset of a depolarization block]{Burst detection near the onset of a depolarization block. Shows the 2nd to last burst before the DPB (inter-ictal, left),
+        the last burst before the DPB (pre-ictal, middle), and the first burst after the DPB (ictal, right).
+        The bursts are aligned relative the the onset of the burst of the pyramidal population in the network (ms).
+        The curve of the spike burst shows the standard deviation of the spike activity as a filled gradient surrounding the curve.
+        A horizontal dashed black line was added to the pre-ictal plot to more easily compare the shift in burst timing for the basket population.
+        Y-axes were normalized across all conditions.
+        The bursts of both pyramidal neurons (blue) and basket cells are shown (green).}\label{fig:burst_detection}
 \end{figure}
 \clearpage % Ensure the continuation starts on a new page
 
@@ -508,7 +510,6 @@ Lastly, at 15 \% increased recurrent connection strength, the amount of DPB even
 
 \noindent
 \textit{More noise conditions are available for review in appendix~\ref{ch:appendix_c}.}
-\todo[inline, color=red]{LEFT OF HERE, maybe add some numerical information to all the results sections?}
 
 \begin{figure}[htbp]
     \centering
