@@ -35,19 +35,41 @@
 \newcommand{\CellWithForcedBreak}[2][c]{% #1 = alignment, #2 = contents
     \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
-% Document metadata
-\title{
-    {Exploring Epileptic Neural Dynamics: Insights from a Computational Model of a CA3 Hippocampal Network}\\
-    {\large Radboud University, Nijmegen}\\
-}
-\author{Marc Julius Posthuma}
-\date{26th of April, 2024}
-
 \begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \makebox[\textwidth][c]{\Huge\bfseries Exploring Epileptic Neural Dynamics:}\\
+    \makebox[\textwidth][c]{\Huge\bfseries Insights from a Computational Model}\\
+    \makebox[\textwidth][c]{\Huge\bfseries of a CA3 Hippocampal Network}\\[1cm]
+    \Large by\\[1cm]
+    \Large \textbf{Marc Julius Posthuma}\\[1cm]
+    \Large Radboud University, in affiliation with Synaptica B.V.\\
+
+    \vfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \Large Supervised by:\\
+        Dr.\ Marijn Martens (CEO)\\
+        Sean Gies, MSc
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \Large Readers:\\
+        1st: Prof.\ Dr.\ T.H.E. Tiesinga\\
+        2nd: Prof.\ Dr.\ R.J.A. van Wezel
+    \end{minipage}\\[2cm]
+
+    \footnotesize Thesis submitted in partial fulfillment of the requirements for the degree of Master of Science in Medical Biology (Neurobiology)\\[1cm]
+    \Large April 26th, 2024
+\end{titlepage}
 
 \listoftodos% Remove this line when you're done with the document
 
-\maketitle
+%\include{frontmatter/abstract}
+\include{frontmatter/copyright}
+\include{frontmatter/thanks}
 
 \tableofcontents
 \listoffigures
