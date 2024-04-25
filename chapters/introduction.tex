@@ -1,16 +1,8 @@
 \chapter{Introduction}
 
 \todo[inline]{Re-read, expand some sections perhaps.}
-\todo[inline]{fix frontmatter, add radboud picture, remove todos if finished.}
 
-\section{Background}
-In this chapter, the research topic is introduced.
-The chapter starts with a brief overview of epilepsy, followed by a discussion on the role of the hippocampus in temporal lobe epilepsy.
-The chapter then discusses the role of the CA3 region of the hippocampus in epilepsy.
-The chapter then discusses the role of computational modeling in neuroscience.
-Finally, the chapter discusses the literature gap that this research aims to address.
-
-\subsection{Introduction to Epilepsy and Its Complexity}
+\subsubsection{Introduction to Epilepsy and Its Complexity}
 Epilepsy is a neurological disorder characterized recurrent seizures.
 Seizures have to be two or more unprovoked and more than 24 hours apart, a single unprovoked
 seizure with a high recurrence risk (\(>\)60 \% over the next 10 years); or the patient needs to have been previously diagnosed with an epilepsy syndrome.
@@ -22,7 +14,7 @@ outside of the epileptogenic zone~\parencite{ludersEpileptogenicZoneGeneral2006}
 The minimum amount of brain tissue of an associated region that initiates a seizure is therefore not fixed and is the
 reason epilepsy is often though of as a network disorder.
 
-\subsection{Temporal Lobe Epilepsy: A Closer Look}
+\subsubsection{Temporal Lobe Epilepsy: A Closer Look}
 Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults,
 impacts over 50 million people globally. TLE's epileptic events often begin in
 brain regions like the hippocampus and entorhinal cortex, known for their
@@ -30,7 +22,7 @@ capacity to independently produce epileptiform activities~\parencite{lyttonCompu
 Despite many TLE patients not responding to medication, research into TLE's
 underlying mechanisms is vital for developing new treatments.
 
-\subsection{The Hippocampus and Its Role in TLE}
+\subsubsection{The Hippocampus and Its Role in TLE}
 The hippocampus, located in the temporal lobe, is crucial for memory formation
 and retrieval, emotion regulation, and spatial navigation. In TLE, it often
 serves as the seizure's focal point, especially its CA3 subfield. The CA3 region,
@@ -39,7 +31,7 @@ susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}
 In TLE, seizures can be triggered by excessive stimulation from higher cortical regions, such as the visual or auditory cortex
 that project to the hippocampus via the entorhinal cortex.
 
-\subsection{Functional Brain Networks and Oscillations}
+\subsubsection{Functional Brain Networks and Oscillations}
 How excessive stimulation is handled however, is dependent on the network's intrinsic properties and its functional connectivity.
 The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive function.
 Perturbations in the connectivity of the CA3 region are common in TLE and directly impacts the working memory (WM)
@@ -57,7 +49,7 @@ disrupted network functionality. Abnormalities in Theta-Gamma Phase-Amplitude
 Coupling (PAC) correlate with cognitive impairments in epilepsy. Therefore, tracking changes
 in these neural oscillations can provide insights into the disease's progression.
 
-\subsection{Epileptic States}
+\subsubsection{Epileptic States}
 Detecting the state of the brain is crucial for predicting and managing seizures, as patients of epilepsy
 only experience the effects of their disease during seizures.
 The gold standard of brain activity detection utilizes the electroencephalogram (EEG),
@@ -97,7 +89,7 @@ Epilepsy as a whole could be viewed particular brain functioning state, manifest
 Thus tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights
 into the network's susceptibility to ictal transitions~\parencite{kalitzinEpilepsyManifestationMultistate2019a}.
 
-\subsection{Sodium and Potassium Channels in Epilepsy}
+\subsubsection{Sodium and Potassium Channels in Epilepsy}
 In the past 20 years, research has shown that at least half of all epilepsy cases have a genetic basis.
 Rapid discovery of disease-causing genes have identified genes encoding for ion channel proteins.
 Remarkably, a quarter of all cases involving monogenic variants are related to ion channels~\parencite{strianoGeneticTestingPrecision2020,oyrerIonChannelsGenetic2018}.
@@ -130,7 +122,7 @@ potassium channels~\parencite{nikitinPotassiumChannelsProminent2021}.
 A lot of genetic variety exists for both of these major channels and can both lead to a destabilized network, hallmark of epileptic activity.
 However, it remains difficult to quantitatively translate the genetic profile to network dynamics.
 
-\subsection{Computational Modeling in Neuroscience with NEURON}
+\subsubsection{Computational Modeling in Neuroscience with NEURON}
 The NEURON simulator is a powerful tool for modeling the intricate dynamics
 of neurons and their networks. It supports detailed simulations of membrane
 dynamics, synaptic interactions, and the Hodgkin-Huxley model for action
