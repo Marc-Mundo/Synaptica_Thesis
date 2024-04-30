@@ -1,40 +1,40 @@
 \chapter{Introduction}
 
-\todo[inline]{Re-read, expand some sections perhaps.}
 
 \section{Background}
-\subsubsection{Introduction to Epilepsy and Its Complexity}
 Epilepsy is a neurological disorder characterized recurrent seizures.
 Seizures have to be two or more unprovoked and more than 24 hours apart, a single unprovoked
 seizure with a high recurrence risk (\(>\)60 \% over the next 10 years); or the patient needs to have been previously diagnosed with an epilepsy syndrome.
 Patients with epilepsy usually also suffer cognitive challenges, language difficulties, and an increased risk of mental health issues,
-such as anxiety and depression~\parencite{fisherILAEOfficialReport2014}. At its core, epilepsy
-involves an imbalance between excitatory and inhibitory processes within the brain.
+such as anxiety and depression~\parencite{fisherILAEOfficialReport2014}.
+
+At its core, epilepsy involves an imbalance between excitatory and inhibitory processes within the brain.
 This imbalance can originate in specific brain regions and spread, affecting various interconnected areas
 outside of the epileptogenic zone~\parencite{ludersEpileptogenicZoneGeneral2006}.
 The minimum amount of brain tissue of an associated region that initiates a seizure is therefore not fixed and is the
 reason epilepsy is often though of as a network disorder.
 
-\subsubsection{Temporal Lobe Epilepsy: A Closer Look}
-Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults,
-impacts over 50 million people globally. TLE's epileptic events often begin in
-brain regions like the hippocampus and entorhinal cortex, known for their
+Temporal Lobe Epilepsy (TLE), the most prevalent form of focal epilepsy in adults (60\% of cases),
+impacts over 30 million people globally by estimation of the World Health Organization.
+TLE's epileptic events often begin in brain regions like the hippocampus and entorhinal cortex, known for their
 capacity to independently produce epileptiform activities~\parencite{lyttonComputerSimulationEpilepsy2005}.
-Despite many TLE patients not responding to medication, research into TLE's
-underlying mechanisms is vital for developing new treatments.
+Despite improvements over the years, not all TLE patients respond to medication, are subject to drug-resistance (25--30\%) or
+suffer intolerable adverse effects (30--40\%,~\textcite{hakamiEfficacyTolerabilityAntiseizure2021}). Thus, research into TLE's
+underlying mechanisms is vital for developing effective new treatments.
 
-\subsubsection{The Hippocampus and Its Role in TLE}
 The hippocampus, located in the temporal lobe, is crucial for memory formation
 and retrieval, emotion regulation, and spatial navigation. In TLE, it often
 serves as the seizure's focal point, especially its CA3 subfield. The CA3 region,
 with its dense connections and low epilepsy activation threshold, is particularly
 susceptible to hyper-excitability~\parencite{witterIntrinsicExtrinsicWiring2007}.
-In TLE, seizures can be triggered by excessive stimulation from higher cortical regions, such as the visual or auditory cortex
+In TLE, seizures can be triggered by excessive input from higher cortical regions, such as the visual or auditory cortex
 that project to the hippocampus via the entorhinal cortex.
 
-\subsubsection{Functional Brain Networks and Oscillations}
-How excessive stimulation is handled however, is dependent on the network's intrinsic properties and its functional connectivity.
-The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive function.
+How excessive input is handled however, is dependent on the network's intrinsic properties and its functional connectivity.
+The CA3 subfield of the hippocampus plays a pivotal role in facilitating higher cognitive functions such as memory encoding and retrieval,
+spatial navigation, and pattern completion and separation. The region exhibits robust capacity for synaptic plasticity via long-term potentiation
+(LTP) and depression (LTD), mechanisms that underlie learning and memory and are modulated by the level of neural activity~\parencite{stokesComplementaryRolesHuman2015}.
+
 Perturbations in the connectivity of the CA3 region are common in TLE and directly impacts the working memory (WM)
 of the network~\parencite{arskiOscillatoryBasisWorking2021}. However, the exact mechanisms by which these perturbations lead to epileptiform
 activity are not well understood. The hippocampus is particularly susceptible to connectivity variability which can be transiently induced by epileptic discharge.
@@ -44,25 +44,21 @@ The neural assemblies that constitute the circuits in the CA3 region are highly 
 information propagates through specific oscillatory patterns.
 Characteristic neural oscillations in the hippocampus, such as theta (3--12 Hz)
 and gamma (30--80 Hz) rhythms, play significant roles in forming episodic memory and cognition~\parencite{nyhusFunctionalRoleGamma2010}.
+
 Epilepsy is associated with alterations in Cross-Frequency Coupling (CFC), where
 the phase of slower waves modulates the amplitude of faster waves, reflecting
 disrupted network functionality. Abnormalities in Theta-Gamma Phase-Amplitude
 Coupling (PAC) correlate with cognitive impairments in epilepsy. Therefore, tracking changes
 in these neural oscillations can provide insights into the disease's progression.
 
-\subsubsection{Epileptic States}
 Detecting the state of the brain is crucial for predicting and managing seizures, as patients of epilepsy
 only experience the effects of their disease during seizures.
 The gold standard of brain activity detection utilizes the electroencephalogram (EEG),
-which measures electrical fluctuations ranging from \(<\) 1 Hz to several kHz.
+which can adequately measure electrical fluctuations in the range of theta-gamma oscillations.
 
 The associated brain region of an epilepsy patient when investigated can be in one of three states that have been generally defined using
-various epilepsy detection algorithms. These classification methods extract epileptic features from the EEG based on comparison of
-different kernels (Linear, Sigmoid, Grid, etc) The classification accuracy of these methods vary but are fairly high (\(>\)98.9 \%) for methods such as
-Support Vector Machine (SVM) or Wavelet Neural Network (WNN) classification~\parencite{yayikEpilepticStateDetection2015}.
-\pagebreak
+various epilepsy detection algorithms:
 
-These general epilepsy states for a patient are defined as follows:
 \begin{itemize}
     \item \textbf{Inter-ictal State}
           \begin{itemize}
@@ -70,24 +66,29 @@ These general epilepsy states for a patient are defined as follows:
               \item \textit{Characterization}: Characterized by inter-ictal spikes or sharp waves in EEG\@.
                     These spikes indicate abnormal electrical discharges that are not actual seizures.
           \end{itemize}
-    \item \textbf{Ictal State}
-          \begin{itemize}
-              \item \textit{Definition}: The period during which a seizure occurs.
-              \item \textit{Characterization}: EEG shows sustained, rhythmic electrical activity distinct from normal or inter-ictal activity,
-                    with corresponding behavioral symptoms based on seizure type.
-          \end{itemize}
     \item \textbf{Pre-ictal State}
           \begin{itemize}
               \item \textit{Definition}: The period immediately before the onset of a seizure.
               \item \textit{Characterization}: Marked by subtle and variable changes in EEG and other physiological signals that precede seizures,
                     crucial for seizure prediction efforts.
           \end{itemize}
+    \item \textbf{Ictal State}
+          \begin{itemize}
+              \item \textit{Definition}: The period during which a seizure occurs.
+              \item \textit{Characterization}: EEG shows sustained, rhythmic electrical activity distinct from normal or inter-ictal activity,
+                    with corresponding behavioral symptoms based on seizure type.
+          \end{itemize}
 \end{itemize}
 
-\noindent
-Identification of the aforementioned states provides a benchmark for potential epileptiform activity in a (simulated) network.
+\noindent Classification methods can extract the aforementioned epileptic features from the EEG based on comparison of
+different kernels (Linear, Sigmoid, Grid, etc) The classification accuracy of these methods vary but are fairly high (\(>\)98.9 \%) for methods such as
+Support Vector Machine (SVM) or Wavelet Neural Network (WNN) classification~\parencite{yayikEpilepticStateDetection2015}.
+These methods demonstrate significant potential in enhancing the accuracy of epilepsy state detection, offering promising avenues for more
+effective monitoring and intervention strategies in epilepsy management.
+
+Identification of the epileptic states provides a benchmark for potential epileptiform activity in a (simulated) network.
 Epilepsy as a whole could be viewed particular brain functioning state, manifested in a multi-state network of coupled oscillatory systems.
-Thus tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights
+Therefore, tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights
 into the network's susceptibility to ictal transitions~\parencite{kalitzinEpilepsyManifestationMultistate2019a}.
 
 \subsubsection{Sodium and Potassium Channels in Epilepsy}

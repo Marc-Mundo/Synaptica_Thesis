@@ -35,39 +35,49 @@
 \newcommand{\CellWithForcedBreak}[2][c]{% #1 = alignment, #2 = contents
     \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
+\usepackage{tikz}% Background color
+
 \begin{document}
 
 \begin{titlepage}
     \centering
     \vspace*{1cm}
-    \makebox[\textwidth][c]{\Huge\bfseries Exploring Epileptic Neural Dynamics:}\\
+    \makebox[\textwidth][c]{\Huge\bfseries Epileptic Neural Dynamics:}\\
     \makebox[\textwidth][c]{\Huge\bfseries Insights from a Computational Model}\\
     \makebox[\textwidth][c]{\Huge\bfseries of a CA3 Hippocampal Network}\\[1cm]
     \Large by\\[1cm]
     \Large \textbf{Marc Julius Posthuma}\\[1cm]
     \Large Radboud University, in affiliation with Synaptica B.V.\\[2cm]
+
     % Images side by side
+    \noindent
     \begin{minipage}[c]{0.5\textwidth}
         \centering
         \includegraphics[height=3cm,keepaspectratio]{Radboud_Universiteit_Nijmegen-logo.png}
     \end{minipage}%
     \begin{minipage}[c]{0.5\textwidth}
         \centering
-        \includegraphics[height=2cm,keepaspectratio]{synaptica_logo.PNG}
-    \end{minipage}\\[1cm]
-    \vfill
-    \begin{minipage}[t]{0.5\textwidth}
-        \centering
-        \Large Supervised by:\\
-        Dr.\ Marijn Martens (CEO)\\
-        Sean Gies, MSc
-    \end{minipage}%
+        \includegraphics[height=1cm,keepaspectratio]{synaptica_logo.png}
+    \end{minipage}
+
+    \vspace{1cm} % Adjust vertical space as needed
+
+    % Text blocks side by side
+    \noindent
     \begin{minipage}[t]{0.5\textwidth}
         \centering
         \Large Readers:\\
         1st: Prof.\ Dr.\ P.H.E. Tiesinga\\
         2nd: Prof.\ Dr.\ R.J.A. van Wezel
-    \end{minipage}\\[2cm]
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+        \Large Supervised by:\\
+        Dr.\ Marijn Martens (CEO)\\
+        Sean Gies, MSc
+    \end{minipage}
+
+    \vfill
 
     \footnotesize Thesis submitted in partial fulfillment of the requirements
     for the degree of Master of Science in Medical Biology (Specialization: Neurobiology)\\[1cm]
@@ -76,9 +86,13 @@
 
 \listoftodos% Remove this line when you're done with the document
 
-\include{frontmatter/about}
-\include{frontmatter/copyright}
-\include{frontmatter/thanks}
+\addcontentsline{toc}{chapter}{Copyright Statement}
+\include{personalization/copyright}
+\addcontentsline{toc}{chapter}{Abstract}
+\include{chapters/abtract}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\include{personalization/thanks}
+\include{personalization/quote}
 
 \tableofcontents
 \listoffigures
@@ -96,5 +110,7 @@
 \include{chapters/appendix_a}
 \include{chapters/appendix_b}
 \include{chapters/appendix_c}
+\addcontentsline{toc}{chapter}{About Synaptica B.V.}
+\include{personalization/about}
 
 \end{document}
