@@ -36,6 +36,8 @@
     \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 \usepackage{tikz}% Background color
+\usepackage{newunicodechar}  % Ensure this package is included to use \newunicodechar
+\newunicodechar{β}{\( \beta \)}
 
 \begin{document}
 
@@ -110,6 +112,7 @@
 \include{chapters/appendix_a}
 \include{chapters/appendix_b}
 \include{chapters/appendix_c}
+
 \addcontentsline{toc}{chapter}{About Synaptica B.V.}
 \include{personalization/about}
 

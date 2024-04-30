@@ -1,6 +1,4 @@
 \chapter{Introduction}
-
-
 \section{Background}
 Epilepsy is a neurological disorder characterized recurrent seizures.
 Seizures have to be two or more unprovoked and more than 24 hours apart, a single unprovoked
@@ -91,7 +89,6 @@ Epilepsy as a whole could be viewed particular brain functioning state, manifest
 Therefore, tracking observable phenomena in the CA3 region of the hippocampus, such as bursting or oscillatory coupling could provide insights
 into the network's susceptibility to ictal transitions~\parencite{kalitzinEpilepsyManifestationMultistate2019a}.
 
-\subsubsection{Sodium and Potassium Channels in Epilepsy}
 In the past 20 years, research has shown that at least half of all epilepsy cases have a genetic basis.
 Rapid discovery of disease-causing genes have identified genes encoding for ion channel proteins.
 Remarkably, a quarter of all cases involving monogenic variants are related to ion channels~\parencite{strianoGeneticTestingPrecision2020,oyrerIonChannelsGenetic2018}.
@@ -102,11 +99,23 @@ Dysfunctional variants of sodium or potassium channels can lead to hyperexcitabi
 This in turn can have destabilizing effects on neural circuits in regions such as the CA3 subfield of the hippocampus in TLE\@.
 
 A lot of epileptic mutations have been found in \textit{voltage-gated} type ion channel genes.
-For example, for sodium these are most often related to the brain-expressed SCN family (\textit{SCN1A, SCN2A, SCN3A and SCN8A}, \textcite{brunklausSodiumChannelEpilepsies2020}).
-Highly conserved across species, these genes encode for the pore-forming alpha subunits of the sodium channel and are responsible for the fast depolarizing current in neurons.
-Previous research has shown that mutations in these genes have become increasingly frequent in Mendelian epilepsy syndromes in recent years~\parencite{brunklausSodiumChannelEpilepsies2020}.
-These SCN genes are involved in generalized epilepsy with febrile seizures plus (GEFS+) syndrome.
+For example, for sodium these are most often related to the brain-expressed
+SCN family (\textit{SCN1A, SCN2A, SCN3A and SCN1B}, \textcite{brunklausSodiumChannelEpilepsies2020}).
+Highly conserved across species, these genes encode for the pore-forming alpha subunits of the sodium channel
+and are responsible for the fast depolarizing current in neurons. Previous research has shown that mutations in these genes have become
+increasingly frequent in Mendelian epilepsy syndromes in recent years~\parencite{brunklausSodiumChannelEpilepsies2020}.
+
+These SCN genes are involved in generalized epilepsy with febrile seizures plus (GEFS+) syndrome, with some novel mutations
+in genes such as SCN1B being correlated directly with TLE phenotypes in oocytes~\parencite{schefferTemporalLobeEpilepsy2006}.
+These kinds of mutations are often associated with a loss of function, leading to a decrease in sodium current and a subsequent increase
+in the threshold for action potential generation~\parencite{wallaceFebrileSeizuresGeneralized1998}.
+However, the same mutation in mammalian cells exhibited reduced degradation during periods of high-frequency
+channel activity. This indicates an improved ability of the channel to reset itself between activation events, potentially causing increased excitability~\parencite{meadowsFunctionalBiochemicalAnalysis2002}.
+
 SCN1A in particular encodes predominantly in inhibitory GABAergic neurons, usually enriched in axonal segments and facilitates initiation of action potentials~\parencite{yuReducedSodiumCurrent2006}.
+SCN1A is also associated with Dravet syndrome, a severe form of (loss-of-function) epilepsy that is often drug-resistant and a
+candidate of familial mesial temporal lobe epilepsy~\parencite{hwangGeneticsTemporalLobe2012a}.
+
 Classically, these voltage-gated channels only allow for passage of ions transiently, and are closed at rest.
 However, a fraction of sodium ions passes through constantly (1\%-2\%).
 So while these channels form the foundation for excitable cell function, a small fraction of channels shows persistent current, \(\text{I}_{\text{NaP}}\).
@@ -114,17 +123,18 @@ This current is normally contributes to proper physiological function of neurons
 In recent years \(\text{I}_{\text{NaP}}\) has been identified as an important factor in sodium channelopathies, which could provide targets for novel anti-seizure medication strategies~\parencite{wengertRolePersistentSodium2021}.
 
 Similarly, there are also common mutations in potassium channels that are associated with epilepsy.
-The KCNA family genes that encode the respective subunits in potassium channels (\textit{KCNA1 and KCNA2}, \textcite{gaoPotassiumChannelsEpilepsy2022})
-are commonly involved in episodic ataxia type 1 (EA1, \textcite{gravesIonChannelsEpilepsy2006}).
+The KCN family contains genes that encode the respective subunits in potassium channels in TLE\@: \textit{KCNA1, KCNA2, KCNJ11 and KCNS1}~\parencite{gaoPotassiumChannelsEpilepsy2022,zhangIdentificationKeyPotassium2023}.
 The dysfunction of these channels can lead to hyperexcitability in neurons, where modified dynamics of voltage gated channels lead to changes in the action potential's shape and duration.
+KCNA1 targeted deletions result in TLE-symptoms rodent models of epilepsy due to impaired repolarization of excitatory neurons~\parencite{eunsonClinicalGeneticExpression2000}.
+Moreover, KCNA2 mutations can increase seizure susceptibility by decrease of the AP threshold~\parencite{liuRescuingKv10Protein2020}.
 In healthy neurons regulation of current happens via inwardly rectifying potassium channels that maintain the resting membrane potential~\parencite{isomotoInwardlyRectifyingPotassium1997}.
 In channelopathies regarding voltage-gated potassium channels, altered potassium gradients or accelerated hyperpolarization might occur which can no longer be compensated for by the rectifying
-potassium channels~\parencite{nikitinPotassiumChannelsProminent2021}.
+potassium channels~\parencite{nikitinPotassiumChannelsProminent2021}. This showcases the fact that both sodium and potassium channels are heavily involved in the pathophysiology of epilepsy.
 
-A lot of genetic variety exists for both of these major channels and can both lead to a destabilized network, hallmark of epileptic activity.
+A lot of genetic variety exists for both of these major channels and can both lead to a destabilized hyperexcitable network, hallmark of epileptic activity.
 However, it remains difficult to quantitatively translate the genetic profile to network dynamics.
+This is where computational models can provide a valuable tool to investigate the impact of genetic variations on network behavior.
 
-\subsubsection{Computational Modeling in Neuroscience with NEURON}
 The NEURON simulator is a powerful tool for modeling the intricate dynamics
 of neurons and their networks. It supports detailed simulations of membrane
 dynamics, synaptic interactions, and the Hodgkin-Huxley model for action
@@ -146,12 +156,14 @@ and the development of therapeutic strategies~\parencite{miglioreParallelNetwork
 This study aims to further investigate the role of the CA3 region of the hippocampus in epilepsy,
 by adapting the computational model of the CA3 region of the hippocampus by~\textcite{neymotinKetamineDisruptsTheta2011} in the NEURON simulator.
 The model consists of 800 pyramidal, 200 O-LM interneurons and 200 basket cells.
-The baseline model contains enough biophysical detail to replicate homeostatic neural activity, consisting of theta-modulated gamma oscillations.
+The baseline model contains enough biophysical detail to replicate homeostatic neural activity, consisting of theta-modulated gamma oscillations observable in the local field potential.
+In the model the inhibitory interactions between pyramidal cells and basket cells (soma-inhibiting) are crucial for the generation of gamma oscillations.
+Consequently, the O-LM interneurons are responsible for the generation of theta oscillations (dendritic inhibition).
 
 This research builds upon experiments by~\textcite{sanjayImpairedDendriticInhibition2015},
 which focussed on reducing dendritic inhibition, increasing external stimulation and modifying synaptic connectivity as potential causes for TLE\@.
 
-Instead, this study will focus on the role of sodium and potassium channels via ion-conductance modifications throughout the network,
+This study focusses on the role of sodium and potassium channels via ion-conductance modifications throughout the network,
 the sensitivity for external noise in such conditions and the effects increasing recurrent connectivity of inhibitory basket cells.
 \pagebreak
 \section{Research question}
