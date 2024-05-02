@@ -1,4 +1,4 @@
-\chapter{Results}
+\chapter{Results}\label{ch:results}
 \section{Results of the Baseline activity}
 In the initial experiment, the baseline activity of the CA3 network was
 observed from the \textit{original model} by
@@ -161,6 +161,7 @@ Therefore, it was assumed that the model was correctly implemented and the resul
 In this experiment, the sodium and potassium conductance of the pyramidal, basket, and O-LM cells were modified in increments of 0.1.
 This was done in a range of 0.5 to 1.5 times the baseline conductance.
 Similarly to the previous experiment, the network was simulated for 5000 ms and the firing rates, dominant frequencies, and power of the theta and gamma oscillations were calculated in Figures~\ref{fig:sodium_potassium_firing_rates},~\ref{fig:sodium_potassium_frequencies} and~\ref{fig:sodium_potassium_power}, respectively.
+Baseline firing rates for all cells in both conditions were 1.87 ± 0.60 Hz for pyramidal cells, 9.13 ± 2.26 Hz for basket cells and 1.06 ± 0.36 Hz for O-LM cells (see Tables B.1-B.6 in appendix~\ref{ch:appendix_b}).
 
 \begin{figure}[htbp]
     \centering
@@ -275,6 +276,7 @@ The other cell types show a shift from 1 and 0 Hz to 0 and 1 Hz for Pyramidal an
 
 Increased \(g_{\text{K}}\) of O-LM cells from -50 \% onwards resulted in a constant rise in gamma power in the network, whereas modifications in pyramidal populations resulted in a steady decrease in gamma power.
 Basket cell modifications had a more random effect on gamma power, with some more extreme conditions reduced gamma power compared to baseline (\ref{fig:sodium_potassium_power}, bottom right).
+The gamma power was mostly due to basket cell activity, as the gamma nears 0 mV\textsuperscript{2} Hz\textsuperscript{-1} as their firing rate nears 0 Hz.
 
 \begin{figure}[htbp]
     \centering
@@ -418,7 +420,8 @@ The ictal network state shows the first burst after the depolarization block, wh
 The shape of the pyramidal burst was fairly consistent across all conditions, in the 1.20--0.80 sodium:potassium condition the burst variance was slightly larger (\ref{fig:burst_detection}, c).
 In addition this particular pyramidal burst lost its secondary peak, which was present in all other conditions.
 All other conditions showed a secondary peak in the pyramidal burst, as the population spike activity became more desynchronized due to lack of somatic inhibition by the flat-lined basket cell activity (example of such population activity is visible in Figure~\ref{fig:example_burst_detection}).
-The height of the pyramidal burst peak stayed consistent across all conditions.
+The variance in the burst intensity was most pronounced in the inter-ictal state, where the shape of the burst was least consistent.
+The height of the pyramidal burst peak showed the most variance in the pre-ictal state with the highest variance in the 1.20--0.80 condition (\ref{fig:burst_detection}, C).
 
 \begin{figure}[htbp]
     \centering

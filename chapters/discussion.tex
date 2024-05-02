@@ -1,5 +1,4 @@
-\chapter{Discussion}
-
+\chapter{Discussion}\label{ch:discussion}
 This study used a computer model of the CA3 subfield of the hippocampus originally developed by \textcite{neymotinKetamineDisruptsTheta2011}.
 This model was used to study the effects of several different parameters that could initiate an epileptic state.
 
@@ -36,9 +35,6 @@ In this study, the experiments build upon the observations made by \textcite{san
 Simulations were done separately, with step-wise modifications to parameters such as conductance or connection weight.
 This was necessary in order to be able to determine the extent in which these parameters could potentially lead to epileptic activity.
 
-In all experiments Medial Septum inputs were kept constant at 150 ms intervals to both O-LM and basket cell populations
-and simulations ran for 5 seconds in each trial for consistency.
-
 \subsection{Sodium and Potassium variants}
 In the first experiment, sodium and potassium conductance parameters were modified
 in each cell type separately to identify which population had the most influence
@@ -57,8 +53,8 @@ These findings are consistent with the results of the \textcite{sanjayImpairedDe
 Out of all the cell types, pyramidal cells show the most linear relationship between the conductance of sodium
 and potassium channels and their firing rate. Potassium had an oppositely proportional effect on the firing rate of
 pyramidal cells compared to sodium. This result is somewhat unsurprising considering the role of potassium. In normal action potential
-dynamics, voltage-dependent sodium current rapidly depolarizes the membrane via voltage-gated ion channels. As a response so too are
-voltage-activated potassium channels activated that hyperpolarize the membrane potential. This effect inactivates sodium channels
+dynamics, voltage-dependent sodium current rapidly depolarizes the membrane via voltage-gated ion channels. As a response,
+voltage-activated potassium channels are activated that hyperpolarize the membrane potential. This effect inactivates sodium channels
 as the membrane potential goes back to its polarized resting state, which in turn tunes down the firing frequency as observed.
 
 \subsubsection{Basket cells}
@@ -94,7 +90,7 @@ In the case of the the studied network, increased potassium conductance potentia
 This can shorten the duration of individual spikes and reduce the overall excitability of pyramidal cells, leading to a lower firing rate.
 However, this rapid repolarization can also allow neurons to return more quickly to a state where they can fire again, potentially aiding in
 synchronization~\parencite{mysinMechanismsFunctionsRole2022}.
-Alternatively, The quick recovery of neurons to their resting or near-threshold state can facilitate better phase-locking among neurons within
+Alternatively, the quick recovery of neurons to their resting or near-threshold state can facilitate better phase-locking among neurons within
 the network~\parencite{leungPhasicModulationHippocampal2020a}. This synchronization is crucial for enhancing the coherence and power of network
 oscillations like theta.
 
@@ -206,6 +202,11 @@ The simulation's ability to reproduce and explore effects of synaptic plasticity
 at synapses might contribute to epilepsy. This aligns with contemporary research suggesting that alterations in synaptic strength and
 plasticity play a significant role in the disease's progression.
 
+More specifically, it has been shown that fast inhibitory transmission through GABAergic receptors seems to be mediated by
+receptor plasticity mechanisms such as trafficking, gene transcription, and post-translational modifications~\parencite{fritschyEpilepsyBalanceGABAA2008}.
+In addition to neuronal ion regulation, these receptor mechanisms are crucial for maintaining the excitation and inhibition balance in TLE that can either suppress or promote seizures~\parencite{kailaGABAActionsIonic2014a}.
+However, these aspects remain difficult to explore and implement in the current model and in NEURON due to the complexity of the underlying mechanisms.
+
 \section{Limitations of the research}
 As previously mentioned, there are many models available on ModelDB that explore the CA3 network in the hippocampus
 \href{http://senselab.med.yale.edu/modeldb}{(\url{http://senselab.med.yale.edu/modeldb})}.
@@ -217,7 +218,8 @@ However, the model is still a simplification of the actual biological system and
 
 Also, the specific focus on the CA3 subfield and its particular cell types limits the generalizability of the findings to other regions of the hippocampus,
 even other subfields like CA1 or the dentate gyrus. Such that the unique properties and connections in the CA3 subfield do not
-reflect the broader dynamics involved in TLE\@.
+reflect the broader dynamics involved in TLE\@. For instance, other cells such as astrocytes have also been implicated to possibly generate
+an excitation-inhibition imbalance through synaptic plasticity~\parencite{bonanscoPlasticityHippocampalExcitatoryInhibitory2016}.
 
 Moreover, the simulation's results are heavily dependent on the initial assumptions and parameters set by the original researchers.
 The linear-relationship that was assumed in terms of synaptic interactions may not hold under more realistic conditions.
@@ -239,7 +241,7 @@ Like in the original model, only two main inhibitory mechanisms are integrated. 
 However, in vivo, the CA3 network contains many more interneuron types that could be included in the model.
 
 A goal of this study was to explore if certain genetic profiles could be translated into model dynamics.
-Genotype-phenotype relationships are complex and often involve multiple genes and environmental factors~\parencite{adiga*TherapeuticsEpilepsyReview2023}.
+Genotype-phenotype relationships are complex and often involve multiple genes and environmental factors~\parencite{steriadeEpilepsyKeyExperimental2020}.
 Therefore, future endeavors could focus on incorporating data from sequenced genomes of TLE patients linked to channelopathies.
 This could provide a more accurate representation of the genetic basis of epilepsy and how it manifests in the CA3 network,
 provided there is data on how these mutations manifest in channel dynamics.
